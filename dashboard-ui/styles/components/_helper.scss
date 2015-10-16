@@ -1,0 +1,53 @@
+.no-padding{
+    padding: 0px!important;
+}
+.no-padding-left{
+    padding-left: 0px!important;
+}
+.no-padding-right{
+    padding-right: 0px!important;
+}
+.no-padding-left-right{
+    padding-right: 0px!important;
+    padding-left: 0px!important;
+}
+.padding-xs{
+    padding: 2px;
+}
+.padding-sm{
+    padding: 5px;
+}
+.padding-md{
+    padding: 10px;
+}
+.padding-lg{
+    padding: 20px;
+}
+.padding-xl{
+    padding: 30px;
+}
+
+.ui-login{
+    display: table;
+     width: 100%;
+     height:100vh;
+}
+.ui-login .ui-login-content{
+    display: table-cell;
+    vertical-align: middle;
+    width:100%;
+    height:100vh;
+}
+.no-margin-left-right{
+    margin-right: 0px!important;
+    margin-left: 0px!important;
+}
+.no-margin-right{
+    margin-right: 0px!important;
+}
+.no-margin-left{
+    margin-left: 0px!important;
+}
+.no-margin{
+    margin: 0px!important;
+}
