@@ -1,4 +1,4 @@
-## Lume WebApp Scaffolding
+## Lume - Jump Start your app today...
 Steps to get started:
 - git clone git@github.com:colorgap/lume.git
 - composer install && npm install && bower install
