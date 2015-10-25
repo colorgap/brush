@@ -10193,14 +10193,14 @@ button.close {
 .ui-login {
   display: table;
   width: 100%;
-  height: 100vh; }
+  height: 80vh; }
 
 /* line 35, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_helper.scss */
 .ui-login .ui-login-content {
   display: table-cell;
   vertical-align: middle;
   width: 100%;
-  height: 100vh; }
+  height: 80vh; }
 
 /* line 41, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_helper.scss */
 .no-margin-left-right {
@@ -10219,21 +10219,127 @@ button.close {
 .no-margin {
   margin: 0px !important; }
 
+/*
+ * Base structure
+ */
+/* Move down content because we have a fixed navbar that is 50px tall */
+/* line 6, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+body {
+  padding-top: 50px; }
+
+/*
+ * Global add-ons
+ */
+/* line 15, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee; }
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+/* line 24, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+.navbar-fixed-top {
+  border: 0; }
+
+/*
+ * Sidebar
+ */
+/* Hide for mobile, show later */
+/* line 33, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+.sidebar {
+  display: none; }
+
+@media (min-width: 768px) {
+  /* line 37, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee; } }
+
+/* Sidebar navigation */
+/* line 53, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+.nav-sidebar {
+  margin-right: -21px;
+  /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px; }
+
+/* line 58, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px; }
+
+/* line 64, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca; }
+
+/*
+ * Main content
+ */
+/* line 74, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+.main {
+  padding: 20px; }
+
+@media (min-width: 768px) {
+  /* line 78, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+  .main {
+    padding-right: 40px;
+    padding-left: 40px; } }
+
+/* line 83, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+.main .page-header {
+  margin-top: 0; }
+
+/*
+ * Placeholder dashboard ideas
+ */
+/* line 92, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center; }
+
+/* line 96, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+.placeholders h4 {
+  margin-bottom: 0; }
+
+/* line 99, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+.placeholder {
+  margin-bottom: 20px; }
+
+/* line 102, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_dashboard.scss */
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%; }
+
 /**
  *  Do not remove this comments bellow. It's the markers used by wiredep to inject
  *  sass dependencies when defined in the bower.json of your dependencies
  */
-/* line 19, stdin */
+/* line 20, stdin */
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
   padding: 0.2em 0; }
 
-/* line 26, stdin */
+/* line 27, stdin */
 .thumbnail {
   height: 200px; }
-  /* line 29, stdin */
+  /* line 30, stdin */
   .thumbnail img.pull-right {
     width: 50px; }
 

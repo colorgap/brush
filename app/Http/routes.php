@@ -23,6 +23,11 @@ $app->get('/dashboard', function() use ($app) {
 $app->get('/dashboard/debug', function() use ($app) {
     return view('dashboard.debug');
 });
+$app->group(['prefix' => 'api','namespace' => 'App\Http\Controllers\Lume\Auth','middleware' => 'CORS'], function($app)
+{
+    $app->post('login','LoginController@index');
+    $app->get('logout','LoginController@logout');
+});
 $app->group(['prefix' => 'api/admin','namespace' => 'App\Http\Controllers\Lume\Admin','middleware' => 'CORS'], function($app)
 {
     $app->get('users','UsersController@index');
