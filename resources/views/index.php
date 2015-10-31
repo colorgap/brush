@@ -2,9 +2,10 @@
 <html ng-app="lume">
 <head>
     <meta charset="utf-8">
-    <title>lume</title>
+    <title>lume - app scaffolding for lumen and angular based projects</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link href="landingPage-ui/css/main.css" rel="stylesheet">
 </head>
 <body>
