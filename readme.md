@@ -1,5 +1,6 @@
-## Lume (App Scaffolding for lumen and angular based projects)- Jump Start your app today...
-Pre-requisites:
+## Lume (App Scaffolding for lumen and angular based projects)- 
+### Jump Start your app today...
+Prerequisites:
 - php 5 or above
 - node.js 4 or above
 - composer
