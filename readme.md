@@ -13,6 +13,6 @@ if above command doesn't work the try adding sudo
 - gulp
 - php artisan serve
 
-After these steps go to : http://localhost:8000
+After these steps go to : http://localhost:8000 or point MAMP, XAMP or WAMP servers to lume/public directory
 
 You should see Lume landing page
