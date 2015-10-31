@@ -5,7 +5,7 @@
     <title>lume - app scaffolding for lumen and angular based projects</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon" />
     <link href="landingPage-ui/css/main.css" rel="stylesheet">
 </head>
 <body>
