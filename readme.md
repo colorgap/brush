@@ -12,6 +12,8 @@ Steps to get started:
 if above command doesn't work the try adding sudo
 - sudo composer install && npm install && bower install
 - gulp
+
+Now change the name of your .env.example file to .env and run below command 
 - php artisan serve
 
 After these steps go to : http://localhost:8000 or point MAMP, XAMP or WAMP servers to lume/public directory
