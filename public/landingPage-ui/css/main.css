@@ -10193,14 +10193,14 @@ button.close {
 .ui-login {
   display: table;
   width: 100%;
-  height: 80vh; }
+  height: 70vh; }
 
 /* line 35, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_helper.scss */
 .ui-login .ui-login-content {
   display: table-cell;
   vertical-align: middle;
   width: 100%;
-  height: 80vh; }
+  height: 70vh; }
 
 /* line 41, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/lume/dashboard-ui/styles/components/_helper.scss */
 .no-margin-left-right {
