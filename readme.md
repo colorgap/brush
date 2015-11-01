@@ -1,7 +1,10 @@
 ![alt text](https://raw.githubusercontent.com/colorgap/lume/master/public/images/lume160.png "Lume")
-------------------
 ## Lume
-####(App Scaffolding for lumen and angular based projects)
+#### App Scaffolding for lumen and angular based projects:
+Lume use Laravel's micro framework lumen as a base and build an amazing UI on top of it which provide you quick and easy way to jump start your app.
+Best part of lume is, it comes with 2 different UI: one for landing page and other for dashboard from same CSS and JS vendor files but different config files. This gives you flexibility to have different look on Customer facing vs admin dashboard.
+
+------------------
 ### Jump Start your app today...
 Prerequisites:
 - php 5 or above
