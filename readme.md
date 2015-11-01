@@ -5,6 +5,14 @@ Lume use Laravel's micro framework lumen as a base and build an amazing UI on to
 Best part of lume is, it comes with 2 different UI: one for landing page and other for dashboard from same CSS and JS vendor files but different config files. This gives you flexibility to have different look on Customer facing vs admin dashboard.
 
 ------------------
+### Technology stack
+- [Lumen] (http://lumen.laravel.com)
+- [AngularJS] (https://angularjs.org/)
+- [Twitter Bootstrap] (http://getbootstrap.com/)
+- [Gulp] (http://gulpjs.com/)
+- [Node.js] (https://nodejs.org/en/)
+
+------------------
 ### Jump Start your app today...
 Prerequisites:
 - php 5 or above
