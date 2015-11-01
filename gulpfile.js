@@ -76,6 +76,7 @@ gulp.task('script', function(){
             .pipe(uglify())
             .pipe(gulp.dest(config.dashboard.dest.script));
         gulp.src(config.landingPage.src.scripts)
+            .pipe(concat('app.js'))
             .pipe(rename({suffix:'.min'}))
             .pipe(uglify())
             .pipe(gulp.dest(config.landingPage.dest.script));
