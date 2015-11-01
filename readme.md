@@ -1,5 +1,6 @@
-![alt text](https://raw.githubusercontent.com/colorgap/lume/master/public/images/lume160.png "Logo Title Text 1")
-## Lume 
+![alt text](https://raw.githubusercontent.com/colorgap/lume/master/public/images/lume160.png "Lume")
+------------------
+## Lume
 ###(App Scaffolding for lumen and angular based projects)
 ### Jump Start your app today...
 Prerequisites:
