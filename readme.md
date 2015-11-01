@@ -22,4 +22,8 @@ After these steps go to : http://localhost:8000 or point MAMP, XAMP or WAMP serv
 
 You should see Lume landing page
 
+### Quick links
+- [Demo](http://lume.colorgap.com/)
+
+---------------
 #### Note: Use "gulp watch" while in development node
