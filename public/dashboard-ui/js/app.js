@@ -1,5 +1,10 @@
 (function() {
   'use strict';
+  angular.module('lume', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ui.bootstrap']);
+})();
+
+(function() {
+  'use strict';
 
   angular
     .module('lume')
@@ -21,4 +26,26 @@
     $urlRouterProvider.otherwise('/login');
   }
 
+})();
+
+(function() {
+  'use strict';
+
+  angular
+    .module('lume')
+    .run(runBlock);
+
+  /** @ngInject */
+  function runBlock($log) {
+
+    $log.debug('runBlock end');
+  }
+
+})();
+
+(function() {
+  'use strict';
+  angular.module('lume').controller('loginCtrl', ['$scope',function($scope){
+
+  }]);
 })();

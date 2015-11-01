@@ -71,6 +71,7 @@ gulp.task('sass', function(){
 gulp.task('script', function(){
     if(env === 'production'){
         gulp.src(config.dashboard.src.scripts)
+            .pipe(concat('app.js'))
             .pipe(rename({suffix:'.min'}))
             .pipe(uglify())
             .pipe(gulp.dest(config.dashboard.dest.script));
@@ -80,8 +81,10 @@ gulp.task('script', function(){
             .pipe(gulp.dest(config.landingPage.dest.script));
     }else{
         gulp.src(config.dashboard.src.scripts)
+            .pipe(concat('app.js'))
             .pipe(gulp.dest(config.dashboard.dest.script));
         gulp.src(config.landingPage.src.scripts)
+            .pipe(concat('app.js'))
             .pipe(gulp.dest(config.landingPage.dest.script));
     }
 });

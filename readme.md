@@ -20,3 +20,5 @@ Now change the name of your .env.example file to .env and run below command
 After these steps go to : http://localhost:8000 or point MAMP, XAMP or WAMP servers to lume/public directory
 
 You should see Lume landing page
+
+#### Note: Use "gulp watch" while in development node

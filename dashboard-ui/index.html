@@ -15,8 +15,6 @@
 <div ui-view></div>
 
 <script src="dashboard-ui/dist/vendor.js"></script>
-<script src="dashboard-ui/js/app.module.js"></script>
-<script src="dashboard-ui/js/app.route.js"></script>
-<script src="dashboard-ui/js/app.run.js"></script>
+<script src="dashboard-ui/js/app.js"></script>
 </body>
 </html>
