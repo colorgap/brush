@@ -1,7 +1,7 @@
 ![alt text](https://raw.githubusercontent.com/colorgap/lume/master/public/images/lume160.png "Lume")
 ------------------
 ## Lume
-###(App Scaffolding for lumen and angular based projects)
+####(App Scaffolding for lumen and angular based projects)
 ### Jump Start your app today...
 Prerequisites:
 - php 5 or above
