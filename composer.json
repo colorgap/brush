@@ -1,6 +1,6 @@
 {
-    "name": "laravel/lumen",
-    "description": "The Laravel Lumen Framework.",
+    "name": "colorgap/lume",
+    "description": "Web app scaffolding using Laravel Lumen Framework and angular.",
     "keywords": ["framework", "laravel", "lumen"],
     "license": "MIT",
     "type": "project",
