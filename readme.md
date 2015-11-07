@@ -1,6 +1,4 @@
 [![Total Downloads](https://poser.pugx.org/colorgap/lume/d/total.svg)](https://packagist.org/packages/colorgap/lume)
-[![Latest Stable Version](https://poser.pugx.org/lcolorgap/lume/v/stable.svg)](https://packagist.org/packages/colorgap/lume)
-[![Latest Unstable Version](https://poser.pugx.org/lcolorgap/lume/v/unstable.svg)](https://packagist.org/packages/colorgap/lume)
 [![License](https://poser.pugx.org/colorgap/lume/license.svg)](https://packagist.org/packages/colorgap/lume)
 
 ![alt text](https://raw.githubusercontent.com/colorgap/lume/master/public/images/lume160.png "Lume")
