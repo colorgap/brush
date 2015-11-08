@@ -11,7 +11,7 @@
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'landingPage-ui/partials/home/index.html'
+        templateUrl: 'lume-ui/landingPage/partials/home/index.html'
       });
 
     $urlRouterProvider.otherwise('/');
