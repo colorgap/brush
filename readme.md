@@ -1,7 +1,12 @@
 [![Total Downloads](https://poser.pugx.org/colorgap/lume/d/total.svg)](https://packagist.org/packages/colorgap/lume)
 [![License](https://poser.pugx.org/colorgap/lume/license.svg)](https://packagist.org/packages/colorgap/lume)
+<p align="center">
+  <a href="http://lume.colorgap.com">
+    <img src="https://raw.githubusercontent.com/colorgap/lume/master/public/images/lume160.png">
+  </a>
+</p>
 
-![alt text](https://raw.githubusercontent.com/colorgap/lume/master/public/images/lume160.png "Lume")
+![alt text]( "Lume")
 ## Lume
 #### App Scaffolding for lumen and angular based projects:
 Lume use Laravel's micro framework lumen as a base and build an amazing UI on top of it which provide you quick and easy way to jump start your app.
