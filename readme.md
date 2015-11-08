@@ -5,8 +5,6 @@
     <img src="https://raw.githubusercontent.com/colorgap/lume/master/public/images/lume160.png">
   </a>
 </p>
-
-![alt text]( "Lume")
 ## Lume
 #### App Scaffolding for lumen and angular based projects:
 Lume use Laravel's micro framework lumen as a base and build an amazing UI on top of it which provide you quick and easy way to jump start your app.
