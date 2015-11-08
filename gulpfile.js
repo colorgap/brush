@@ -6,36 +6,36 @@ var gulp = require('gulp');
     sass = require('gulp-sass')
     browserSync = require('browser-sync')
     minifyHtml = require('gulp-minify-html')
-    bower = require('gulp-bower-files')
+    bower = require('main-bower-files')
     gulpFilter = require('gulp-filter')
     concat = require('gulp-concat');
 
 var config = {
     dashboard:{
         src:{
-            scripts: 'dashboard-ui/app/**/*.js',
-            styles: 'dashboard-ui/styles/**/*.scss',
-            partials: 'dashboard-ui/partials/**/*.html',
-            index: 'dashboard-ui/index.html'
+            scripts: 'lume-ui/dashboard/app/**/*.js',
+            styles: 'lume-ui/dashboard/styles/**/*.scss',
+            partials: 'lume-ui/dashboard/partials/**/*.html',
+            index: 'lume-ui/dashboard/index.html'
         },
         dest: {
-            script: 'public/dashboard-ui/js/',
-            style: 'public/dashboard-ui/css/',
-            partials: 'public/dashboard-ui/partials/',
+            script: 'public/lume-ui/dashboard/js/',
+            style: 'public/lume-ui/dashboard/css/',
+            partials: 'public/lume-ui/dashboard/partials/',
             index: 'resources/views/dashboard/'
         }
     },
     landingPage:{
         src:{
-            scripts: 'landingPage-ui/app/**/*.js',
-            styles: 'landingPage-ui/styles/**/*.scss',
-            partials: 'landingPage-ui/partials/**/*.html',
-            index: 'landingPage-ui/index.html'
+            scripts: 'lume-ui/landingPage/app/**/*.js',
+            styles: 'lume-ui/landingPage/styles/**/*.scss',
+            partials: 'lume-ui/landingPage/partials/**/*.html',
+            index: 'lume-ui/landingPage/index.html'
         },
         dest: {
-            script: 'public/landingPage-ui/js/',
-            style: 'public/landingPage-ui/css/',
-            partials: 'public/landingPage-ui/partials/',
+            script: 'public/lume-ui/landingPage/js/',
+            style: 'public/lume-ui/landingPage/css/',
+            partials: 'public/lume-ui/landingPage/partials/',
             index: 'resources/views/'
         }
     },
@@ -97,9 +97,9 @@ gulp.task('partials', function(){
 });
 gulp.task('icons', function() {
     gulp.src(config.common.bowerDir + '/fontawesome/fonts/**.*')
-        .pipe(gulp.dest('./public/dashboard-ui/fonts'));
+        .pipe(gulp.dest('./public/lume-ui/dashboard/fonts'));
     gulp.src(config.common.bowerDir + '/fontawesome/fonts/**.*')
-        .pipe(gulp.dest('./public/landingPage-ui/fonts'));
+        .pipe(gulp.dest('./public/lume-ui/landingPage/fonts'));
 });
 gulp.task('minifyHtml', function(){
     if(env === 'production'){
@@ -133,30 +133,30 @@ gulp.task('minifyHtml', function(){
 gulp.task('bower', function(){
     var jsFilter = gulpFilter('**/*.js');
     var cssFilter = gulpFilter('**/*.css');
-    return bower()
+    return gulp.src(bower())
         .pipe(jsFilter)
         .pipe(concat('vendor.js'))
-        .pipe(gulp.dest('public/dashboard-ui/dist'))
+        .pipe(gulp.dest('public/lume-ui/dashboard/dist'))
         //.pipe(jsFilter.restore())
         .pipe(cssFilter)
         .pipe(concat('vendor.css'))
-        .pipe(gulp.dest('public/dashboard-ui/dist'))
+        .pipe(gulp.dest('public/lume-ui/dashboard/dist'))
         //.pipe(cssFilter.restore())
-        .pipe(gulp.dest('public/dashboard-ui/dist'));
+        .pipe(gulp.dest('public/lume-ui/dashboard/dist'));
 });
 gulp.task('bower-landingPage', function(){
     var jsFilter = gulpFilter('**/*.js');
     var cssFilter = gulpFilter('**/*.css');
-    return bower()
+    return gulp.src(bower())
         .pipe(jsFilter)
         .pipe(concat('vendor.js'))
-        .pipe(gulp.dest('public/landingPage-ui/dist'))
+        .pipe(gulp.dest('public/lume-ui/landingPage/dist'))
         //.pipe(jsFilter.restore())
         .pipe(cssFilter)
         .pipe(concat('vendor.css'))
-        .pipe(gulp.dest('public/landingPage-ui/dist'))
+        .pipe(gulp.dest('public/lume-ui/landingPage/dist'))
         //.pipe(cssFilter.restore())
-        .pipe(gulp.dest('public/landingPage-ui/dist'));
+        .pipe(gulp.dest('public/lume-ui/landingPage/dist'));
 });
 
 gulp.task('watch', function(){

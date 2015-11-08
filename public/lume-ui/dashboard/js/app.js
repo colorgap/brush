@@ -16,11 +16,11 @@
     $stateProvider
       .state('login', {
         url: '/login',
-        templateUrl: 'dashboard-ui/partials/login/login.html'
+        templateUrl: 'lume-ui/dashboard/partials/login/login.html'
       })
       .state('dashboard', {
         url: '/',
-        templateUrl: 'dashboard-ui/partials/dashboard/dashboard.html'
+        templateUrl: 'lume-ui/dashboard/partials/dashboard/dashboard.html'
       });
 
     $urlRouterProvider.otherwise('/login');
