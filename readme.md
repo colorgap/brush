@@ -1,6 +1,5 @@
 [![Total Downloads](https://poser.pugx.org/colorgap/lume/d/total.svg)](https://packagist.org/packages/colorgap/lume)
 [![License](https://poser.pugx.org/colorgap/lume/license.svg)](https://packagist.org/packages/colorgap/lume)
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/colorgap/lume/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 <p align="center">
   <a href="http://lume.colorgap.com">
     <img src="https://raw.githubusercontent.com/colorgap/lume/master/public/images/lume160.png">
