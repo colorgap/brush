@@ -1,4 +1,4 @@
-[![Total Downloads](https://poser.pugx.org/colorgap/lume/d/total.svg)](https://packagist.org/packages/colorgap/lume)
+
 [![License](https://poser.pugx.org/colorgap/lume/license.svg)](https://packagist.org/packages/colorgap/lume)
 <p align="center">
   <a href="http://lume.colorgap.com">
