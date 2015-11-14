@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
         Users::create([
             'name'=>'User',
             'email'=>'user@colorgap.com',
-            'role'=>1,
+            'role'=>2,
             'password'=>bcrypt('user'),
             'created_by'=>1,
             'updated_by'=>1
