@@ -40,36 +40,23 @@ var config = {
     },
     common: {
         bowerDir: 'bower_components',
-        bower: ['bower.json', '.bowerrc']
+        bower: ['bower.json', '.bowerrc'],
+        sassConfig: {
+            includePaths: [
+                'bower_components' + '/bootstrap-sass-official/assets/stylesheets',
+                'bower_components' + '/fontawesome/scss'
+            ]
+        }
     }
 
 };
-var getAdminTask = function (task) {
-    return require('./gulp-tasks/admin/' + task)(gulp, plugins,config,env);
+var getTask = function (task) {
+    return require('./gulp-tasks/lume-ui/' + task)(gulp, plugins,config,env);
 };
-gulp.task('sass', getAdminTask('sass'));
+gulp.task('sass', getTask('sass'));
 
-gulp.task('script', function(){
-    if(env === 'production'){
-        gulp.src(config.dashboard.src.scripts)
-            .pipe(concat('app.js'))
-            .pipe(rename({suffix:'.min'}))
-            .pipe(uglify())
-            .pipe(gulp.dest(config.dashboard.dest.script));
-        gulp.src(config.landingPage.src.scripts)
-            .pipe(concat('app.js'))
-            .pipe(rename({suffix:'.min'}))
-            .pipe(uglify())
-            .pipe(gulp.dest(config.landingPage.dest.script));
-    }else{
-        gulp.src(config.dashboard.src.scripts)
-            .pipe(concat('app.js'))
-            .pipe(gulp.dest(config.dashboard.dest.script));
-        gulp.src(config.landingPage.src.scripts)
-            .pipe(concat('app.js'))
-            .pipe(gulp.dest(config.landingPage.dest.script));
-    }
-});
+gulp.task('scripts', getTask('scripts'));
+
 gulp.task('partials', function(){
     gulp.src(config.dashboard.src.partials)
         .pipe(gulp.dest(config.dashboard.dest.partials));
