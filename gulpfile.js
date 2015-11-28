@@ -1,15 +1,14 @@
 
-var env = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || 'dev';
 var gulp = require('gulp');
+var plugins = require('gulp-load-plugins')();
     uglify = require('gulp-uglify')
     rename = require('gulp-rename')
-    sass = require('gulp-sass')
     browserSync = require('browser-sync')
     minifyHtml = require('gulp-minify-html')
     bower = require('main-bower-files')
     gulpFilter = require('gulp-filter')
     concat = require('gulp-concat');
-
 var config = {
     dashboard:{
         src:{
@@ -45,28 +44,10 @@ var config = {
     }
 
 };
-
-
-gulp.task('sass', function(){
-    var sassConfig = {
-        includePaths: [
-            config.common.bowerDir + '/bootstrap-sass-official/assets/stylesheets',
-            config.common.bowerDir + '/fontawesome/scss'
-        ]
-    };
-    if(env === 'production'){
-        sassConfig.outputStyle = 'compressed';
-
-    }else{
-        sassConfig.sourceComments = 'map';
-    }
-    gulp.src(config.dashboard.src.styles)
-        .pipe(sass(sassConfig))
-        .pipe(gulp.dest(config.dashboard.dest.style));
-    gulp.src(config.landingPage.src.styles)
-            .pipe(sass(sassConfig))
-            .pipe(gulp.dest(config.landingPage.dest.style));
-});
+var getAdminTask = function (task) {
+    return require('./gulp-tasks/admin/' + task)(gulp, plugins,config,env);
+};
+gulp.task('sass', getAdminTask('sass'));
 
 gulp.task('script', function(){
     if(env === 'production'){
@@ -136,8 +117,8 @@ gulp.task('bower', function(){
     return gulp.src(bower())
         .pipe(jsFilter)
         .pipe(concat('vendor.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('public/lume-ui/dashboard/dist'))
-        //.pipe(jsFilter.restore())
         .pipe(cssFilter)
         .pipe(concat('vendor.css'))
         .pipe(gulp.dest('public/lume-ui/dashboard/dist'))
@@ -169,5 +150,20 @@ gulp.task('watch', function(){
     gulp.watch(config.landingPage.src.partials,['partials']);
     gulp.watch(config.landingPage.src.index,['minifyHtml']);
 
+});
+gulp.task('serve',['script','sass','partials','icons','minifyHtml','bower-landingPage','bower'], function() {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+    gulp.watch(config.dashboard.src.scripts,['script']).on('change', browserSync.reload);
+    gulp.watch(config.dashboard.src.styles,['sass']).on('change', browserSync.reload);
+    gulp.watch(config.dashboard.src.partials,['partials']).on('change', browserSync.reload);
+    gulp.watch(config.dashboard.src.index,['minifyHtml']).on('change', browserSync.reload);
+    gulp.watch(config.landingPage.src.scripts,['script']).on('change', browserSync.reload);
+    gulp.watch(config.landingPage.src.styles,['sass']).on('change', browserSync.reload);
+    gulp.watch(config.landingPage.src.partials,['partials']).on('change', browserSync.reload);
+    gulp.watch(config.landingPage.src.index,['minifyHtml']).on('change', browserSync.reload);
 });
 gulp.task('default', ['script','sass','partials','icons','minifyHtml','bower-landingPage','bower']);
