@@ -43,7 +43,7 @@ You should see Lume landing page
 To bundle and ship lume just execute below gulp command from root folder:
 - NODE_ENV=prod gulp build
 
-This will create a lume-app.zip in target folder. Just place the zip in your server and explode. Zip file doesn't contain .env file so you have remember to copy that too.
+This will create a lume-app.zip in target folder. Just place the zip in your server and explode.
 
 ### Quick links
 - [Demo](http://lume.colorgap.com/)
