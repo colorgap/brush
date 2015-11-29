@@ -33,12 +33,16 @@ if above command doesn't work the try adding sudo
 - sudo composer install && npm install && bower install
 - gulp
 
-Now change the name of your .env.example file to .env and run below command 
+Now change the name of your .env.example file to .env and run below command
 - php artisan serve
 
 After these steps go to : http://localhost:8000 or point MAMP, XAMP or WAMP servers to lume/public directory
 
 You should see Lume landing page
+
+To bundle and ship lume just execute below gulp command from root folder:
+- NODE_ENV=prod gulp build
+This will create a lume-app.zip in target folder. Just place the zip in your server and explode. Zip file doesn't contain .env file so you have remember to copy that too.
 
 ### Quick links
 - [Demo](http://lume.colorgap.com/)
