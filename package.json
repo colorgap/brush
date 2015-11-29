@@ -48,5 +48,11 @@
     "uglify-save-license": "^0.4.1",
     "wiredep": "^2.2.2",
     "wrench": "^1.5.8"
+  },
+  "devDependencies": {
+    "gulp-clean": "^0.3.1",
+    "gulp-run-sequence": "^0.3.2",
+    "gulp-zip": "^3.0.2",
+    "run-sequence": "^1.1.5"
   }
 }
