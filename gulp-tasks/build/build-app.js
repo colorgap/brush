@@ -11,7 +11,7 @@ module.exports = function(gulp, plugins,config,env){
         './.env',
         './server.php'
     ];
-    return gulp.src(filesToMove, { base: './' })
+    return gulp.src(filesToMove, { base: './',dot:true })
       .pipe(gulp.dest('tmp'));
   };
 };
