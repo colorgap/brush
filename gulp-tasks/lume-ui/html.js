@@ -1,5 +1,6 @@
 module.exports = function(gulp, plugins,config,env){
   return function(){
+    console.log(env);
     if(env === 'prod'){
         gulp.src(config.dashboard.src.index)
             .pipe(plugins.rename('index.php'))
