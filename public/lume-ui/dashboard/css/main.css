@@ -3795,32 +3795,32 @@ fieldset[disabled] a.btn {
 /* line 83, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_buttons.scss */
 .btn-warning {
   color: #fff;
-  background-color: #f0ad4e;
-  border-color: #eea236; }
+  background-color: #F39C12;
+  border-color: #e08e0b; }
   /* line 11, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_buttons.scss */
   .btn-warning:focus, .btn-warning.focus {
     color: #fff;
-    background-color: #ec971f;
-    border-color: #985f0d; }
+    background-color: #c87f0a;
+    border-color: #674105; }
   /* line 17, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_buttons.scss */
   .btn-warning:hover {
     color: #fff;
-    background-color: #ec971f;
-    border-color: #d58512; }
+    background-color: #c87f0a;
+    border-color: #a66908; }
   /* line 22, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_buttons.scss */
   .btn-warning:active, .btn-warning.active,
   .open > .btn-warning.dropdown-toggle {
     color: #fff;
-    background-color: #ec971f;
-    border-color: #d58512; }
+    background-color: #c87f0a;
+    border-color: #a66908; }
     /* line 29, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_buttons.scss */
     .btn-warning:active:hover, .btn-warning:active:focus, .btn-warning:active.focus, .btn-warning.active:hover, .btn-warning.active:focus, .btn-warning.active.focus,
     .open > .btn-warning.dropdown-toggle:hover,
     .open > .btn-warning.dropdown-toggle:focus,
     .open > .btn-warning.dropdown-toggle.focus {
       color: #fff;
-      background-color: #d58512;
-      border-color: #985f0d; }
+      background-color: #a66908;
+      border-color: #674105; }
   /* line 37, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_buttons.scss */
   .btn-warning:active, .btn-warning.active,
   .open > .btn-warning.dropdown-toggle {
@@ -3833,11 +3833,11 @@ fieldset[disabled] a.btn {
   fieldset[disabled] .btn-warning.focus,
   fieldset[disabled] .btn-warning:active,
   fieldset[disabled] .btn-warning.active {
-    background-color: #f0ad4e;
-    border-color: #eea236; }
+    background-color: #F39C12;
+    border-color: #e08e0b; }
   /* line 56, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_buttons.scss */
   .btn-warning .badge {
-    color: #f0ad4e;
+    color: #F39C12;
     background-color: #fff; }
 
 /* line 87, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_buttons.scss */
@@ -5360,10 +5360,10 @@ a.label:hover, a.label:focus {
 
 /* line 60, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_labels.scss */
 .label-warning {
-  background-color: #f0ad4e; }
+  background-color: #F39C12; }
   /* line 7, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_labels.scss */
   .label-warning[href]:hover, .label-warning[href]:focus {
-    background-color: #ec971f; }
+    background-color: #c87f0a; }
 
 /* line 64, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_labels.scss */
 .label-danger {
@@ -5645,7 +5645,7 @@ a.thumbnail.active {
 
 /* line 81, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_progress-bars.scss */
 .progress-bar-warning {
-  background-color: #f0ad4e; }
+  background-color: #F39C12; }
   /* line 7, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_progress-bar.scss */
   .progress-striped .progress-bar-warning {
     background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);

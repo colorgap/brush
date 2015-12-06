@@ -35,6 +35,7 @@
       })
       .state('dashboard.users', {
         url: 'users',
+        controller:'usersCtrl',
         templateUrl: 'lume-ui/dashboard/partials/dashboard/users/users.html'
       })
       .state('dashboard.settings', {
@@ -67,7 +68,34 @@
 
 (function() {
   'use strict';
+  angular.module('lume').controller('dashboardCtrl', ['$scope',function($scope){
+
+  }]);
+})();
+
+(function() {
+  'use strict';
   angular.module('lume').controller('loginCtrl', ['$scope',function($scope){
 
+  }]);
+})();
+
+(function() {
+  'use strict';
+  angular.module('lume').controller('usersCtrl', ['$scope','usersFactory',function($scope,usersFactory){
+    usersFactory.getAllUsers().then(function(response){
+      $scope.users = response.data;
+    });
+  }]);
+})();
+
+(function() {
+  'use strict';
+  angular.module('lume').factory('usersFactory', ['$http',function($http){
+    return {
+      getAllUsers: function(){
+          return $http.get('/api/admin/users');
+      }
+    };
   }]);
 })();

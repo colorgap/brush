@@ -15,10 +15,4 @@ class Roles extends Model{
      * @var array
      */
     protected $fillable = ['role_desc', 'is_valid', 'created_by','updated_by'];
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = ['role_id', 'created_at', 'updated_at'];
 }

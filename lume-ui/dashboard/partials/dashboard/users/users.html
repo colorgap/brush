@@ -1,1 +1,25 @@
-Users
+<div class="row">
+  <div class="col-md-12 padding-lg">
+    <h4>User Management</h4>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="user in users">
+            <th scope="row">{{::user.user_id}}</th>
+            <td>{{::user.name}}</td>
+            <td>{{::user.email}}</td>
+            <td>{{::user.role}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
