@@ -10245,60 +10245,6 @@ ul.alert-dropdown {
 .huge {
   font-size: 40px; }
 
-/* line 167, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/lume-ui/dashboard/styles/components/_layout.scss */
-.panel-green {
-  border-color: #5cb85c; }
-
-/* line 171, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/lume-ui/dashboard/styles/components/_layout.scss */
-.panel-green > .panel-heading {
-  border-color: #5cb85c;
-  color: #fff;
-  background-color: #5cb85c; }
-
-/* line 177, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/lume-ui/dashboard/styles/components/_layout.scss */
-.panel-green > a {
-  color: #5cb85c; }
-
-/* line 181, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/lume-ui/dashboard/styles/components/_layout.scss */
-.panel-green > a:hover {
-  color: #3d8b3d; }
-
-/* line 185, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/lume-ui/dashboard/styles/components/_layout.scss */
-.panel-red {
-  border-color: #d9534f; }
-
-/* line 189, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/lume-ui/dashboard/styles/components/_layout.scss */
-.panel-red > .panel-heading {
-  border-color: #d9534f;
-  color: #fff;
-  background-color: #d9534f; }
-
-/* line 195, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/lume-ui/dashboard/styles/components/_layout.scss */
-.panel-red > a {
-  color: #d9534f; }
-
-/* line 199, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/lume-ui/dashboard/styles/components/_layout.scss */
-.panel-red > a:hover {
-  color: #b52b27; }
-
-/* line 203, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/lume-ui/dashboard/styles/components/_layout.scss */
-.panel-yellow {
-  border-color: #f0ad4e; }
-
-/* line 207, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/lume-ui/dashboard/styles/components/_layout.scss */
-.panel-yellow > .panel-heading {
-  border-color: #f0ad4e;
-  color: #fff;
-  background-color: #f0ad4e; }
-
-/* line 213, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/lume-ui/dashboard/styles/components/_layout.scss */
-.panel-yellow > a {
-  color: #f0ad4e; }
-
-/* line 217, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/lume-ui/dashboard/styles/components/_layout.scss */
-.panel-yellow > a:hover {
-  color: #df8a13; }
-
 /**
  *  Do not remove this comments bellow. It's the markers used by wiredep to inject
  *  sass dependencies when defined in the bower.json of your dependencies

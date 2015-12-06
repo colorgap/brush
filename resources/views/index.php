@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon" />
     <link href="lume-ui/landingPage/css/main.css" rel="stylesheet">
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="body" data-spy="scroll" data-target=".navbar-fixed-top">
 <!--[if lt IE 9]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->

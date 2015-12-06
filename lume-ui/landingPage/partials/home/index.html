@@ -2,23 +2,21 @@
     <nav class="navbar navbar-fixed-top" role="navigation" nav-lume>
         <div class="container">
             <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-mobile">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand anchor" ng-click="scrollToSection('page-top')">Lume Demo</a>
+                <a class="navbar-brand anchor" ng-click="scrollToSection('body')">Lume Demo</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex-collapse">
+            <div class="collapse navbar-collapse navbar-mobile">
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
-                        <a class="anchor" ng-click="scrollToSection('page-top')"></a>
+                        <a class="anchor" ng-click="scrollToSection('body')"></a>
                     </li>
                     <li>
-                        <a class="anchor" ng-click="scrollToSection('about')">Build with</a>
+                        <a class="anchor" ng-click="scrollToSection('buildWith')">Build with</a>
                     </li>
                     <li>
                         <a class="anchor" ng-click="scrollToSection('features')">Features</a>
@@ -37,13 +35,9 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
-
-    <!-- Intro Section -->
-    <section id="intro" class="page-section">
+    <div id="main" class="page-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center text-primary">
@@ -61,10 +55,8 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="page-section bg-primary no-padding-lg">
+    </div>
+    <div id="buildWith" class="page-section bg-primary no-padding-lg">
       <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 text-center">
@@ -102,10 +94,8 @@
             </div>
         </div>
       </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="features" class="page-section no-padding-lg">
+    </div>
+    <div id="features" class="page-section no-padding-lg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -142,4 +132,4 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
