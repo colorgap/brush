@@ -12,6 +12,10 @@
         url: '/login',
         templateUrl: 'lume-ui/dashboard/partials/login/login.html'
       })
+      .state('forgetPassword', {
+        url: '/forgetPassword',
+        templateUrl: 'lume-ui/dashboard/partials/forgetPassword/forgetPassword.html'
+      })
       .state('register', {
         url: '/register',
         templateUrl: 'lume-ui/dashboard/partials/register/register.html'
