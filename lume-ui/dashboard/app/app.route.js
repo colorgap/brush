@@ -7,7 +7,6 @@
 
   /** @ngInject */
   function routeConfig($stateProvider, $urlRouterProvider) {
-  console.log('here');
     $stateProvider
       .state('login', {
         url: '/login',
@@ -20,8 +19,23 @@
       .state('dashboard', {
         url: '/',
         templateUrl: 'lume-ui/dashboard/partials/dashboard/dashboard.html'
+      })
+      .state('dashboard.alerts', {
+        url: 'alerts',
+        templateUrl: 'lume-ui/dashboard/partials/dashboard/alerts/alerts.html'
+      })
+      .state('dashboard.users', {
+        url: 'users',
+        templateUrl: 'lume-ui/dashboard/partials/dashboard/users/users.html'
+      })
+      .state('dashboard.settings', {
+        url: 'settings',
+        templateUrl: 'lume-ui/dashboard/partials/dashboard/settings/settings.html'
+      })
+      .state('dashboard.resetPassword', {
+        url: 'resetPassword',
+        templateUrl: 'lume-ui/dashboard/partials/dashboard/resetPassword/resetPassword.html'
       });
-
     $urlRouterProvider.otherwise('/login');
   }
 
