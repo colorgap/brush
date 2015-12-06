@@ -9992,6 +9992,10 @@ button.close {
 .anchor {
   cursor: pointer; }
 
+/* line 63, /Users/rahulchaturvedie/workspace/colorgap/lume-ws/demo.lume/lume-ui/dashboard/styles/components/_helper.scss */
+hr {
+  border-top: 1px solid #004747; }
+
 /*
  * Base structure
  */
