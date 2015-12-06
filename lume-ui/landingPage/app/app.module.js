@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('lume', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ui.bootstrap']);
+    .module('lume', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ui.bootstrap']);
 
 })();

@@ -1,13 +1,145 @@
-<div class="jumbotron">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 text-center text-primary">
-                <h1 class="text-center text-primary"><img src="images/lume160.png"></h1>
-                <h1 class="text-center text-primary">
-                    <span>l</span><span style="color:#F39C12">ume</span>
-                </h1>
-                <label>Coming Soon..</label>
+<!-- Navigation -->
+    <nav class="navbar navbar-fixed-top" role="navigation" nav-lume>
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand anchor" ng-click="scrollToSection('page-top')">Lume Demo</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="anchor" ng-click="scrollToSection('page-top')"></a>
+                    </li>
+                    <li>
+                        <a class="anchor" ng-click="scrollToSection('about')">Build with</a>
+                    </li>
+                    <li>
+                        <a class="anchor" ng-click="scrollToSection('features')">Features</a>
+                    </li>
+                    <li>
+                        <a href="http://lume.colorgap.com">Lume</a>
+                    </li>
+                    <li>
+                        <a href="http://github.com/colorgap/lume">GitHub</a>
+                    </li>
+                    <li>
+                        <a href="/dashboard">Login</a>
+                    </li>
+                    <li>
+                        <a href="/dashboard#/register">Register</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="intro" class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center text-primary">
+                    <h1 class="text-center text-primary"><img src="images/lume160.png"></h1>
+                    <h1 class="text-center text-primary">
+                        <span>l</span><span style="color:#F39C12">ume</span>
+                    </h1>
+                    <h4>Welcome to lume. Let's build an awesome app together.</h4>
+                </div>
+                <div class="col-md-8 col-md-offset-2 text-center text-primary">
+                  <label>Lume is an amazing app scaffolding for laravel's lumen and angular based projects. Lume is open source and really easy to learn, install, build and ship.</label>
+                </div>
+                <div class="col-md-8 col-md-offset-2 text-center text-primary jumbotron">
+                    &lt; &gt; with <i class="fa fa-heart red"></i> by <a href="https://www.colorgap.com" style="text-decoration: none"><span class="colorgap-logo">Color]<span class="gap">[gap</span></span></a>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="page-section bg-primary no-padding-lg">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1>Build with known frameworks and libraries</h1>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+              <div class="card-wrapper text-primary">
+                  <img src="images/lumen.png" height="103">
+                  <h3><a href="http://lumen.laravel.com/" target="_blank" class="btn">Lumen</a></h3>
+                  <p>The stunningly fast micro-framework by Laravel.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-wrapper text-primary">
+                    <img src="images/angular-sm.png">
+                    <h3><a href="http://angularjs.org" target="_blank" class="btn">Angular JS</a></h3>
+                    <p>Podium uses angular js as a UI framework to build the app.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-wrapper text-primary">
+                    <img src="images/bootstrap.png" style="width: 100px;height: 100px;">
+                    <h3><a href="http://getbootstrap.com" target="_blank" class="btn">Bootstrap</a></h3>
+                    <p>Podium uses twitter bootstrap sass for the UI styling.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-wrapper text-primary">
+                    <img src="images/gulp.png" style="height: 100px;">
+                    <h3><a href="http://gulpjs.com" target="_blank" class="btn">Gulp</a></h3>
+                    <p>Podium uses gulp for automation of all the tasks.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="features" class="page-section no-padding-lg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                  <h3>Lume provide amazing features, below are just to name a few:</h3>
+                  <ul class="list">
+                    <li>
+                      Better and expandable code structure.
+                    </li>
+                    <li>
+                      RESTFul api: using Lumen (Laravel's micro framework)
+                    </li>
+                    <li>
+                      Database migration script and seeds (just execute php artisan migrate)
+                    </li>
+                    <li>
+                      Langing Page UI (Using Bootstrap SASS)
+                    </li>
+                    <li>
+                      Admin Dashboard UI (Using Bootstrap SASS)
+                    </li>
+                    <li>
+                      Automated task using gulp (just execute gulp to compile JS, CSS and HTML files)
+                    </li>
+                    <li>
+                      Automated file refresh for development (Just execute gulp watch development mode)
+                    </li>
+                    <li>
+                      Simple build process (just execute NODE_ENV=prod gulp serve and get the zip file in target folder, ready to ship)
+                    </li>
+                  </ul>
+                  <h3>
+                    So let's get started and build an amazong app with best practices and best code management.
+                  </h3>
+                </div>
+            </div>
+        </div>
+    </section>
