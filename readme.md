@@ -33,13 +33,21 @@ if above command doesn't work the try adding sudo
 - sudo composer install && npm install && bower install
 - gulp
 
+------------------
+For database table sand seeding we have created 2 tables Users and Roles, to create table in your database, execute below commands
+
+Set your db details in .env file and execute from project root folder
+- php artisan migrate
+- php artisan db:seed
+
+------------------
 Now change the name of your .env.example file to .env and run below command
 - php artisan serve
 
 After these steps go to : http://localhost:8000 or point MAMP, XAMP or WAMP servers to lume/public directory
 
 You should see Lume landing page
-
+------------------
 To bundle and ship lume just execute below gulp command from root folder:
 - NODE_ENV=prod gulp build
 
