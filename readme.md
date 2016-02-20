@@ -45,7 +45,7 @@ Set your db details in .env file and execute from project root folder
 
 ------------------
 To run locally for making changes and develop your app use below command from root folder
-- php artisan serve
+- php -S localhost:8000 -t public
 
 After these steps go to : http://localhost:8000 or point MAMP, XAMP or WAMP servers to lume/public directory
 
