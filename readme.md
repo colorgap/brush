@@ -33,10 +33,11 @@ if above command doesn't work the try adding sudo
 - sudo composer install && npm install && bower install
 - gulp
 
-Now change the name of your .env.example file to .env and run below command
+Now change the name of your .env.example file to .env
 
 ------------------
-For database table sand seeding we have created 2 tables Users and Roles, to create table in your database, execute below commands
+#### Database setup steps
+For database tables and seeding we have created 2 tables Users and Roles, to create table in your database, execute below commands
 
 Set your db details in .env file and execute from project root folder
 - php artisan migrate
