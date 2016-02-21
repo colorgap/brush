@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Lume\Admin;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Admin\Users;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller{
-    public function index(){
+class UsersController extends ApiController{
+    public function index(){ 
         $user = Users::all();
-        return response()->json($user)->header('Content-type','application/json');
+        return $this->respondWithCORS($user);
     }
 }

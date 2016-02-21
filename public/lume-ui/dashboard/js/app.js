@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('lume', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ui.bootstrap']);
+  angular.module('lume', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ui.bootstrap','LocalStorageModule']);
 })();
 
 (function() {
@@ -11,11 +11,15 @@
     .config(routeConfig);
 
   /** @ngInject */
-  function routeConfig($stateProvider, $urlRouterProvider) {
+  function routeConfig($stateProvider, $urlRouterProvider,localStorageServiceProvider) {
     $stateProvider
       .state('login', {
         url: '/login',
         templateUrl: 'lume-ui/dashboard/partials/login/login.html'
+      })
+      .state('logout', {
+        url: '/logout',
+        controller: 'logoutCtrl'
       })
       .state('forgetPassword', {
         url: '/forgetPassword',
@@ -47,6 +51,7 @@
         templateUrl: 'lume-ui/dashboard/partials/dashboard/resetPassword/resetPassword.html'
       });
     $urlRouterProvider.otherwise('/login');
+    localStorageServiceProvider.setPrefix('lume');
   }
 
 })();
@@ -59,17 +64,54 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log) {
-
-    $log.debug('runBlock end');
+  function runBlock($http,localStorageService) {
+    $http.defaults.headers.common.api_token = localStorageService.get('api_token');
   }
 
 })();
 
 (function() {
   'use strict';
-  angular.module('lume').controller('loginCtrl', ['$scope',function($scope){
+  angular.module('lume').controller('loginCtrl', ['api','$state','localStorageService','constants',
+        function(api,$state,localStorageService,constants){
+        var vm = this;
+        vm.validateLogin = function(){
+        vm.loginError = false;
+        var loginCallConfig = {
+            url: '/api/login',
+            data: {
+                username:vm.username,
+                password:vm.password
+            },
+            method:constants.method.post
+        };
+        api.executeCall(loginCallConfig).then(function(res){
+            if(res.data.api_token){
+                localStorageService.set('api_token',res.data.api_token);
+                api.addTokenToCalls();
+                $state.go('dashboard');
+            }else{
+                vm.loginError = res.data.message;
+            }
+            },function(err){
+                console.log(err);
+            });
+        };
+  }]);
+})();
 
+(function() {
+  'use strict';
+  angular.module('lume').controller('logoutCtrl', ['api','$state','localStorageService','constants',
+        function(api,$state,localStorageService,constants){
+        var logoutCallConfig = {
+            url: '/api/logout'
+        };
+        api.executeCall(logoutCallConfig).then(function(res){
+                $state.go('login');
+            },api.logout(function(error){
+                console.error(error);
+        }));    
   }]);
 })();
 
@@ -82,20 +124,66 @@
 
 (function() {
   'use strict';
-  angular.module('lume').controller('usersCtrl', ['$scope','usersFactory',function($scope,usersFactory){
-    usersFactory.getAllUsers().then(function(response){
-      $scope.users = response.data;
-    });
+  angular.module('lume').factory('api', ['$http','constants','$state','localStorageService',
+    function($http,constants,$state,localStorageService){
+      return {
+          executeCall: function(config){
+              if(config.method===constants.method.post){
+                  return $http.post(config.url,config.data);
+              }else{
+                  return $http.get(config.url);
+              }
+          },
+          logout: function(callback){
+              return function(error){
+                if(error.status===401){
+                    localStorageService.clearAll();
+                    $state.go('login');
+                }else{
+                    if(callback){
+                        callback(error);
+                    }
+                }
+              };
+          },
+          addTokenToCalls: function(){
+            $http.defaults.headers.common.api_token = localStorageService.get('api_token');
+          }
+      };
   }]);
 })();
 
 (function() {
   'use strict';
-  angular.module('lume').factory('usersFactory', ['$http',function($http){
-    return {
-      getAllUsers: function(){
-          return $http.get('/api/admin/users');
-      }
+  angular.module('lume').factory('commonFactory', [function(){
+      return {
+          
+      };
+  }]);
+})();
+
+(function() {
+  'use strict';
+  angular.module('lume').factory('constants', [function(){
+      return {
+          method: {
+              post: 'POST',
+              get: 'GET'
+          }
+      };
+  }]);
+})();
+
+(function() {
+  'use strict';
+  angular.module('lume').controller('usersCtrl', ['$scope','api',function($scope,api){
+    var usersCallConfig = {
+        url: '/api/admin/users'
     };
+    api.executeCall(usersCallConfig).then(function(response){
+      $scope.users = response.data;
+    },api.logout(function(error){
+        console.log(error);
+    }));
   }]);
 })();

@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
             'email'=>'admin@colorgap.com',
             'role'=>1,
             'password'=>hash('sha1', 'admin'),
+            'api_token'=>'test',
             'created_by'=>1,
             'updated_by'=>1
         ]);
@@ -24,6 +25,7 @@ class UsersTableSeeder extends Seeder
             'email'=>'user@colorgap.com',
             'role'=>2,
             'password'=>hash('sha1', 'user'),
+            'api_token'=>'test2',
             'created_by'=>1,
             'updated_by'=>1
         ]);

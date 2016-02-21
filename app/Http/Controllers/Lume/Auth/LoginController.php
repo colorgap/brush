@@ -4,26 +4,46 @@ namespace App\Http\Controllers\Lume\Auth;
 
 use App\Models\Auth\Login;
 use App\Models\Admin\Users;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
+use App\DataObjects\Common\Notification;
+use App\DataObjects\Common\Salt;
+use Illuminate\Support\Facades\Auth;
 
-
-class LoginController extends Controller{
-
-
+class LoginController extends ApiController{
+    
     public function index(Request $request){
-        $login = json_decode($request->all());
-
-        return response()->json($login->username)->header('Content-type','application/json');
-
+            $validatedReturn = $this->validateLogin($request);
+            return $this->respondWithCORS($validatedReturn);
+    }
+    public function validateLogin($request){
+        if($request->input("username")!="" && $request->input("password")!=""){
+            $user = Users::where('email',$request->input("username"))
+                ->Where('password',hash('sha1', $request->input("password")))->first();
+            if(!empty($user)){
+                $salt = new Salt();
+                $user->api_token = hash('sha1',$salt->spiceItUp($user->email));
+                $user->save();
+                return $user;
+            }else{
+                $error = new Notification();
+                $error->notify("Provided Username and Password doesn't match. Please try again.",5000);
+                return $error;
+            }
+        }else{
+            $error = new Notification();
+            $error->notify("Please provide Username and Password",5000);
+            return $error;
+        }
     }
     public function logout(){
-
-        $user = new Users();
-        $user->email = "admin@colorgap.com";
-
-        return response()->json($user)->header('Content-type','application/json');
-
+        $user = Auth::user();
+        if(!empty($user)){
+            $user->api_token = null;
+            $user->save();
+        }
+        $notice = new Notification();
+        $notice->notify("Logged Out",1000,"warning");
+        return $this->respondWithCORS($notice);
     }
-
 }
