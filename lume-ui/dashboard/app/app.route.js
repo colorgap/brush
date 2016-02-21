@@ -6,11 +6,15 @@
     .config(routeConfig);
 
   /** @ngInject */
-  function routeConfig($stateProvider, $urlRouterProvider) {
+  function routeConfig($stateProvider, $urlRouterProvider,localStorageServiceProvider) {
     $stateProvider
       .state('login', {
         url: '/login',
         templateUrl: 'lume-ui/dashboard/partials/login/login.html'
+      })
+      .state('logout', {
+        url: '/logout',
+        controller: 'logoutCtrl'
       })
       .state('forgetPassword', {
         url: '/forgetPassword',
@@ -42,6 +46,7 @@
         templateUrl: 'lume-ui/dashboard/partials/dashboard/resetPassword/resetPassword.html'
       });
     $urlRouterProvider.otherwise('/login');
+    localStorageServiceProvider.setPrefix('lume');
   }
 
 })();
