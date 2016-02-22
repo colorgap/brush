@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function runBlock($http,localStorageService) {
-    $http.defaults.headers.common.api_token = localStorageService.get('api_token');
+    $http.defaults.headers.common.apitoken = localStorageService.get('api_token');
   }
 
 })();
