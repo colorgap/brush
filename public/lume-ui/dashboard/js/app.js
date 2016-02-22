@@ -75,7 +75,7 @@
 
   /** @ngInject */
   function runBlock($http,localStorageService) {
-    $http.defaults.headers.common.api_token = localStorageService.get('api_token');
+    $http.defaults.headers.common.apitoken = localStorageService.get('api_token');
   }
 
 })();
@@ -134,6 +134,21 @@
 
 (function() {
   'use strict';
+  angular.module('lume').controller('usersCtrl', ['api',function(api){
+    var vm = this;
+    var usersCallConfig = {
+        url: '/api/admin/users'
+    };
+    api.executeCall(usersCallConfig).then(function(response){
+      vm.users = response.data;
+    },api.logout(function(error){
+        console.log(error);
+    }));
+  }]);
+})();
+
+(function() {
+  'use strict';
   angular.module('lume').factory('api', ['$http','constants','$state','localStorageService',
     function($http,constants,$state,localStorageService){
       return {
@@ -157,7 +172,7 @@
               };
           },
           addTokenToCalls: function(){
-            $http.defaults.headers.common.api_token = localStorageService.get('api_token');
+            $http.defaults.headers.common.apitoken = localStorageService.get('api_token');
           }
       };
   }]);
@@ -181,20 +196,5 @@
               get: 'GET'
           }
       };
-  }]);
-})();
-
-(function() {
-  'use strict';
-  angular.module('lume').controller('usersCtrl', ['api',function(api){
-    var vm = this;
-    var usersCallConfig = {
-        url: '/api/admin/users'
-    };
-    api.executeCall(usersCallConfig).then(function(response){
-      vm.users = response.data;
-    },api.logout(function(error){
-        console.log(error);
-    }));
   }]);
 })();

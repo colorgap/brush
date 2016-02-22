@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Lume\Auth;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Admin\Users;
 use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Lume\Admin\UsersController;
