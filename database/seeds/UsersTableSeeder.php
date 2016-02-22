@@ -1,5 +1,5 @@
 <?php
-use App\Models\Admin\Users;
+use App\Models\Admin\User;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -11,8 +11,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        Users::create([
+        User::create([
             'name'=>'Admin',
+            'username'=>'admin',
             'email'=>'admin@colorgap.com',
             'role'=>1,
             'password'=>hash('sha1', 'admin'),
@@ -20,8 +21,9 @@ class UsersTableSeeder extends Seeder
             'created_by'=>1,
             'updated_by'=>1
         ]);
-        Users::create([
+        User::create([
             'name'=>'User',
+            'username'=>'user',
             'email'=>'user@colorgap.com',
             'role'=>2,
             'password'=>hash('sha1', 'user'),

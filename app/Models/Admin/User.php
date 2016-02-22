@@ -5,7 +5,7 @@ use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-class Users extends Model implements
+class User extends Model implements
     AuthenticatableContract,
     AuthorizableContract{
     /**
@@ -14,14 +14,14 @@ class Users extends Model implements
      * @var string
      */
     use Authenticatable, Authorizable;
-    protected $table = 'users';
+    protected $table = 'user';
     protected $primaryKey = 'user_id';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [ 'name', 'email', 'password','role','api_token','created_by','updated_by'];
+    protected $fillable = [ 'name','username', 'email', 'password','role','api_token','created_by','updated_by'];
     /**
      * The attributes excluded from the model's JSON form.
      *

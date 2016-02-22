@@ -26,7 +26,9 @@ $app->get('/dashboard/debug', function() use ($app) {
 $app->group(['prefix' => 'api','namespace' => 'App\Http\Controllers\Lume\Auth'], function($app){
     $app->post('login','LoginController@index');
     $app->get('logout','LoginController@logout');
+    $app->post('register','RegisterController@index');
 });
 $app->group(['prefix' => 'api/admin','namespace' => 'App\Http\Controllers\Lume\Admin','middleware' => 'auth'], function($app){
     $app->get('users','UsersController@index');
+    $app->post('users','UsersController@addUser');
 });
