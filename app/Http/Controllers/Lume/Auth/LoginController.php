@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Lume\Auth;
 
 use App\Models\Auth\Login;
-use App\Models\Admin\Users;
+use App\Models\Admin\User;
 use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 use App\DataObjects\Common\Notification;
@@ -16,9 +16,9 @@ class LoginController extends ApiController{
             $validatedReturn = $this->validateLogin($request);
             return $this->respondWithCORS($validatedReturn);
     }
-    public function validateLogin($request){
+    public function validateLogin(Request $request){
         if($request->input("username")!="" && $request->input("password")!=""){
-            $user = Users::where('email',$request->input("username"))
+            $user = User::where('email',$request->input("username"))
                 ->Where('password',hash('sha1', $request->input("password")))->first();
             if(!empty($user)){
                 $salt = new Salt();

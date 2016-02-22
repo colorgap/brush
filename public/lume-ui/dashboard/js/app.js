@@ -1,6 +1,16 @@
 (function() {
   'use strict';
-  angular.module('lume', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ui.bootstrap','LocalStorageModule']);
+  angular.module('lume', 
+    [
+        'ngAnimate', 
+        'ngCookies', 
+        'ngTouch', 
+        'ngSanitize', 
+        'ui.router', 
+        'ui.bootstrap',
+        'LocalStorageModule'
+    ]
+  );
 })();
 
 (function() {
@@ -39,7 +49,7 @@
       })
       .state('dashboard.users', {
         url: 'users',
-        controller:'usersCtrl',
+        controller:'usersCtrl as vm',
         templateUrl: 'lume-ui/dashboard/partials/dashboard/users/users.html'
       })
       .state('dashboard.settings', {
@@ -68,6 +78,13 @@
     $http.defaults.headers.common.api_token = localStorageService.get('api_token');
   }
 
+})();
+
+(function() {
+  'use strict';
+  angular.module('lume').controller('dashboardCtrl', ['$scope',function($scope){
+
+  }]);
 })();
 
 (function() {
@@ -112,13 +129,6 @@
             },api.logout(function(error){
                 console.error(error);
         }));    
-  }]);
-})();
-
-(function() {
-  'use strict';
-  angular.module('lume').controller('dashboardCtrl', ['$scope',function($scope){
-
   }]);
 })();
 
@@ -176,12 +186,13 @@
 
 (function() {
   'use strict';
-  angular.module('lume').controller('usersCtrl', ['$scope','api',function($scope,api){
+  angular.module('lume').controller('usersCtrl', ['api',function(api){
+    var vm = this;
     var usersCallConfig = {
         url: '/api/admin/users'
     };
     api.executeCall(usersCallConfig).then(function(response){
-      $scope.users = response.data;
+      vm.users = response.data;
     },api.logout(function(error){
         console.log(error);
     }));

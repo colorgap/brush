@@ -34,7 +34,7 @@
       })
       .state('dashboard.users', {
         url: 'users',
-        controller:'usersCtrl',
+        controller:'usersCtrl as vm',
         templateUrl: 'lume-ui/dashboard/partials/dashboard/users/users.html'
       })
       .state('dashboard.settings', {
