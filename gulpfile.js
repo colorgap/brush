@@ -2,9 +2,9 @@
 var env = process.env.NODE_ENV || 'dev';
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
-var bowyerConfig = require('bowyer-config.json');
+var bowyerConfig = require('./bowyer-config.json');
 var getConfig = function () {
-    var config =  require('./gulp-tasks/common/config')()('bowyer-bootstrap');
+    var config =  require('./gulp-tasks/common/config')()(bowyerConfig.themeName);
     return config;
 };
 var getTask = function (task) {
