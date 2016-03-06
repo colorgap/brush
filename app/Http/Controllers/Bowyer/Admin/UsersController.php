@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Lume\Admin;
+namespace App\Http\Controllers\Bowyer\Admin;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin\User;
 use App\Http\Controllers\ApiController;
