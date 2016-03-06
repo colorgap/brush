@@ -1,9 +1,6 @@
 
 [![License](https://poser.pugx.org/colorgap/lume/license.svg)](https://packagist.org/packages/colorgap/lume)
 <p align="center">
-  <a href="http://lume.colorgap.com">
-    <img src="https://raw.githubusercontent.com/colorgap/bowyer/master/public/images/lume160.png">
-  </a>
 </p>
 ## Bowyer - Alpha
 #### App Scaffolding for laravel lumen and angular based projects:
