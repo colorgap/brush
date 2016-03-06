@@ -1,7 +1,7 @@
 {
-  "name": "lume",
+  "name": "bowyer",
   "version": "0.1.0",
-  "description": "Lume WebApp Scaffolding",
+  "description": "Bowyer App Scaffolding",
   "main": "index.js",
   "directories": {
     "test": "tests"

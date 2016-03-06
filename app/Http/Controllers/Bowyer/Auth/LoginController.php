@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Lume\Auth;
+namespace App\Http\Controllers\Bowyer\Auth;
 
 use App\Models\Auth\Login;
 use App\Models\Admin\User;
