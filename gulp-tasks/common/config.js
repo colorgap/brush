@@ -1,34 +1,40 @@
 module.exports = function(gulp, plugins,config,env){
-  return {
+  return function(themeName){
+      return {
         dashboard:{
             src:{
-                scripts: 'lume-ui/dashboard/app/**/*.js',
-                styles: 'lume-ui/dashboard/styles/**/*.scss',
-                partials: 'lume-ui/dashboard/partials/**/*.html',
-                index: 'lume-ui/dashboard/index.html'
+                scripts: 'themes/'+themeName+'/dashboard/app/**/*.js',
+                styles: 'themes/'+themeName+'/dashboard/styles/**/*.scss',
+                partials: 'themes/'+themeName+'/dashboard/partials/**/*.html',
+                index: 'themes/'+themeName+'/dashboard/index.html'
             },
             dest: {
-                script: 'public/lume-ui/dashboard/js/',
-                style: 'public/lume-ui/dashboard/css/',
-                partials: 'public/lume-ui/dashboard/partials/',
+                script: 'public/bowyer-ui/dashboard/js/',
+                style: 'public/bowyer-ui/dashboard/css/',
+                partials: 'public/bowyer-ui/dashboard/partials/',
                 index: 'resources/views/dashboard/'
             }
         },
         landingPage:{
             src:{
-                scripts: 'lume-ui/landingPage/app/**/*.js',
-                styles: 'lume-ui/landingPage/styles/**/*.scss',
-                partials: 'lume-ui/landingPage/partials/**/*.html',
-                index: 'lume-ui/landingPage/index.html'
+                scripts: 'themes/'+themeName+'/landingPage/app/**/*.js',
+                styles: 'themes/'+themeName+'/landingPage/styles/**/*.scss',
+                partials: 'themes/'+themeName+'/landingPage/partials/**/*.html',
+                index: 'themes/'+themeName+'/landingPage/index.html'
             },
             dest: {
-                script: 'public/lume-ui/landingPage/js/',
-                style: 'public/lume-ui/landingPage/css/',
-                partials: 'public/lume-ui/landingPage/partials/',
+                script: 'public/bowyer-ui/landingPage/js/',
+                style: 'public/bowyer-ui/landingPage/css/',
+                partials: 'public/bowyer-ui/landingPage/partials/',
                 index: 'resources/views/'
             }
         },
+        public:{
+          landingPage:'public/bowyer-ui/landingPage/dist',
+          dashboard: 'public/bowyer-ui/dashboard/dist'  
+        },
         common: {
+            theme:'bowyer-bootstrap',
             bowerDir: 'bower_components',
             bower: ['bower.json', '.bowerrc'],
             sassConfig: {
@@ -38,5 +44,6 @@ module.exports = function(gulp, plugins,config,env){
                 ]
             }
         }
+    };
   };
 };
