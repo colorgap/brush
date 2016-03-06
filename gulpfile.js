@@ -2,12 +2,14 @@
 var env = process.env.NODE_ENV || 'dev';
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
+var bowyerConfig = require('bowyer-config.json');
 var getConfig = function () {
-    return require('./gulp-tasks/common/config')();
+    var config =  require('./gulp-tasks/common/config')()('bowyer-bootstrap');
+    return config;
 };
 var getTask = function (task) {
   var config = getConfig();
-  return require('./gulp-tasks/lume-ui/' + task)(gulp, plugins,config,env);
+  return require('./gulp-tasks/bowyer-themes/' + task)(gulp, plugins,config,env);
 };
 var kickOffBuild = function(task){
   var config = getConfig();
