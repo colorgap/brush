@@ -24,10 +24,11 @@ Prerequisites:
 
 Steps to get started:
 - git clone git@github.com:colorgap/bowyer.git
-- composer install && npm install && bower install
+- composer install && npm install
+- gulp
 
 if above command doesn't work the try adding sudo
-- sudo composer install && npm install && bower install
+- sudo composer install && npm install
 - gulp
 
 Now change the name of your .env.example file to .env
