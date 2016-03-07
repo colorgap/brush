@@ -4,7 +4,12 @@ module.exports = function(gulp, plugins,config,env){
   return function(){
     var jsFilter = gulpFilter('**/*.js');
     var cssFilter = gulpFilter('**/*.css');
-    return gulp.src(bower())
+    return gulp.src(bower({
+        paths: {
+        bowerDirectory: config.common.baseBower+'/bower_components',
+        bowerJson: config.common.baseBower+'/bower.json'
+        }
+    }))
         .pipe(jsFilter)
         .pipe(plugins.concat('vendor.js'))
         .pipe(plugins.uglify())

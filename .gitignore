@@ -1,7 +1,8 @@
 /vendor
 .env
 /.idea
-/bower_components
+/themes/bowyer-bootstrap/bower_components
+/themes/bowyer-material/bower_components
 /node_modules
 demo.lume.iml
 /tmp
