@@ -1,6 +1,7 @@
 
 var env = process.env.NODE_ENV || 'dev';
 var gulp = require('gulp');
+var runSequence = require('run-sequence');
 var plugins = require('gulp-load-plugins')();
 var bowyerConfig = require('./bowyer-config.json');
 var getConfig = function () {
@@ -25,11 +26,12 @@ gulp.task('partials', getTask('partials'));
 gulp.task('icons', getTask('icons'));
 gulp.task('minifyHtml', getTask('html'));
 gulp.task('watch', getTask('watch'));
+gulp.task('bower-install', getTask('bowerInstall'));
 gulp.task('bower', getTask('bower'));
 gulp.task('bower-lp', getTask('bower-lp'));
 gulp.task('build-app', kickOffBuild('build-app'));
 gulp.task('build-clean', kickOffBuild('build-clean'));
 gulp.task('build-zip', kickOffBuild('build-zip'));
 gulp.task('build',kickOffBuild());
-gulp.task('serve',['script','sass','partials','icons','minifyHtml','bower-lp','bower'], getTask('serve'));
-gulp.task('default', ['script','sass','partials','icons','minifyHtml','bower-lp','bower']);
+gulp.task('serve',['bower-install','script','sass','partials','icons','minifyHtml','bower-lp','bower'], getTask('serve'));
+gulp.task('default', runSequence('bower-install',['script','sass','partials','icons','minifyHtml','bower-lp','bower']));

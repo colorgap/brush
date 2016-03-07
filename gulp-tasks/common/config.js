@@ -34,13 +34,13 @@ module.exports = function(gulp, plugins,config,env){
           dashboard: 'public/bowyer-ui/dashboard/dist'  
         },
         common: {
-            theme:'bowyer-bootstrap',
-            bowerDir: 'bower_components',
-            bower: ['bower.json', '.bowerrc'],
+            baseBower: 'themes/'+themeName,
+            bowerDir: 'themes/'+themeName+'/bower_components',
+            bower: ['themes/'+themeName+'/bower.json', 'themes/'+themeName+'/.bowerrc'],
             sassConfig: {
                 includePaths: [
-                    'bower_components' + '/bootstrap-sass-official/assets/stylesheets',
-                    'bower_components' + '/fontawesome/scss'
+                    'themes/'+themeName+'/bower_components' + '/bootstrap-sass-official/assets/stylesheets',
+                    'themes/'+themeName+'/bower_components' + '/fontawesome/scss'
                 ]
             }
         }
