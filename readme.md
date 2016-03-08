@@ -62,5 +62,9 @@ This will create a bowyer-app.zip in target folder. Just place the zip in your s
 ### Quick links
 - [Demo](http://bowyer.colorgap.com/)
 
+### User Details:
+- admin login: userId: admin@colorgap.com / password: admin
+- user login: userId: user@colorgap.com / password: user
+
 ---------------
 #### Note: Use "gulp watch" while in development node
