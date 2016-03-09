@@ -1,0 +1,12 @@
+/* line 1, stdin */
+html, body {
+  overflow: hidden; }
+
+/* line 4, stdin */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
+/* line 7, stdin */
+.content-section {
+  height: calc(100vh - 64px) !important;
+  overflow-y: auto; }

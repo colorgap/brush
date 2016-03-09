@@ -8,7 +8,7 @@
 (function() {
   'use strict';
   angular
-    .module('starterApp')
+    .module('bowyer')
     .config(configBlock);
   function configBlock($mdThemingProvider) {
       $mdThemingProvider.definePalette('white', {
