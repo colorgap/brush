@@ -10,11 +10,11 @@
     <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon" />
     <link href="bowyer-ui/landingPage/css/main.css" rel="stylesheet">
 </head>
-<body id="body" data-spy="scroll" data-target=".navbar-fixed-top">
+<body ng-cloak>
 <!--[if lt IE 9]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-<div class="page-container" ui-view></div>
+<ui-view></ui-view>
 <script src="bowyer-ui/landingPage/dist/vendor.js"></script>
 <script src="bowyer-ui/landingPage/js/app.js"></script>
 </body>
