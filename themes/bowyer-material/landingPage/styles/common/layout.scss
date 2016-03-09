@@ -6,5 +6,5 @@ html, body{
 }
 .content-section{
     height: calc(100vh - 64px)!important;
-    overflow: scroll;
+    overflow-y: auto;
 }
