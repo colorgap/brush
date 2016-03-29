@@ -78,7 +78,8 @@
       })
       .state('dashboard.healthcheck', {
         url: 'healthcheck',
-        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/healthcheck/healthcheck.html'
+        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/healthcheck/healthcheck.html',
+        controller: 'healthCheckCtrl as vm'
       });
     $urlRouterProvider.otherwise('/login');
     localStorageServiceProvider.setPrefix('bowyer');
@@ -154,21 +155,6 @@
 
 (function() {
   'use strict';
-  angular.module('bowyer').controller('usersCtrl', ['api',function(api){
-    var vm = this;
-    var usersCallConfig = {
-        url: '/api/admin/users'
-    };
-    api.executeCall(usersCallConfig).then(function(response){
-      vm.users = response.data;
-    },api.logout(function(error){
-        console.log(error);
-    }));
-  }]);
-})();
-
-(function() {
-  'use strict';
   angular.module('bowyer').factory('api', ['$http','constants','$state','localStorageService',
     function($http,constants,$state,localStorageService){
       return {
@@ -216,6 +202,63 @@
               get: 'GET'
           }
       };
+  }]);
+})();
+
+(function() {
+    'use strict';
+    angular.module('bowyer').controller('healthCheckCtrl', ['api', 'localStorageService',
+        function(api, localStorageService) {
+            var vm = this;
+            vm.apiCheckValue = 0;
+            vm.dbCheckValue = 0;
+            vm.lsCheckValue = 0;
+            vm.apiCheckMessage = 'checking ...';
+            vm.dbCheckMessage = 'checking ...';
+            vm.lsCheckMessage = 'checking ...';
+            var healthCheckConfig = {
+                url: '/api/healthCheck/apiCheck'
+            };
+            var dbCheckConfig = {
+                url: '/api/healthCheck/dbCheck'
+            };
+            api.executeCall(healthCheckConfig).then(function(response) {
+                vm.users = response.data;
+                vm.apiCheckValue = 100;
+                vm.apiCheckPass = true;
+                vm.apiCheckMessage = 'Healthy';
+            }, api.logout(function(error) {
+                console.log(error);
+            }));
+            api.executeCall(dbCheckConfig).then(function(response) {
+                vm.users = response.data;
+                vm.dbCheckValue = 100;
+                vm.dbCheckPass = true;
+                vm.dbCheckMessage = 'Healthy';
+                if(response.data.api_token === localStorageService.get('api_token')){ 
+                    vm.lsCheckValue = 100;
+                    vm.lsCheckPass = true;
+                    vm.lsCheckMessage = 'Healthy';
+                }
+            }, api.logout(function(error) {
+                console.log(error);
+            }));
+
+        }]);
+})();
+
+(function() {
+  'use strict';
+  angular.module('bowyer').controller('usersCtrl', ['api',function(api){
+    var vm = this;
+    var usersCallConfig = {
+        url: '/api/admin/users'
+    };
+    api.executeCall(usersCallConfig).then(function(response){
+      vm.users = response.data;
+    },api.logout(function(error){
+        console.log(error);
+    }));
   }]);
 })();
 
