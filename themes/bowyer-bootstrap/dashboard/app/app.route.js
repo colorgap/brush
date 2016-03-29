@@ -63,7 +63,8 @@
       })
       .state('dashboard.healthcheck', {
         url: 'healthcheck',
-        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/healthcheck/healthcheck.html'
+        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/healthcheck/healthcheck.html',
+        controller: 'healthCheckCtrl as vm'
       });
     $urlRouterProvider.otherwise('/login');
     localStorageServiceProvider.setPrefix('bowyer');
