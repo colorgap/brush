@@ -207,44 +207,59 @@
 
 (function() {
     'use strict';
-    angular.module('bowyer').controller('healthCheckCtrl', ['api', 'localStorageService',
-        function(api, localStorageService) {
+    angular.module('bowyer').controller('healthCheckCtrl', ['api', 'localStorageService','healthCheckFactory',
+        function(api, localStorageService,healthCheckFactory) {
             var vm = this;
-            vm.apiCheckValue = 0;
-            vm.dbCheckValue = 0;
-            vm.lsCheckValue = 0;
-            vm.apiCheckMessage = 'checking ...';
-            vm.dbCheckMessage = 'checking ...';
-            vm.lsCheckMessage = 'checking ...';
-            var healthCheckConfig = {
+            vm.api = healthCheckFactory.initial;
+            vm.db = healthCheckFactory.initial;
+            vm.ls = healthCheckFactory.initial;
+            var apiCheckConfig = {
                 url: '/api/healthCheck/apiCheck'
             };
             var dbCheckConfig = {
                 url: '/api/healthCheck/dbCheck'
             };
-            api.executeCall(healthCheckConfig).then(function(response) {
-                vm.users = response.data;
-                vm.apiCheckValue = 100;
-                vm.apiCheckPass = true;
-                vm.apiCheckMessage = 'Healthy';
+            api.executeCall(apiCheckConfig).then(function(response) {
+                vm.api = healthCheckFactory.success;
             }, api.logout(function(error) {
-                console.log(error);
+                vm.api = healthCheckFactory.failed;
             }));
             api.executeCall(dbCheckConfig).then(function(response) {
-                vm.users = response.data;
-                vm.dbCheckValue = 100;
-                vm.dbCheckPass = true;
-                vm.dbCheckMessage = 'Healthy';
+                vm.db = healthCheckFactory.success;
                 if(response.data.api_token === localStorageService.get('api_token')){ 
-                    vm.lsCheckValue = 100;
-                    vm.lsCheckPass = true;
-                    vm.lsCheckMessage = 'Healthy';
+                    vm.ls = healthCheckFactory.success;
+                }else{
+                    vm.ls = healthCheckFactory.failed;
                 }
             }, api.logout(function(error) {
-                console.log(error);
+                vm.db = healthCheckFactory.failed;
+                vm.ls = healthCheckFactory.failed;
             }));
-
         }]);
+})();
+
+(function() {
+    'use strict';
+    angular.module('bowyer').factory('healthCheckFactory', function() {
+        return {
+            initial: {
+                checkValue: 0,
+                checkMessage: 'checking ...',
+                type: 'warning'
+            },
+            success: {
+                checkValue: 100,
+                checkMessage: 'Healthy',
+                checkPass: true,
+                type: 'success'
+            },
+            failed: {
+                checkValue: 100,
+                checkMessage: 'Failed',
+                type: 'danger'
+            }
+        };
+    });
 })();
 
 (function() {
