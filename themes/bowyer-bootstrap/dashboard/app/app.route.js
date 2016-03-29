@@ -44,6 +44,26 @@
       .state('dashboard.resetPassword', {
         url: 'resetPassword',
         templateUrl: 'bowyer-ui/dashboard/partials/dashboard/resetPassword/resetPassword.html'
+      })
+      .state('dashboard.api', {
+        url: 'api',
+        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/api/api.html'
+      })
+      .state('dashboard.analytics', {
+        url: 'analytics',
+        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/analytics/analytics.html'
+      })
+      .state('dashboard.config', {
+        url: 'config',
+        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/config.html',
+      })
+      .state('dashboard.config.roles', {
+        url: '/roles',
+        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/roles/roles.html'
+      })
+      .state('dashboard.healthcheck', {
+        url: 'healthcheck',
+        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/healthcheck/healthcheck.html'
       });
     $urlRouterProvider.otherwise('/login');
     localStorageServiceProvider.setPrefix('bowyer');

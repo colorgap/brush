@@ -59,6 +59,26 @@
       .state('dashboard.resetPassword', {
         url: 'resetPassword',
         templateUrl: 'bowyer-ui/dashboard/partials/dashboard/resetPassword/resetPassword.html'
+      })
+      .state('dashboard.api', {
+        url: 'api',
+        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/api/api.html'
+      })
+      .state('dashboard.analytics', {
+        url: 'analytics',
+        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/analytics/analytics.html'
+      })
+      .state('dashboard.config', {
+        url: 'config',
+        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/config.html',
+      })
+      .state('dashboard.config.roles', {
+        url: '/roles',
+        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/roles/roles.html'
+      })
+      .state('dashboard.healthcheck', {
+        url: 'healthcheck',
+        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/healthcheck/healthcheck.html'
       });
     $urlRouterProvider.otherwise('/login');
     localStorageServiceProvider.setPrefix('bowyer');
@@ -134,6 +154,21 @@
 
 (function() {
   'use strict';
+  angular.module('bowyer').controller('usersCtrl', ['api',function(api){
+    var vm = this;
+    var usersCallConfig = {
+        url: '/api/admin/users'
+    };
+    api.executeCall(usersCallConfig).then(function(response){
+      vm.users = response.data;
+    },api.logout(function(error){
+        console.log(error);
+    }));
+  }]);
+})();
+
+(function() {
+  'use strict';
   angular.module('bowyer').factory('api', ['$http','constants','$state','localStorageService',
     function($http,constants,$state,localStorageService){
       return {
@@ -186,15 +221,10 @@
 
 (function() {
   'use strict';
-  angular.module('bowyer').controller('usersCtrl', ['api',function(api){
-    var vm = this;
-    var usersCallConfig = {
-        url: '/api/admin/users'
-    };
-    api.executeCall(usersCallConfig).then(function(response){
-      vm.users = response.data;
-    },api.logout(function(error){
-        console.log(error);
-    }));
-  }]);
+  angular.module('bowyer').directive('bowyerLogo', function(){
+      return {
+          restrict: 'EA',
+          template: '<span>bow</span><span style="color:#F39C12">yer</span>'
+      };
+  });
 })();

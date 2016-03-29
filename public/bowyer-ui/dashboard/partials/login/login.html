@@ -4,11 +4,11 @@
             <div class="clearfix ui-login">
                 <form class="ui-login-content">
                     <h1 class="text-center text-primary">
-                        <span>bow</span><span style="color:#F39C12">yer</span>
+                        <bowyer-logo></bowyer-logo>
                     </h1>
-                    <div class="alert alert-danger" ng-show="vm.loginError">
+                    <uib-alert type="danger" ng-show="vm.loginError" close="vm.loginError=false">
                         <strong>{{vm.loginError}}</strong>
-                    </div>
+                    </uib-alert>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user text-primary"></i></span>
