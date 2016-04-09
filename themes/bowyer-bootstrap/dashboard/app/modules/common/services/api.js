@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('bowyer').factory('api', ['$http','constants','$state','localStorageService',
+  bowyerApp.factory('api', ['$http','constants','$state','localStorageService',
     function($http,constants,$state,localStorageService){
       return {
           executeCall: function(config){

@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('bowyer').controller('logoutCtrl', ['api','$state','localStorageService','constants',
+  bowyerApp.controller('logoutCtrl', ['api','$state','localStorageService','constants',
         function(api,$state,localStorageService,constants){
         var logoutCallConfig = {
             url: '/api/logout'
@@ -9,6 +9,7 @@
                 $state.go('login');
             },api.logout(function(error){
                 console.error(error);
-        }));    
+            }
+        ));    
   }]);
 })();

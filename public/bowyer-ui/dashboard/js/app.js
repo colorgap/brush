@@ -1,104 +1,96 @@
+var bowyerApp;
 (function() {
-  'use strict';
-  angular.module('bowyer', 
-    [
-        'ngAnimate', 
-        'ngCookies', 
-        'ngTouch', 
-        'ngSanitize', 
-        'ui.router', 
-        'ui.bootstrap',
-        'LocalStorageModule'
-    ]
-  );
+    'use strict';
+    bowyerApp = angular.module('bowyer',
+        [
+            'ngAnimate',
+            'ngCookies',
+            'ngTouch',
+            'ngSanitize',
+            'ui.router',
+            'ui.bootstrap',
+            'LocalStorageModule'
+        ]
+    );
 })();
-
 (function() {
-  'use strict';
-
-  angular
-    .module('bowyer')
-    .config(routeConfig);
-
-  /** @ngInject */
-  function routeConfig($stateProvider, $urlRouterProvider,localStorageServiceProvider) {
-    $stateProvider
-      .state('login', {
-        url: '/login',
-        templateUrl: 'bowyer-ui/dashboard/partials/login/login.html'
-      })
-      .state('logout', {
-        url: '/logout',
-        controller: 'logoutCtrl'
-      })
-      .state('forgetPassword', {
-        url: '/forgetPassword',
-        templateUrl: 'bowyer-ui/dashboard/partials/forgetPassword/forgetPassword.html'
-      })
-      .state('register', {
-        url: '/register',
-        templateUrl: 'bowyer-ui/dashboard/partials/register/register.html'
-      })
-      .state('dashboard', {
-        url: '/',
-        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/dashboard.html'
-      })
-      .state('dashboard.alerts', {
-        url: 'alerts',
-        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/alerts/alerts.html'
-      })
-      .state('dashboard.users', {
-        url: 'users',
-        controller:'usersCtrl as vm',
-        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/users/users.html'
-      })
-      .state('dashboard.settings', {
-        url: 'settings',
-        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/settings/settings.html'
-      })
-      .state('dashboard.resetPassword', {
-        url: 'resetPassword',
-        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/resetPassword/resetPassword.html'
-      })
-      .state('dashboard.api', {
-        url: 'api',
-        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/api/api.html'
-      })
-      .state('dashboard.analytics', {
-        url: 'analytics',
-        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/analytics/analytics.html'
-      })
-      .state('dashboard.config', {
-        url: 'config',
-        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/config.html',
-      })
-      .state('dashboard.config.roles', {
-        url: '/roles',
-        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/roles/roles.html'
-      })
-      .state('dashboard.healthcheck', {
-        url: 'healthcheck',
-        templateUrl: 'bowyer-ui/dashboard/partials/dashboard/healthcheck/healthcheck.html',
-        controller: 'healthCheckCtrl as vm'
-      });
-    $urlRouterProvider.otherwise('/login');
-    localStorageServiceProvider.setPrefix('bowyer');
-  }
-
+    'use strict';
+    bowyerApp.config(routeConfig);
+    function routeConfig($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
+        $stateProvider
+            .state('login', {
+                url: '/login',
+                templateUrl: 'bowyer-ui/dashboard/partials/login/login.html',
+                controller: 'loginCtrl',
+                controllerAs: 'login'
+            })
+            .state('logout', {
+                url: '/logout',
+                controller: 'logoutCtrl',
+                controllerAs: 'logout'
+            })
+            .state('forgotPassword', {
+                url: '/forgotPassword',
+                templateUrl: 'bowyer-ui/dashboard/partials/forgotPassword/forgotPassword.html'
+            })
+            .state('register', {
+                url: '/register',
+                templateUrl: 'bowyer-ui/dashboard/partials/register/register.html',
+                controller: 'registerCtrl',
+                controllerAs: 'register'
+            })
+            .state('dashboard', {
+                url: '/',
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/dashboard.html'
+            })
+            .state('dashboard.alerts', {
+                url: 'alerts',
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/alerts/alerts.html'
+            })
+            .state('dashboard.users', {
+                url: 'users',
+                controller: 'usersCtrl as vm',
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/users/users.html'
+            })
+            .state('dashboard.settings', {
+                url: 'settings',
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/settings/settings.html'
+            })
+            .state('dashboard.resetPassword', {
+                url: 'resetPassword',
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/resetPassword/resetPassword.html'
+            })
+            .state('dashboard.api', {
+                url: 'api',
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/api/api.html'
+            })
+            .state('dashboard.analytics', {
+                url: 'analytics',
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/analytics/analytics.html'
+            })
+            .state('dashboard.config', {
+                url: 'config',
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/config.html',
+            })
+            .state('dashboard.config.roles', {
+                url: '/roles',
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/roles/roles.html'
+            })
+            .state('dashboard.healthcheck', {
+                url: 'healthcheck',
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/healthcheck/healthcheck.html',
+                controller: 'healthCheckCtrl as vm'
+            });
+        $urlRouterProvider.otherwise('/login');
+        localStorageServiceProvider.setPrefix('bowyer');
+    }
 })();
-
 (function() {
-  'use strict';
-
-  angular
-    .module('bowyer')
-    .run(runBlock);
-
-  /** @ngInject */
-  function runBlock($http,localStorageService) {
-    $http.defaults.headers.common.apitoken = localStorageService.get('api_token');
-  }
-
+    'use strict';
+    bowyerApp.run(runBlock);
+    function runBlock($http, localStorageService) {
+        $http.defaults.headers.common.apitoken = localStorageService.get('api_token');
+    }
 })();
 
 (function() {
@@ -110,16 +102,16 @@
 
 (function() {
   'use strict';
-  angular.module('bowyer').controller('loginCtrl', ['api','$state','localStorageService','constants',
+  bowyerApp.controller('loginCtrl', ['api','$state','localStorageService','constants',
         function(api,$state,localStorageService,constants){
-        var vm = this;
-        vm.validateLogin = function(){
-        vm.loginError = false;
+        var login = this;
+        login.validateLogin = function(){
+        login.loginError = false;
         var loginCallConfig = {
             url: '/api/login',
             data: {
-                username:vm.username,
-                password:vm.password
+                username: login.username,
+                password: login.password
             },
             method:constants.method.post
         };
@@ -129,7 +121,7 @@
                 api.addTokenToCalls();
                 $state.go('dashboard');
             }else{
-                vm.loginError = res.data.message;
+                login.loginError = res.data.message;
             }
             },function(err){
                 console.log(err);
@@ -137,10 +129,9 @@
         };
   }]);
 })();
-
 (function() {
   'use strict';
-  angular.module('bowyer').controller('logoutCtrl', ['api','$state','localStorageService','constants',
+  bowyerApp.controller('logoutCtrl', ['api','$state','localStorageService','constants',
         function(api,$state,localStorageService,constants){
         var logoutCallConfig = {
             url: '/api/logout'
@@ -149,13 +140,53 @@
                 $state.go('login');
             },api.logout(function(error){
                 console.error(error);
-        }));    
+            }
+        ));    
   }]);
 })();
 
 (function() {
+    'use strict';
+    bowyerApp.controller('registerCtrl', ['api', '$state', 'localStorageService', 'constants',
+        function(api, $state, localStorageService, constants) {
+            var register = this;
+            register.validateRegister = function() {
+                register.registerError = false;
+                if (register.formData) {
+                    var registerCallConfig = {
+                        url: '/api/register',
+                        data: {
+                            username: register.formData.username,
+                            email: register.formData.email,
+                            password: register.formData.password
+                        },
+                        method: constants.method.post
+                    };
+                    api.executeCall(registerCallConfig).then(function(res) {
+                        if (res.data.user_id) {
+                            register.registerError = {
+                                message: 'User has been created.',
+                                type: 'success'
+                            };
+                            register.formData = {};
+                        } else {
+                            register.registerError = res.data;
+                        }
+                    }, function(err) {
+                        console.log(err);
+                    });
+                } else {
+                    register.registerError = {
+                        message: 'Username, email and password are mandatory.',
+                        type: 'danger'
+                    };
+                }
+            };
+        }]);
+})();
+(function() {
   'use strict';
-  angular.module('bowyer').factory('api', ['$http','constants','$state','localStorageService',
+  bowyerApp.factory('api', ['$http','constants','$state','localStorageService',
     function($http,constants,$state,localStorageService){
       return {
           executeCall: function(config){
@@ -186,7 +217,7 @@
 
 (function() {
   'use strict';
-  angular.module('bowyer').factory('commonFactory', [function(){
+  bowyerApp.factory('commonFactory', [function(){
       return {
           
       };
@@ -195,7 +226,7 @@
 
 (function() {
   'use strict';
-  angular.module('bowyer').factory('constants', [function(){
+  bowyerApp.factory('constants', [function(){
       return {
           method: {
               post: 'POST',
@@ -207,7 +238,7 @@
 
 (function() {
     'use strict';
-    angular.module('bowyer').controller('healthCheckCtrl', ['api', 'localStorageService','healthCheckFactory',
+    bowyerApp.controller('healthCheckCtrl', ['api', 'localStorageService','healthCheckFactory',
         function(api, localStorageService,healthCheckFactory) {
             var vm = this;
             vm.api = healthCheckFactory.initial;
@@ -240,7 +271,7 @@
 
 (function() {
     'use strict';
-    angular.module('bowyer').factory('healthCheckFactory', function() {
+    bowyerApp.factory('healthCheckFactory', function() {
         return {
             initial: {
                 checkValue: 0,
@@ -264,7 +295,7 @@
 
 (function() {
   'use strict';
-  angular.module('bowyer').controller('usersCtrl', ['api',function(api){
+  bowyerApp.controller('usersCtrl', ['api',function(api){
     var vm = this;
     var usersCallConfig = {
         url: '/api/admin/users'
@@ -279,7 +310,7 @@
 
 (function() {
   'use strict';
-  angular.module('bowyer').directive('bowyerLogo', function(){
+  bowyerApp.directive('bowyerLogo', function(){
       return {
           restrict: 'EA',
           template: '<span>bow</span><span style="color:#F39C12">yer</span>'

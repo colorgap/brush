@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    angular.module('bowyer').controller('healthCheckCtrl', ['api', 'localStorageService','healthCheckFactory',
+    bowyerApp.controller('healthCheckCtrl', ['api', 'localStorageService','healthCheckFactory',
         function(api, localStorageService,healthCheckFactory) {
             var vm = this;
             vm.api = healthCheckFactory.initial;

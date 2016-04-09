@@ -1,15 +1,15 @@
 (function() {
   'use strict';
-  angular.module('bowyer').controller('loginCtrl', ['api','$state','localStorageService','constants',
+  bowyerApp.controller('loginCtrl', ['api','$state','localStorageService','constants',
         function(api,$state,localStorageService,constants){
-        var vm = this;
-        vm.validateLogin = function(){
-        vm.loginError = false;
+        var login = this;
+        login.validateLogin = function(){
+        login.loginError = false;
         var loginCallConfig = {
             url: '/api/login',
             data: {
-                username:vm.username,
-                password:vm.password
+                username: login.username,
+                password: login.password
             },
             method:constants.method.post
         };
@@ -19,7 +19,7 @@
                 api.addTokenToCalls();
                 $state.go('dashboard');
             }else{
-                vm.loginError = res.data.message;
+                login.loginError = res.data.message;
             }
             },function(err){
                 console.log(err);

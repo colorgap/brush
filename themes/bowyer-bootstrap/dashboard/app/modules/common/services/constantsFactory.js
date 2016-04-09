@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('bowyer').factory('constants', [function(){
+  bowyerApp.factory('constants', [function(){
       return {
           method: {
               post: 'POST',
