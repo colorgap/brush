@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    angular.module('bowyer').factory('healthCheckFactory', function() {
+    bowyerApp.factory('healthCheckFactory', function() {
         return {
             initial: {
                 checkValue: 0,

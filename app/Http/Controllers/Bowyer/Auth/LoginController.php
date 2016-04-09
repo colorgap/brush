@@ -19,6 +19,7 @@ class LoginController extends ApiController{
     public function validateLogin(Request $request){
         if($request->input("username")!="" && $request->input("password")!=""){
             $user = User::where('email',$request->input("username"))
+                ->orWhere('username',$request->input("username"))
                 ->Where('password',hash('sha1', $request->input("password")))->first();
             if(!empty($user)){
                 $salt = new Salt();

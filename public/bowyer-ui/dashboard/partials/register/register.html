@@ -1,39 +1,33 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-6 col-md-offset-3">
             <div class="clearfix ui-login">
-                <form class="ui-login-content">
+                <ng-form class="ui-login-content">
                     <h1 class="text-center text-primary">
                         <bowyer-logo></bowyer-logo>
                     </h1>
-                    <div class="alert alert-danger" ng-show="showLoginError">
-                        <strong>{{loginError}}</strong>
+                    <uib-alert type="{{register.registerError.type}}" ng-show="register.registerError" close="register.registerError=false">
+                        <strong>{{register.registerError.message}}</strong>
+                    </uib-alert>
+                    <div class="form-group">
+                        <i class="fa fa-user text-primary input-form-icon"></i>
+                        <input type="text" class="form-control input-form-text" ng-class="{'has-error':!register.formData.username}" ng-model="register.formData.username" placeholder="Username" ng-required>
                     </div>
                     <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user text-primary"></i></span>
-                            <input type="text" class="form-control" ng-model="username" placeholder="Username">
-                        </div>
+                        <i class="fa fa-envelope text-primary input-form-icon"></i>
+                       <input type="text" class="form-control input-form-text" ng-model="register.formData.email" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-lock  text-primary"></i></span>
-                            <input type="password" class="form-control" ng-model="password" placeholder="Password">
-                        </div>
+                        <i class="fa fa-lock text-primary input-form-icon"></i>
+                        <input type="password" class="form-control input-form-text" ng-model="register.formData.password" placeholder="Password">
                     </div>
                     <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-lock  text-primary"></i></span>
-                            <input type="password" class="form-control" ng-model="passwordAgain" placeholder="Password Again">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <a href="#/" ng-click="validateLogin()" class="btn btn-primary btn-block">Sign up</a>
+                        <a ng-click="register.validateRegister()" class="btn btn-primary btn-block">Sign up</a>
                     </div>
                     <div class="form-group text-center">
-                        Have an account already? <a href="#/login" class="btn btn-link">Sign In</a>
+                        Have an account already? <a ui-sref="login" class="btn btn-link">Sign In</a>
                     </div>
-                </form>
+                </ng-form>
             </div>
         </div>
     </div>

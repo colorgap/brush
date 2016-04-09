@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('bowyer').controller('usersCtrl', ['api',function(api){
+  bowyerApp.controller('usersCtrl', ['api',function(api){
     var vm = this;
     var usersCallConfig = {
         url: '/api/admin/users'
