@@ -1,7 +1,7 @@
+var bowyerApp;
 (function() {
-  'use strict';
-
-  angular
-    .module('bowyer', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ui.bootstrap']);
+    'use strict';
+    bowyerApp = angular
+        .module('bowyer', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ui.bootstrap']);
 
 })();
