@@ -513,7 +513,7 @@ $state-warning-text:             #ffffff !default;
 $state-warning-bg:               $brand-warning !default;
 $state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
 
-$state-danger-text:              #ffffff!default;
+$state-danger-text:              #fff!default;
 $state-danger-bg:                $brand-danger !default;
 $state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;
 
