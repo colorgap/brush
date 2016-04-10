@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('bowyer').controller('configCtrl', ['$scope',function($scope){
+  bowyerApp.controller('configCtrl', ['$scope',function($scope){
 
   }]);
 })();

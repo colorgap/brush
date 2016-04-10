@@ -60,7 +60,9 @@ var bowyerApp;
             })
             .state('dashboard.resetPassword', {
                 url: 'resetPassword',
-                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/resetPassword/resetPassword.html'
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/resetPassword/resetPassword.html',
+                controller: 'resetPasswordCtrl',
+                controllerAs: 'resetPassword'
             })
             .state('dashboard.api', {
                 url: 'api',
@@ -78,7 +80,9 @@ var bowyerApp;
             })
             .state('dashboard.config.roles', {
                 url: '/roles',
-                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/roles/roles.html'
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/roles/roles.html',
+                controller: 'rolesCtrl',
+                controllerAs: 'roles'
             })
             .state('dashboard.config.navigation', {
                 url: '/navigation',
@@ -246,7 +250,7 @@ var bowyerApp;
 
 (function() {
   'use strict';
-  angular.module('bowyer').controller('configCtrl', ['$scope',function($scope){
+  bowyerApp.controller('configCtrl', ['$scope',function($scope){
 
   }]);
 })();
@@ -308,25 +312,74 @@ var bowyerApp;
 })();
 
 (function() {
-  'use strict';
-  bowyerApp.controller('profileCtrl', ['api',function(api){
-    var profile = this;
-    var profileCallConfig = {
-        url: '/api/user/profile'
-    };
-    profile.roles = [{
-        role_id: 1,
-        role_desc: 'Admin'
-    },{
-        role_id: 2,
-        role_desc: 'Regular User'
-    }];
-    api.executeCall(profileCallConfig).then(function(response){
-      profile.user = response.data;
-    },api.logout(function(error){
-        console.log(error);
-    }));
-  }]);
+    'use strict';
+    bowyerApp.controller('profileCtrl', ['api', 'constants', function(api, constants) {
+        var profile = this;
+        var profileCallConfig = {
+            url: '/api/user/profile'
+        };
+        profile.roles = [{
+            role_id: 1,
+            role_desc: 'Admin'
+        }, {
+                role_id: 2,
+                role_desc: 'Regular User'
+            }];
+        api.executeCall(profileCallConfig).then(function(response) {
+            profile.user = response.data;
+        }, api.logout(function(error) {
+            console.log(error);
+        }));
+
+        profile.validateAndSave = function() {
+            profileCallConfig.method = constants.method.post;
+            profileCallConfig.data = profile.user;
+            api.executeCall(profileCallConfig).then(function(response) {
+                profile.profileError = response.data;
+            }, api.logout(function(error) {
+                console.log(error);
+            }));
+        };
+    }]);
+})();
+(function() {
+    'use strict';
+    bowyerApp.controller('resetPasswordCtrl', ['api', 'constants', function(api, constants) {
+        var resetPassword = this;
+        resetPassword.validateAndSave = function() {
+            resetPassword.error = {};
+            if (resetPassword.formData) {
+                if (resetPassword.formData.newPassword && resetPassword.formData.newPassword !=='' && resetPassword.formData.newPassword === resetPassword.formData.confirmPassword) {
+                    var resetPasswordCallConfig = {
+                        url: '/api/user/resetPassword',
+                        method: constants.method.post,
+                        data: resetPassword.formData
+                    };
+                    api.executeCall(resetPasswordCallConfig).then(function(response) {
+                        resetPassword.resetPasswordError = response.data;
+                        if (resetPassword.resetPasswordError.type === 'success') {
+                            resetPassword.formData = {};
+                        } else {
+                            resetPassword.error.password = true;
+                        }
+                    }, api.logout(function(error) {
+                        console.log(error);
+                    }));
+                } else {
+                    resetPassword.error = {
+                        newPassword: true,
+                        confirmPassword: true
+                    };
+                }
+            } else {
+                resetPassword.error = {
+                    password: true,
+                    newPassword: true,
+                    confirmPassword: true
+                };
+            }
+        };
+    }]);
 })();
 (function() {
   'use strict';
@@ -351,4 +404,18 @@ var bowyerApp;
           template: '<span>bow</span><span style="color:#F39C12">yer</span>'
       };
   });
+})();
+(function() {
+    'use strict';
+    bowyerApp.controller('rolesCtrl', ['api', function(api) {
+        var roles = this;
+        var rolesConfig = {
+            url: '/api/admin/roles'
+        };
+        api.executeCall(rolesConfig).then(function(response) {
+            roles.roles = response.data;
+        }, api.logout(function(error) {
+            
+        }));
+    }]);
 })();
