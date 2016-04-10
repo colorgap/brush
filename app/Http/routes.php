@@ -32,6 +32,10 @@ $app->group(['prefix' => 'api/admin','namespace' => 'App\Http\Controllers\Bowyer
     $app->get('users','UsersController@index');
     $app->post('users','UsersController@addUser');
 });
+$app->group(['prefix' => 'api/user','namespace' => 'App\Http\Controllers\Bowyer\Admin','middleware' => 'auth'], function($app){
+    $app->get('profile','ProfileController@index');
+    $app->post('users','UsersController@addUser');
+});
 $app->group(['prefix' => 'api/healthCheck','namespace' => 'App\Http\Controllers\Bowyer\HealthCheck','middleware' => 'auth'], function($app){
     $app->get('apiCheck','ApiCheckController@index');
     $app->get('dbCheck','DatabaseCheckController@index');

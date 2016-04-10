@@ -37,9 +37,11 @@
                 controller: 'usersCtrl as vm',
                 templateUrl: 'bowyer-ui/dashboard/partials/dashboard/users/users.html'
             })
-            .state('dashboard.settings', {
-                url: 'settings',
-                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/settings/settings.html'
+            .state('dashboard.profile', {
+                url: 'profile',
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/profile/profile.html',
+                controller: 'profileCtrl',
+                controllerAs: 'profile'
             })
             .state('dashboard.resetPassword', {
                 url: 'resetPassword',
