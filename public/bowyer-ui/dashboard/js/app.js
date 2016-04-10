@@ -71,10 +71,16 @@ var bowyerApp;
             .state('dashboard.config', {
                 url: 'config',
                 templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/config.html',
+                controller: 'configCtrl',
+                controllerAs: 'config'
             })
             .state('dashboard.config.roles', {
                 url: '/roles',
                 templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/roles/roles.html'
+            })
+            .state('dashboard.config.navigation', {
+                url: '/navigation',
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/navigation/navigation.html'
             })
             .state('dashboard.healthcheck', {
                 url: 'healthcheck',
@@ -236,6 +242,12 @@ var bowyerApp;
   }]);
 })();
 
+(function() {
+  'use strict';
+  angular.module('bowyer').controller('configCtrl', ['$scope',function($scope){
+
+  }]);
+})();
 (function() {
     'use strict';
     bowyerApp.controller('healthCheckCtrl', ['api', 'localStorageService','healthCheckFactory',

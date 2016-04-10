@@ -1,6 +1,10 @@
 <div class="row">
+    <ol class="breadcrumb no-margin">
+        <li>User Management</li>
+    </ol>
+</div>
+<div class="row">
   <div class="col-md-12 padding-lg">
-    <h4>User Management</h4>
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -16,7 +20,7 @@
             <th scope="row">{{::user.user_id}}</th>
             <td>{{::user.name}}</td>
             <td>{{::user.email}}</td>
-            <td>{{::user.role}}</td>
+            <td>{{::user.role_desc}}</td>
           </tr>
         </tbody>
       </table>

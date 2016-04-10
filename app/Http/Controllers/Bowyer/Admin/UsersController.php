@@ -3,14 +3,18 @@
 namespace App\Http\Controllers\Bowyer\Admin;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin\User;
+use App\Models\Admin\Roles;
 use App\Http\Controllers\ApiController;
 use App\DataObjects\Common\Notification;
 use Illuminate\Http\Request;
 
 class UsersController extends ApiController {
     public function index() {
-        $user = User::all();
-        return $this->respondWithCORS($user);
+        $users = User::all();
+        foreach ($users as $user) {
+            $user->role_desc = Roles::where('role_id',$user->role)->first()->role_desc;
+        }
+        return $this->respondWithCORS($users);
     }
     public function addUser(Request $request) {
         if ($request->input("username") != "" && $request->input("email") != "" && $request->input("password") != "") {
