@@ -11,6 +11,7 @@
           <tr>
             <th>#</th>
             <th>Name</th>
+            <th>Username</th>
             <th>Email</th>
             <th>Role</th>
           </tr>
@@ -19,6 +20,7 @@
           <tr ng-repeat="user in vm.users">
             <th scope="row">{{::user.user_id}}</th>
             <td>{{::user.name}}</td>
+            <td>{{::user.username}}</td>
             <td>{{::user.email}}</td>
             <td>{{::user.role_desc}}</td>
           </tr>

@@ -1,7 +1,8 @@
 <div class="row">
-    <ol class="breadcrumb no-margin">
-        <li><a ui-sref="dashboard.config" ui-sref-active="active" ng-click="config.currentPage=false">Configuration</a></li>
-        <li class="text-warning" ng-show="config.currentPage">{{config.currentPage}}</li>
+    <ol class="bowyer-breadcrumb breadcrumb no-margin">
+        <li><a ui-sref="dashboard.config" class="bowyer-link">Configuration</a></li>
+        <li><a ui-sref-active="text-warning" class="bowyer-link" ui-sref="dashboard.config.navigation">Navigation</a></li>
+        <li><a ui-sref-active="text-warning" class="bowyer-link" ui-sref="dashboard.config.roles">Roles</a></li>
     </ol>
 </div>
 <ui-view>

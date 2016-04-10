@@ -45,7 +45,9 @@
             })
             .state('dashboard.resetPassword', {
                 url: 'resetPassword',
-                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/resetPassword/resetPassword.html'
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/resetPassword/resetPassword.html',
+                controller: 'resetPasswordCtrl',
+                controllerAs: 'resetPassword'
             })
             .state('dashboard.api', {
                 url: 'api',
@@ -63,7 +65,9 @@
             })
             .state('dashboard.config.roles', {
                 url: '/roles',
-                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/roles/roles.html'
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/roles/roles.html',
+                controller: 'rolesCtrl',
+                controllerAs: 'roles'
             })
             .state('dashboard.config.navigation', {
                 url: '/navigation',

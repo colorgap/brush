@@ -31,10 +31,13 @@ $app->group(['prefix' => 'api','namespace' => 'App\Http\Controllers\Bowyer\Auth'
 $app->group(['prefix' => 'api/admin','namespace' => 'App\Http\Controllers\Bowyer\Admin','middleware' => 'auth'], function($app){
     $app->get('users','UsersController@index');
     $app->post('users','UsersController@addUser');
+    $app->get('roles','RolesController@index');
 });
 $app->group(['prefix' => 'api/user','namespace' => 'App\Http\Controllers\Bowyer\Admin','middleware' => 'auth'], function($app){
     $app->get('profile','ProfileController@index');
+    $app->post('profile','ProfileController@saveProfile');
     $app->post('users','UsersController@addUser');
+    $app->post('resetPassword','ResetPasswordController@index');
 });
 $app->group(['prefix' => 'api/healthCheck','namespace' => 'App\Http\Controllers\Bowyer\HealthCheck','middleware' => 'auth'], function($app){
     $app->get('apiCheck','ApiCheckController@index');
