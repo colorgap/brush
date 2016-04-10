@@ -52,9 +52,11 @@ var bowyerApp;
                 controller: 'usersCtrl as vm',
                 templateUrl: 'bowyer-ui/dashboard/partials/dashboard/users/users.html'
             })
-            .state('dashboard.settings', {
-                url: 'settings',
-                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/settings/settings.html'
+            .state('dashboard.profile', {
+                url: 'profile',
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/profile/profile.html',
+                controller: 'profileCtrl',
+                controllerAs: 'profile'
             })
             .state('dashboard.resetPassword', {
                 url: 'resetPassword',
@@ -305,6 +307,27 @@ var bowyerApp;
     });
 })();
 
+(function() {
+  'use strict';
+  bowyerApp.controller('profileCtrl', ['api',function(api){
+    var profile = this;
+    var profileCallConfig = {
+        url: '/api/user/profile'
+    };
+    profile.roles = [{
+        role_id: 1,
+        role_desc: 'Admin'
+    },{
+        role_id: 2,
+        role_desc: 'Regular User'
+    }];
+    api.executeCall(profileCallConfig).then(function(response){
+      profile.user = response.data;
+    },api.logout(function(error){
+        console.log(error);
+    }));
+  }]);
+})();
 (function() {
   'use strict';
   bowyerApp.controller('usersCtrl', ['api',function(api){
