@@ -12,25 +12,26 @@
         <div id="navbar" class="navbar-collapse collapse navbar-right" aria-expanded="false" style="height: 1px;">
             <ul class="nav navbar-nav">
                 <li><a href="/"><i class="fa fa-fw fa-md fa-home"></i> Home</a></li>
-                <li><a href="#/alerts"><i class="fa fa-fw fa-bell"></i> Alert</a></li>
+                <li><a ui-sref-active="active" ui-sref="dashboard.alerts"><i class="fa fa-fw fa-bell"></i> Alert</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle anchor" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="fa fa-fw fa-bank"></i> Admin <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a ui-sref="dashboard.users">User Management</a></li>
-                        <li><a ui-sref="dashboard.analytics">Analytics</a></li>
-                        <li><a ui-sref="dashboard.config">Configuration</a></li>
+                        <li ui-sref-active="active"><a ui-sref="dashboard.users">User Management</a></li>
+                        <li ui-sref-active="active"><a ui-sref="dashboard.analytics">Analytics</a></li>
+                        <li ui-sref-active="active"><a ui-sref="dashboard.config">Configuration</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a ui-sref="dashboard.api">API</a></li>
-                        <li><a ui-sref="dashboard.healthcheck">Health Check</a></li>
+                        <li ui-sref-active="active"><a ui-sref="dashboard.api">API</a></li>
+                        <li ui-sref-active="active"><a ui-sref="dashboard.healthcheck">Health Check</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle anchor" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="fa fa-fw fa-user"></i> My account <span class="caret"></span></a>
+                    <a class="dropdown-toggle anchor" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                        <i class="fa fa-fw fa-user"></i> My account <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a ui-sref="dashboard.profile">Profile</a></li>
-                        <li><a href="#/resetPassword">Reset Password</a></li>
+                        <li ui-sref-active="active"><a ui-sref="dashboard.profile">Profile</a></li>
+                        <li ui-sref-active="active"><a ui-sref="dashboard.resetPassword">Reset Password</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#/logout"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+                        <li ui-sref-active="active"><a ui-sref="logout"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
                     </ul>
                 </li>
             </ul>

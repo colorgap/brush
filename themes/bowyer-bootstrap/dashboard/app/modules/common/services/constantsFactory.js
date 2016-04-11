@@ -4,6 +4,7 @@
       return {
           method: {
               post: 'POST',
+              delete: 'DELETE',
               get: 'GET'
           }
       };

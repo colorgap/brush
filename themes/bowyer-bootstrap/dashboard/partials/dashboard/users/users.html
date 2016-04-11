@@ -14,15 +14,17 @@
             <th>Username</th>
             <th>Email</th>
             <th>Role</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="user in vm.users">
+          <tr ng-repeat="user in users.users | filter : {deleted:'!Y'}">
             <th scope="row">{{::user.user_id}}</th>
             <td>{{::user.name}}</td>
             <td>{{::user.username}}</td>
             <td>{{::user.email}}</td>
             <td>{{::user.role_desc}}</td>
+            <td><i class="fa anchor" ng-class="{'fa-times': !user.deleteInitiated,'fa-spinner fa-spin': user.deleteInitiated}" ng-click="users.deleteUser(user)"></i></td>
           </tr>
         </tbody>
       </table>

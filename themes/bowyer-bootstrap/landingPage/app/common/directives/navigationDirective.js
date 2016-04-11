@@ -2,7 +2,7 @@
     'use strict';
     bowyerApp.directive('navLume', function() {
         return function(scope, element, attrs) {
-            $(window).scroll(function() {
+            angular.element(window).scroll(function() {
                 if (angular.element('.navbar').offset().top > 50) {
                     angular.element('.navbar-fixed-top').addClass('top-nav-collapse navbar-default');
                 } else {
