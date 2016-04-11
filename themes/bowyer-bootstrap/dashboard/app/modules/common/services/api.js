@@ -6,6 +6,8 @@
           executeCall: function(config){
               if(config.method===constants.method.post){
                   return $http.post(config.url,config.data);
+              }else if(config.method===constants.method.delete){
+                  return $http.delete(config.url);
               }else{
                   return $http.get(config.url);
               }

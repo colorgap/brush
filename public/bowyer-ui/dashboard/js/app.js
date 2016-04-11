@@ -49,7 +49,8 @@ var bowyerApp;
             })
             .state('dashboard.users', {
                 url: 'users',
-                controller: 'usersCtrl as vm',
+                controller: 'usersCtrl',
+                controllerAs: 'users',
                 templateUrl: 'bowyer-ui/dashboard/partials/dashboard/users/users.html'
             })
             .state('dashboard.profile', {
@@ -204,6 +205,8 @@ var bowyerApp;
           executeCall: function(config){
               if(config.method===constants.method.post){
                   return $http.post(config.url,config.data);
+              }else if(config.method===constants.method.delete){
+                  return $http.delete(config.url);
               }else{
                   return $http.get(config.url);
               }
@@ -242,6 +245,7 @@ var bowyerApp;
       return {
           method: {
               post: 'POST',
+              delete: 'DELETE',
               get: 'GET'
           }
       };
@@ -382,18 +386,34 @@ var bowyerApp;
     }]);
 })();
 (function() {
-  'use strict';
-  bowyerApp.controller('usersCtrl', ['api',function(api){
-    var vm = this;
-    var usersCallConfig = {
-        url: '/api/admin/users'
-    };
-    api.executeCall(usersCallConfig).then(function(response){
-      vm.users = response.data;
-    },api.logout(function(error){
-        console.log(error);
-    }));
-  }]);
+    'use strict';
+    bowyerApp.controller('usersCtrl', ['api','constants', function(api,constants) {
+        var users = this;
+        var usersCallConfig = {
+            url: '/api/admin/users'
+        };
+        api.executeCall(usersCallConfig).then(function(response) {
+            users.users = response.data;
+        }, api.logout(function(error) {
+            console.log(error);
+        }));
+
+        /** Delete a user */
+        users.deleteUser = function(user) {
+            user.deleteInitiated = true;
+            var deleteUserCallConfig = {
+                url: '/api/admin/user/'+user.user_id,
+                method: constants.method.delete
+            };
+            api.executeCall(deleteUserCallConfig).then(function(response) {
+                if(response.data.type === 'success'){
+                    user.deleted = 'Y';
+                }
+            }, api.logout(function(error) {
+                console.log(error);
+            }));
+        };
+    }]);
 })();
 
 (function() {

@@ -14,14 +14,8 @@
 $app->get('/', function() use ($app) {
     return view('index');
 });
-$app->get('/debug', function() use ($app) {
-    return view('debug');
-});
 $app->get('/dashboard', function() use ($app) {
     return view('dashboard.index');
-});
-$app->get('/dashboard/debug', function() use ($app) {
-    return view('dashboard.debug');
 });
 $app->group(['prefix' => 'api','namespace' => 'App\Http\Controllers\Bowyer\Auth'], function($app){
     $app->post('login','LoginController@index');
@@ -31,6 +25,8 @@ $app->group(['prefix' => 'api','namespace' => 'App\Http\Controllers\Bowyer\Auth'
 $app->group(['prefix' => 'api/admin','namespace' => 'App\Http\Controllers\Bowyer\Admin','middleware' => 'auth'], function($app){
     $app->get('users','UsersController@index');
     $app->post('users','UsersController@addUser');
+    $app->delete('user/{user_id}','UsersController@deleteUser');
+    
     $app->get('roles','RolesController@index');
 });
 $app->group(['prefix' => 'api/user','namespace' => 'App\Http\Controllers\Bowyer\Admin','middleware' => 'auth'], function($app){

@@ -1,8 +1,6 @@
 (function() {
     'use strict';
-    bowyerApp
-        .config(routeConfig);
-    function routeConfig($stateProvider, $urlRouterProvider) {
+    bowyerApp.config(['$stateProvider', '$urlRouterProvider',function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('home', {
                 url: '/',
@@ -10,5 +8,5 @@
                 controller: 'homeCtrl'
             });
         $urlRouterProvider.otherwise('/');
-    }
+    }]);
 })();

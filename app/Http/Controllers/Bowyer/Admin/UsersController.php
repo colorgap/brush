@@ -37,4 +37,18 @@ class UsersController extends ApiController {
             return $this->respondWithCORS($error);
         }
     }
+    /** Delete user */
+    public function deleteUser($user_id){
+        $user = User::where('user_id', $user_id)->first();
+        if(!empty($user)){
+            $user->delete();
+            $error = new Notification();
+            $error->notify("User deleted.", 5102,"success");
+            return $this->respondWithCORS($error);
+        }else{
+            $error = new Notification();
+            $error->notify("User not found.", 5103);
+            return $this->respondWithCORS($error);
+        }
+    }
 }

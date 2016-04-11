@@ -8,9 +8,7 @@ var bowyerApp;
 
 (function() {
     'use strict';
-    bowyerApp
-        .config(routeConfig);
-    function routeConfig($stateProvider, $urlRouterProvider) {
+    bowyerApp.config(['$stateProvider', '$urlRouterProvider',function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('home', {
                 url: '/',
@@ -18,20 +16,17 @@ var bowyerApp;
                 controller: 'homeCtrl'
             });
         $urlRouterProvider.otherwise('/');
-    }
+    }]);
 })();
 (function() {
     'use strict';
-    bowyerApp
-        .run(runBlock);
-    function runBlock($log) {
+    bowyerApp.run(['$log',function ($log) {
         $log.debug('runBlock end');
-    }
+    }]);
 })();
 (function() {
   'use strict';
-  angular
-    .module('bowyer').controller('homeCtrl',['$scope','$window', function($scope,$window){
+  bowyerApp.controller('homeCtrl',['$scope','$window', function($scope,$window){
       $scope.scrollToSection = function(section){
         angular.element('html, body').stop().animate({
             scrollTop: angular.element('#'+section).offset().top
@@ -44,7 +39,7 @@ var bowyerApp;
     'use strict';
     bowyerApp.directive('navLume', function() {
         return function(scope, element, attrs) {
-            $(window).scroll(function() {
+            angular.element(window).scroll(function() {
                 if (angular.element('.navbar').offset().top > 50) {
                     angular.element('.navbar-fixed-top').addClass('top-nav-collapse navbar-default');
                 } else {

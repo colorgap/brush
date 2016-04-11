@@ -34,7 +34,8 @@
             })
             .state('dashboard.users', {
                 url: 'users',
-                controller: 'usersCtrl as vm',
+                controller: 'usersCtrl',
+                controllerAs: 'users',
                 templateUrl: 'bowyer-ui/dashboard/partials/dashboard/users/users.html'
             })
             .state('dashboard.profile', {

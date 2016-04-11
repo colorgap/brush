@@ -1,8 +1,6 @@
 (function() {
     'use strict';
-    bowyerApp
-        .run(runBlock);
-    function runBlock($log) {
+    bowyerApp.run(['$log',function ($log) {
         $log.debug('runBlock end');
-    }
+    }]);
 })();
