@@ -1,17 +1,13 @@
 (function() {
     'use strict';
-    bowyerApp.controller('profileCtrl', ['api', 'constants', function(api, constants) {
+    bowyerApp.controller('profileCtrl', ['api', 'constants','commonFactory', function(api, constants,commonFactory) {
         var profile = this;
         var profileCallConfig = {
             url: '/api/user/profile'
         };
-        profile.roles = [{
-            role_id: 1,
-            role_desc: 'Admin'
-        }, {
-                role_id: 2,
-                role_desc: 'Regular User'
-            }];
+        commonFactory.getRoles().then(function(response) {
+            profile.roles =  response.data;
+        });
         api.executeCall(profileCallConfig).then(function(response) {
             profile.user = response.data;
         }, api.logout(function(error) {

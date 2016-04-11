@@ -21,6 +21,7 @@ class UsersController extends ApiController {
             $user = User::where('email', $request->input("email"))->orWhere('username', $request->input("username"))->first();
             if (empty($user)) {
                 $user = new User();
+                $user->name = $request->name;
                 $user->username = $request->username;
                 $user->email = $request->email;
                 $user->password = hash('sha1', $request->password);
