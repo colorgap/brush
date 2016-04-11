@@ -82,5 +82,6 @@
             $urlRouterProvider.otherwise('/login');
             localStorageServiceProvider.setPrefix('bowyer');
         }];
+        
     bowyerApp.config(routeConfig);
 })();

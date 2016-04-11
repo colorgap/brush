@@ -1,14 +1,9 @@
 (function() {
     'use strict';
-    bowyerApp.controller('rolesCtrl', ['api', function(api) {
+    bowyerApp.controller('rolesCtrl', ['api', 'commonFactory', function(api, commonFactory) {
         var roles = this;
-        var rolesConfig = {
-            url: '/api/admin/roles'
-        };
-        api.executeCall(rolesConfig).then(function(response) {
-            roles.roles = response.data;
-        }, api.logout(function(error) {
-            
-        }));
+        commonFactory.getRoles().then(function(response) {
+            roles.roles =  response.data;
+        });
     }]);
 })();

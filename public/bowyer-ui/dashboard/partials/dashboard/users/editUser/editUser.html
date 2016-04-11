@@ -1,0 +1,41 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{editUser.config.title}}</h3>
+</div>
+<div class="modal-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 padding-sm">
+                <uib-alert type="{{editUser.profileError.type}}" ng-show="editUser.profileError" close="editUser.profileError=false">
+                    <strong>{{editUser.profileError.message}}</strong>
+                </uib-alert>
+                <div class="form-group">
+                    <i class="fa fa-user text-primary input-form-icon"></i>
+                    <input type="text" class="form-control input-form-text" ng-model="editUser.user.username" ng-disabled="editUser.config.type==='edit'" placeholder="UserName">
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-user text-primary input-form-icon"></i>
+                    <input type="text" class="form-control input-form-text" ng-model="editUser.user.name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-at text-primary input-form-icon"></i>
+                    <input type="text" class="form-control input-form-text" ng-model="editUser.user.email" placeholder="Email">
+                </div>
+                <div class="form-group" ng-if="editUser.config.type!=='edit'">
+                    <i class="fa fa-lock text-primary input-form-icon"></i>
+                    <input type="password" class="form-control input-form-text" ng-model="editUser.user.password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Role</span>
+                        <select class="form-control" ng-model="editUser.user.role" ng-options="role.role_id as role.role_desc for role in editUser.roles">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="editUser.validateAndSave()">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="editUser.cancel()">Cancel</button>
+</div>

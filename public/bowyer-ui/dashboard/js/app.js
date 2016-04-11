@@ -97,6 +97,7 @@ var bowyerApp;
             $urlRouterProvider.otherwise('/login');
             localStorageServiceProvider.setPrefix('bowyer');
         }];
+        
     bowyerApp.config(routeConfig);
 })();
 (function() {
@@ -232,12 +233,17 @@ var bowyerApp;
 })();
 
 (function() {
-  'use strict';
-  bowyerApp.factory('commonFactory', [function(){
-      return {
-          
-      };
-  }]);
+    'use strict';
+    bowyerApp.factory('commonFactory', ['api', function(api) {
+        return {
+            getRoles: function() {
+                var rolesConfig = {
+                    url: '/api/admin/roles'
+                };
+                return api.executeCall(rolesConfig);
+            }
+        };
+    }]);
 })();
 
 (function() {
@@ -318,18 +324,14 @@ var bowyerApp;
 
 (function() {
     'use strict';
-    bowyerApp.controller('profileCtrl', ['api', 'constants', function(api, constants) {
+    bowyerApp.controller('profileCtrl', ['api', 'constants','commonFactory', function(api, constants,commonFactory) {
         var profile = this;
         var profileCallConfig = {
             url: '/api/user/profile'
         };
-        profile.roles = [{
-            role_id: 1,
-            role_desc: 'Admin'
-        }, {
-                role_id: 2,
-                role_desc: 'Regular User'
-            }];
+        commonFactory.getRoles().then(function(response) {
+            profile.roles =  response.data;
+        });
         api.executeCall(profileCallConfig).then(function(response) {
             profile.user = response.data;
         }, api.logout(function(error) {
@@ -388,7 +390,7 @@ var bowyerApp;
 })();
 (function() {
     'use strict';
-    bowyerApp.controller('usersCtrl', ['api','constants', function(api,constants) {
+    bowyerApp.controller('usersCtrl', ['api', 'constants', '$uibModal', function(api, constants, $uibModal) {
         var users = this;
         var usersCallConfig = {
             url: '/api/admin/users'
@@ -403,16 +405,48 @@ var bowyerApp;
         users.deleteUser = function(user) {
             user.deleteInitiated = true;
             var deleteUserCallConfig = {
-                url: '/api/admin/user/'+user.user_id,
+                url: '/api/admin/user/' + user.user_id,
                 method: constants.method.delete
             };
             api.executeCall(deleteUserCallConfig).then(function(response) {
-                if(response.data.type === 'success'){
+                if (response.data.type === 'success') {
                     user.deleted = 'Y';
                 }
             }, api.logout(function(error) {
                 console.log(error);
             }));
+        };
+        /** Edit User */
+        users.editUser = function(user) {
+            var modalInstance = $uibModal.open({
+                templateUrl: 'bowyer-ui/dashboard/partials/dashboard/users/editUser/editUser.html',
+                controller: 'editUserCtrl',
+                controllerAs: 'editUser',
+                resolve: {
+                    config: function() {
+                        if (user) {
+                            return {
+                                title: 'Edit User',
+                                user: user,
+                                type: 'edit'
+                            };
+                        } else {
+                            return {
+                                title: 'Add User',
+                                type: 'add'
+                            };
+                        }
+
+                    }
+                }
+            });
+            modalInstance.result.then(function(updateUser) {
+                if(updateUser.config.type==='add'){
+                    users.users.push(updateUser.user);
+                }
+            }, function() {
+
+            });
         };
     }]);
 })();
@@ -428,15 +462,43 @@ var bowyerApp;
 })();
 (function() {
     'use strict';
-    bowyerApp.controller('rolesCtrl', ['api', function(api) {
+    bowyerApp.controller('rolesCtrl', ['api', 'commonFactory', function(api, commonFactory) {
         var roles = this;
-        var rolesConfig = {
-            url: '/api/admin/roles'
-        };
-        api.executeCall(rolesConfig).then(function(response) {
-            roles.roles = response.data;
-        }, api.logout(function(error) {
-            
-        }));
+        commonFactory.getRoles().then(function(response) {
+            roles.roles =  response.data;
+        });
     }]);
+})();
+(function() {
+    'use strict';
+    bowyerApp.controller('editUserCtrl', ['$uibModalInstance', 'api', 'constants', 'commonFactory', 'config',
+        function($uibModalInstance, api, constants, commonFactory, config) {
+            var editUser = this;
+            commonFactory.getRoles().then(function(response) {
+                editUser.roles = response.data;
+            });
+            editUser.config = config;
+            editUser.user = config.user;
+            var profileCallConfig = {
+                url: '/api/user/profile'
+            };
+            editUser.validateAndSave = function() {
+                if(editUser.config.type==='add'){
+                    profileCallConfig.url = '/api/register';
+                }
+                profileCallConfig.method = constants.method.post;
+                profileCallConfig.data = editUser.user;
+
+                api.executeCall(profileCallConfig).then(function(response) {
+                    editUser.profileError = response.data;
+                    $uibModalInstance.close(editUser);
+                }, api.logout(function(error) {
+                    console.log(error);
+                }));
+            };
+
+            editUser.cancel = function() {
+                $uibModalInstance.dismiss('cancel');
+            };
+        }]);
 })();
