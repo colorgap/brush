@@ -1,7 +1,7 @@
 (function() {
     'use strict';
-    bowyerApp.run(runBlock);
-    function runBlock($http, localStorageService) {
+    var runBlock = ['$http', 'localStorageService',function ($http, localStorageService) {
         $http.defaults.headers.common.apitoken = localStorageService.get('api_token');
-    }
+    }];
+    bowyerApp.run(runBlock);
 })();
