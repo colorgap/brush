@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    bowyerApp.factory('healthCheckFactory', function() {
+    bowyerApp.factory('healthCheckFactory', ['url',function(url) {
         return {
             initial: {
                 checkValue: 0,
@@ -17,7 +17,13 @@
                 checkValue: 100,
                 checkMessage: 'Failed',
                 type: 'danger'
+            },
+            apiCheckConfig: {
+                url: url.admin.apiHealthCheck
+            },
+            dbCheckConfig: {
+                url: url.admin.dbHealthCheck
             }
         };
-    });
+    }]);
 })();

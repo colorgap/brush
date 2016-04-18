@@ -9,6 +9,11 @@ class Roles extends Model{
      * @var string
      */
     protected $table = 'roles';
+    protected $casts = [
+        'role_id' => 'integer',
+        'created_by' => 'integer',
+        'updated_by' => 'integer'
+    ];
     /**
      * The attributes that are mass assignable.
      *

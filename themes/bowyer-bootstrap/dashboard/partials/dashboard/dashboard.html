@@ -13,11 +13,10 @@
             <ul class="nav navbar-nav">
                 <li><a href="/"><i class="fa fa-fw fa-md fa-home"></i> Home</a></li>
                 <li><a ui-sref-active="active" ui-sref="dashboard.alerts"><i class="fa fa-fw fa-bell"></i> Alert</a></li>
-                <li class="dropdown">
+                <li class="dropdown" ng-if="dashboard.user.role===1">
                     <a class="dropdown-toggle anchor" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="fa fa-fw fa-bank"></i> Admin <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li ui-sref-active="active"><a ui-sref="dashboard.users">User Management</a></li>
-                        <li ui-sref-active="active"><a ui-sref="dashboard.analytics">Analytics</a></li>
                         <li ui-sref-active="active"><a ui-sref="dashboard.config">Configuration</a></li>
                         <li role="separator" class="divider"></li>
                         <li ui-sref-active="active"><a ui-sref="dashboard.api">API</a></li>
