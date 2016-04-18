@@ -1,7 +1,7 @@
 (function() {
     'use strict';
-    var routeConfig = ['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider',
-        function($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
+    var routeConfig = ['$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider','$httpProvider',
+        function($stateProvider, $urlRouterProvider, localStorageServiceProvider,$httpProvider) {
             $stateProvider
                 .state('login', {
                     url: '/login',
@@ -16,7 +16,9 @@
                 })
                 .state('forgotPassword', {
                     url: '/forgotPassword',
-                    templateUrl: 'bowyer-ui/dashboard/partials/forgotPassword/forgotPassword.html'
+                    templateUrl: 'bowyer-ui/dashboard/partials/forgotPassword/forgotPassword.html',
+                    controller: 'forgotPasswordCtrl',
+                    controllerAs: 'forgotPassword'
                 })
                 .state('register', {
                     url: '/register',
@@ -26,7 +28,9 @@
                 })
                 .state('dashboard', {
                     url: '/',
-                    templateUrl: 'bowyer-ui/dashboard/partials/dashboard/dashboard.html'
+                    templateUrl: 'bowyer-ui/dashboard/partials/dashboard/dashboard.html',
+                    controller: 'dashboardCtrl',
+                    controllerAs: 'dashboard'
                 })
                 .state('dashboard.alerts', {
                     url: 'alerts',
@@ -54,10 +58,6 @@
                     url: 'api',
                     templateUrl: 'bowyer-ui/dashboard/partials/dashboard/api/api.html'
                 })
-                .state('dashboard.analytics', {
-                    url: 'analytics',
-                    templateUrl: 'bowyer-ui/dashboard/partials/dashboard/analytics/analytics.html'
-                })
                 .state('dashboard.config', {
                     url: 'config',
                     templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/config.html',
@@ -70,10 +70,6 @@
                     controller: 'rolesCtrl',
                     controllerAs: 'roles'
                 })
-                .state('dashboard.config.navigation', {
-                    url: '/navigation',
-                    templateUrl: 'bowyer-ui/dashboard/partials/dashboard/config/navigation/navigation.html'
-                })
                 .state('dashboard.healthcheck', {
                     url: 'healthcheck',
                     templateUrl: 'bowyer-ui/dashboard/partials/dashboard/healthcheck/healthcheck.html',
@@ -81,6 +77,7 @@
                 });
             $urlRouterProvider.otherwise('/login');
             localStorageServiceProvider.setPrefix('bowyer');
+            $httpProvider.interceptors.push('tokenInjector');
         }];
         
     bowyerApp.config(routeConfig);

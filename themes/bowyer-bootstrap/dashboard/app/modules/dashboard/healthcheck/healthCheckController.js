@@ -1,32 +1,26 @@
 (function() {
     'use strict';
-    bowyerApp.controller('healthCheckCtrl', ['api', 'localStorageService','healthCheckFactory',
-        function(api, localStorageService,healthCheckFactory) {
+    bowyerApp.controller('healthCheckCtrl', ['api', 'localStorageService', 'healthCheckFactory',
+        function(api, localStorageService, healthCheckFactory) {
             var vm = this;
             vm.api = healthCheckFactory.initial;
             vm.db = healthCheckFactory.initial;
             vm.ls = healthCheckFactory.initial;
-            var apiCheckConfig = {
-                url: '/api/healthCheck/apiCheck'
-            };
-            var dbCheckConfig = {
-                url: '/api/healthCheck/dbCheck'
-            };
-            api.executeCall(apiCheckConfig).then(function(response) {
+            api.executeCall(healthCheckFactory.apiCheckConfig, function(response) {
                 vm.api = healthCheckFactory.success;
-            }, api.logout(function(error) {
+            }, function() {
                 vm.api = healthCheckFactory.failed;
-            }));
-            api.executeCall(dbCheckConfig).then(function(response) {
+            });
+            api.executeCall(healthCheckFactory.dbCheckConfig, function(response) {
                 vm.db = healthCheckFactory.success;
-                if(response.data.api_token === localStorageService.get('api_token')){ 
+                if (response.data.api_token === localStorageService.get('user').api_token) {
                     vm.ls = healthCheckFactory.success;
-                }else{
+                } else {
                     vm.ls = healthCheckFactory.failed;
                 }
-            }, api.logout(function(error) {
+            }, function() {
                 vm.db = healthCheckFactory.failed;
                 vm.ls = healthCheckFactory.failed;
-            }));
+            });
         }]);
 })();

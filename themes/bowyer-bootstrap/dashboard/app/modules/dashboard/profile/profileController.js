@@ -1,27 +1,23 @@
 (function() {
     'use strict';
-    bowyerApp.controller('profileCtrl', ['api', 'constants','commonFactory', function(api, constants,commonFactory) {
+    bowyerApp.controller('profileCtrl', ['api', 'constants','commonFactory','url', 
+    function(api, constants,commonFactory, url) {
         var profile = this;
         var profileCallConfig = {
-            url: '/api/user/profile'
+            url: url.user.me
         };
-        commonFactory.getRoles().then(function(response) {
-            profile.roles =  response.data;
-        });
-        api.executeCall(profileCallConfig).then(function(response) {
+        api.executeCall(profileCallConfig,function(response) {
             profile.user = response.data;
-        }, api.logout(function(error) {
-            console.log(error);
-        }));
+        });
 
         profile.validateAndSave = function() {
             profileCallConfig.method = constants.method.post;
             profileCallConfig.data = profile.user;
-            api.executeCall(profileCallConfig).then(function(response) {
+            api.executeCall(profileCallConfig,function(response) {
                 profile.profileError = response.data;
-            }, api.logout(function(error) {
-                console.log(error);
-            }));
+            },function(err){
+                profile.error = err.data;
+            });
         };
     }]);
 })();

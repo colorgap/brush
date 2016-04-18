@@ -16,6 +16,11 @@ class User extends Model implements
     use Authenticatable, Authorizable;
     protected $table = 'user';
     protected $primaryKey = 'user_id';
+    protected $casts = [
+        'role' => 'integer',
+        'created_by' => 'integer',
+        'updated_by' => 'integer'
+    ];
     /**
      * The attributes that are mass assignable.
      *

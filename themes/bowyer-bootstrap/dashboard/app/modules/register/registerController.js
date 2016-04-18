@@ -1,21 +1,23 @@
 (function() {
     'use strict';
-    bowyerApp.controller('registerCtrl', ['api', '$state', 'localStorageService', 'constants',
-        function(api, $state, localStorageService, constants) {
+    bowyerApp.controller('registerCtrl', ['api', '$state', 'localStorageService', 'constants', 'url',
+        function(api, $state, localStorageService, constants, url) {
             var register = this;
-            register.validateRegister = function() {
+            register.validateRegister = function(isValid) {
                 register.registerError = false;
                 if (register.formData) {
                     var registerCallConfig = {
-                        url: '/api/register',
+                        url: url.register,
                         data: {
                             username: register.formData.username,
                             email: register.formData.email,
-                            password: register.formData.password
+                            password: register.formData.password,
+                            name: ''
                         },
                         method: constants.method.post
                     };
-                    api.executeCall(registerCallConfig).then(function(res) {
+                    api.executeCall(registerCallConfig, 
+                    function(res) {
                         if (res.data.user_id) {
                             register.registerError = {
                                 message: 'User has been created.',
@@ -26,12 +28,13 @@
                             register.registerError = res.data;
                         }
                     }, function(err) {
-                        console.log(err);
+                        register.error = err.data;
                     });
-                } else {
-                    register.registerError = {
-                        message: 'Username, email and password are mandatory.',
-                        type: 'danger'
+                }else {
+                    register.error = {
+                        username: true,
+                        email: true,
+                        password: true
                     };
                 }
             };
