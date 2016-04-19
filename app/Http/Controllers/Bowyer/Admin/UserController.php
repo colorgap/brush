@@ -59,19 +59,31 @@ class UserController extends ApiController {
     public function updateUser(Request $request) {
         $this->validate($request, [
             'username' => 'required', 
-            'name' => 'required',
             'email' => 'required|email',
             'role' => 'required'
         ]);
+        $loggedInuser = Auth::user();
         $user = User::where('username', $request->input("username"))->first();
-        $user->name = $request->input("name");
-        $user->username = $request->input("username");
-        $user->email = $request->input("email");
-        $user->role = $request->input("role");
-        $user->save();
-        $userNew = User::where('username',$user->username)->first();
-        $userNew->role_desc = Roles::where('role_id',$userNew->role)->first()->role_desc;
-        return $this->respondWithCORS($userNew);
+        $userEmailCheck = User::where("email",$request->input("email"))->first();
+        if(!empty($user) && (empty($userEmailCheck) || (!empty($userEmailCheck) && $user->user_id == $userEmailCheck->user_id))){
+            $user->name = $request->input("name");
+            $user->username = $request->input("username");
+            $user->email = $request->input("email");
+            $user->role = $request->input("role");
+            $user->updated_by = $loggedInuser->user_id;
+            $user->save();
+            $userNew = User::where('username',$user->username)->first();
+            $userNew->role_desc = Roles::where('role_id',$userNew->role)->first()->role_desc;
+            return $this->respondWithCORS($userNew);
+        }else if (!empty($user) && $user->user_id != $userEmailCheck->user_id){
+            $error = new Notification();
+            $error->notify("Email already in use. Please provide different email.", 5301);
+            return $this->respondWithCORS($error);
+        }else{
+            $error = new Notification();
+            $error->notify("User not found.", 5301);
+            return $this->respondWithCORS($error);
+        }
     }
     /**
     * Delete the user by user_id

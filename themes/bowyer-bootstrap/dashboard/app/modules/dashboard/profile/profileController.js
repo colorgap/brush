@@ -14,7 +14,9 @@
             profileCallConfig.method = constants.method.post;
             profileCallConfig.data = profile.user;
             api.executeCall(profileCallConfig,function(response) {
-                profile.profileError = response.data;
+                if(response.data.user_id){
+                    profile.profileError = {type:'success',message:'Profile updated successfully.'};
+                }
             },function(err){
                 profile.error = err.data;
             });
