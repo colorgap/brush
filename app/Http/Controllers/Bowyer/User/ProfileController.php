@@ -6,6 +6,7 @@ use App\Models\Admin\User;
 use App\Models\Admin\Roles;
 use App\Http\Controllers\ApiController;
 use App\DataObjects\Common\Notification;
+use App\Http\Controllers\Bowyer\Admin\UserController;
 use Illuminate\Http\Request;
 /**
 * Profile updates and Logged in User details
@@ -31,31 +32,7 @@ class ProfileController extends ApiController {
     * @return Notification
     */
     public function updateProfile(Request $request){
-        $this->validate($request, [
-            'name' => 'required', 
-            'email' => 'required|email',
-            'role' => 'required'
-        ]);
-        $loggedInuser = Auth::user();
-        $user = User::where("user_id",$request->input("user_id"))->first();
-        $userEmailCheck = User::where("email",$request->input("email"))->first();
-        if(!empty($user) && (empty($userEmailCheck) || (!empty($userEmailCheck) && $user->user_id == $userEmailCheck->user_id))){
-            $user->name = $request->input("name");
-            $user->email = $request->input("email");
-            $user->role = $request->input("role");
-            $user->updated_by = $loggedInuser->user_id;
-            $user->update();
-            $success = new Notification();
-            $success->notify("Profile updated successfully.", 5300,"success");
-            return $this->respondWithCORS($success);
-        }else if (!empty($user) && $user->user_id != $userEmailCheck->user_id){
-            $error = new Notification();
-            $error->notify("Email already in use. Please provide different email.", 5301);
-            return $this->respondWithCORS($error);
-        }else{
-            $error = new Notification();
-            $error->notify("User not found.", 5301);
-            return $this->respondWithCORS($error);
-        }
+        $userCtrl = new UserController();
+        return $userCtrl->updateUser($request);
     }
 }
