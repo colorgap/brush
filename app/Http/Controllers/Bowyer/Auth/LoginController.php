@@ -34,9 +34,9 @@ class LoginController extends ApiController{
     * @return Notification
     */
     public function validateLogin(Request $request){
-        $user = User::where('email',$request->input("username"))
-            ->orWhere('username',$request->input("username"))
-            ->Where('password',hash('sha1', $request->input("password")))->first();
+        $emailLogin = ['email' => $request->input("username"), 'password' => hash('sha1', $request->input("password"))];
+        $usernameLogin = ['username' => $request->input("username"), 'password' => hash('sha1', $request->input("password"))];
+        $user = User::where($emailLogin)->orWhere($usernameLogin)->first();
         if(!empty($user)){
             $salt = new Salt();
             $user->api_token = hash('sha1',$salt->spiceItUp($user->email));
