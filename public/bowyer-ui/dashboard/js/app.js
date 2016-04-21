@@ -378,6 +378,12 @@ var bowyerApp;
     }]);
 })();
 (function() {
+  'use strict';
+  bowyerApp.controller('configCtrl', ['$scope',function($scope){
+
+  }]);
+})();
+(function() {
     'use strict';
     bowyerApp.controller('healthCheckCtrl', ['api', 'localStorageService', 'healthCheckFactory',
         function(api, localStorageService, healthCheckFactory) {
@@ -436,8 +442,8 @@ var bowyerApp;
 
 (function() {
     'use strict';
-    bowyerApp.controller('profileCtrl', ['api', 'constants','commonFactory','url', 
-    function(api, constants,commonFactory, url) {
+    bowyerApp.controller('profileCtrl', ['api', 'constants','commonFactory','url', 'localStorageService',
+    function(api, constants,commonFactory, url, localStorageService) {
         var profile = this;
         var profileCallConfig = {
             url: url.user.me
@@ -451,6 +457,7 @@ var bowyerApp;
             profileCallConfig.data = profile.user;
             api.executeCall(profileCallConfig,function(response) {
                 if(response.data.user_id){
+                    localStorageService.set('user', response.data);
                     profile.profileError = {type:'success',message:'Profile updated successfully.'};
                 }
             },function(err){
@@ -560,18 +567,21 @@ var bowyerApp;
 
 (function() {
   'use strict';
-  bowyerApp.controller('configCtrl', ['$scope',function($scope){
-
-  }]);
-})();
-(function() {
-  'use strict';
   bowyerApp.directive('bowyerLogo', function(){
       return {
           restrict: 'EA',
           template: '<span>bow</span><span style="color:#F39C12">yer</span>'
       };
   });
+})();
+(function() {
+    'use strict';
+    bowyerApp.controller('rolesCtrl', ['api', 'commonFactory', function(api, commonFactory) {
+        var roles = this;
+        commonFactory.getAdminRoles(function(response){
+            roles.roles = response.data;
+        });
+    }]);
 })();
 (function() {
     'use strict';
@@ -608,13 +618,4 @@ var bowyerApp;
                 $uibModalInstance.dismiss('cancel');
             };
         }]);
-})();
-(function() {
-    'use strict';
-    bowyerApp.controller('rolesCtrl', ['api', 'commonFactory', function(api, commonFactory) {
-        var roles = this;
-        commonFactory.getAdminRoles(function(response){
-            roles.roles = response.data;
-        });
-    }]);
 })();

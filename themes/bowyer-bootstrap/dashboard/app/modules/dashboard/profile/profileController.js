@@ -1,7 +1,7 @@
 (function() {
     'use strict';
-    bowyerApp.controller('profileCtrl', ['api', 'constants','commonFactory','url', 
-    function(api, constants,commonFactory, url) {
+    bowyerApp.controller('profileCtrl', ['api', 'constants','commonFactory','url', 'localStorageService',
+    function(api, constants,commonFactory, url, localStorageService) {
         var profile = this;
         var profileCallConfig = {
             url: url.user.me
@@ -15,6 +15,7 @@
             profileCallConfig.data = profile.user;
             api.executeCall(profileCallConfig,function(response) {
                 if(response.data.user_id){
+                    localStorageService.set('user', response.data);
                     profile.profileError = {type:'success',message:'Profile updated successfully.'};
                 }
             },function(err){
