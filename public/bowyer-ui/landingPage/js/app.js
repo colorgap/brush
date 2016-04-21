@@ -2,20 +2,29 @@ var bowyerApp;
 (function() {
     'use strict';
     bowyerApp = angular
-        .module('bowyer', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ui.bootstrap']);
+        .module('bowyer', [
+            'ngAnimate', 
+            'ngCookies', 
+            'ngSanitize', 
+            'ui.router', 
+            'ui.bootstrap',
+            'LocalStorageModule']);
 
 })();
 
 (function() {
     'use strict';
-    bowyerApp.config(['$stateProvider', '$urlRouterProvider',function ($stateProvider, $urlRouterProvider) {
+    bowyerApp.config(['$stateProvider', '$urlRouterProvider','localStorageServiceProvider',
+    function ($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
         $stateProvider
             .state('home', {
                 url: '/',
                 templateUrl: 'bowyer-ui/landingPage/partials/home/index.html',
-                controller: 'homeCtrl'
+                controller: 'homeCtrl',
+                controllerAs: 'home'
             });
         $urlRouterProvider.otherwise('/');
+        localStorageServiceProvider.setPrefix('bowyer');
     }]);
 })();
 (function() {
@@ -26,12 +35,15 @@ var bowyerApp;
 })();
 (function() {
   'use strict';
-  bowyerApp.controller('homeCtrl',['$scope','$window', function($scope,$window){
-      $scope.scrollToSection = function(section){
+  bowyerApp.controller('homeCtrl',['$scope','$window','localStorageService', 
+  function($scope,$window,localStorageService){
+      var home = this;
+      home.scrollToSection = function(section){
         angular.element('html, body').stop().animate({
             scrollTop: angular.element('#'+section).offset().top
         }, 1000);
       };
+      home.user = localStorageService.get('user');
   }]);
 })();
 

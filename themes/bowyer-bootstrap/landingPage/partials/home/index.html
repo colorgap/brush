@@ -8,12 +8,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand anchor nav-link" ng-click="scrollToSection('body')"><bowyer-logo></bowyer-logo></a>
+                <a class="navbar-brand anchor nav-link" ng-click="home.scrollToSection('body')"><bowyer-logo></bowyer-logo></a>
             </div>
             <div class="collapse navbar-collapse navbar-mobile">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
-                        <a class="anchor nav-link" ng-click="scrollToSection('body')"></a>
+                        <a class="anchor nav-link" ng-click="home.scrollToSection('body')"></a>
                     </li>
                     <li>
                         <a class="nav-link" href="http://github.com/colorgap/bowyer">GitHub</a>
@@ -24,11 +24,14 @@
                     <li>
                         <a class="nav-link" href="http://colorgap.github.io/bowyer">Documentation</a>
                     </li>
-                    <li>
+                    <li ng-if="!home.user">
                         <a class="nav-link" href="/dashboard">Sign In</a>
                     </li>
-                    <li>
+                    <li ng-if="!home.user">
                         <a class="nav-link" href="/dashboard#/register">Sign Up</a>
+                    </li>
+                    <li ng-if="home.user">
+                        <a class="nav-link" href="/dashboard#/">{{home.user.name || home.user.username}}'s dashboard</a>
                     </li>
                 </ul>
             </div>
