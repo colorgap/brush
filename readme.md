@@ -1,5 +1,5 @@
 
-[![License](https://poser.pugx.org/colorgap/lume/license.svg)](https://packagist.org/packages/colorgap/lume)
+[![License](https://poser.pugx.org/colorgap/lume/license.svg)](https://packagist.org/packages/colorgap/bowyer)
 <p align="center">
 </p>
 ## Bowyer - Alpha
