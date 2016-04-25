@@ -1,6 +1,6 @@
 {
-    "name": "laravel/lumen",
-    "description": "The Laravel Lumen Framework.",
+    "name": "colorgap/bowyer",
+    "description": "App structure built with the Laravel Lumen Framework and Angular.",
     "keywords": ["framework", "laravel", "lumen"],
     "license": "MIT",
     "type": "project",
