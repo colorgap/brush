@@ -12,6 +12,7 @@ before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
   - sudo apt-get install nodejs
+  - sudo apt-get install npm
   - npm install && gulp
 
 # Commands you want to run that will verify your build.
