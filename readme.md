@@ -1,6 +1,9 @@
 
 [![License](https://poser.pugx.org/colorgap/bowyer/license.svg)](https://packagist.org/packages/colorgap/bowyer)
 [![Build](https://api.travis-ci.org/colorgap/bowyer.svg)](https://travis-ci.org/colorgap/bowyer)
+[![Dependency Status](https://david-dm.org/colorgap/bowyer.svg)](https://david-dm.org/colorgap/bowyer)
+[![devDependency Status](https://david-dm.org/colorgap/bowyer/dev-status.svg)](https://david-dm.org/colorgap/bowyer#info=devDependencies)
+
 <p align="center">
 </p>
 ## Bowyer - Alpha
