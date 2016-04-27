@@ -11,7 +11,7 @@ php:
 before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
-  - apt-get install nodejs
+  - sudo apt-get install nodejs
   - npm install && gulp
 
 # Commands you want to run that will verify your build.
