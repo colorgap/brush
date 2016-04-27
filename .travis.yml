@@ -1,15 +1,11 @@
 # Required to run your project under the correct environment.
-language: node_js
+language: php
 
 # Versions of PHP you want your project run with.
-node_js:
-  - "5.5"
-  - "4.2"
 php:
   - 5.5
   - 5.6
   - hhvm
-
 
 # Commands to be run before your environment runs.
 before_script:
