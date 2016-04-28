@@ -12,10 +12,7 @@ class RoutesTest extends TestCase
     public function testRoutesIndex()
     {
         $this->get('/');
-
-        $this->assertEquals(
-            true,true
-        );
+        $this->assertEquals(200 , $this->response->getStatusCode());
     }
      /**
      * A basic test dashboard.
@@ -26,8 +23,6 @@ class RoutesTest extends TestCase
     {
         $this->get('/dashboard');
 
-        $this->assertEquals(
-            true,true
-        );
+        $this->assertEquals(200 , $this->response->getStatusCode());
     }
 }
