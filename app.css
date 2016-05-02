@@ -1,0 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+html{
+  font-family: "Raleway",GillSans, Calibri, Trebuchet, sans-serif;
+  color: #4a148c;
+}
+nav a{
+  color: #4a148c !important;
+}
+
+.valign-wrapper{
+  height: 100vh;
+}
+
+
+header, main, footer{
+  padding-left: 240px;
+}
+
+.side-nav a{
+  height: 44px;
+  line-height: 44px;
+}
+
+@media only screen and (max-width : 992px){
+  header, main, footer{
+    padding-left: 0;
+  }
+  }
