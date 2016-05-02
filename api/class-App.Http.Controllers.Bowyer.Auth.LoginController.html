@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class App\Http\Controllers\Bowyer\Auth\LoginController</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">Overview</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-App.Http.Controllers.Bowyer.Auth.html" title="Summary of App\Http\Controllers\Bowyer\Auth"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+
+
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-App.html">
+							App<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-App.Http.html">
+							Http<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-App.Http.Controllers.html">
+							Controllers<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-App.Http.Controllers.Bowyer.html">
+							Bowyer<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Http.Controllers.Bowyer.Admin.html">
+							Admin<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Http.Controllers.Bowyer.Admin.HealthCheck.html">
+							HealthCheck						</a>
+							</li>
+								</ul></li>
+					<li class="active">
+						<a href="namespace-App.Http.Controllers.Bowyer.Auth.html">
+							Auth						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Http.Controllers.Bowyer.ReferenceData.html">
+							ReferenceData						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Http.Controllers.Bowyer.User.html">
+							User						</a>
+							</li>
+								</ul></li></ul></li>
+					<li>
+						<a href="namespace-App.Http.Middleware.html">
+							Middleware						</a>
+							</li>
+								</ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-App.Http.Controllers.Bowyer.Auth.LoginController.html">LoginController</a></li>
+				<li><a href="class-App.Http.Controllers.Bowyer.Auth.RegisterController.html">RegisterController</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class LoginController</h1>
+
+
+	<div class="description">
+	<p>Login validation and api token creation</p>
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+Laravel\Lumen\Routing\Controller
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-App.Http.Controllers.Controller.html"><span>App\Http\Controllers\Controller</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-App.Http.Controllers.ApiController.html"><span>App\Http\Controllers\ApiController</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:90px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>App\Http\Controllers\Bowyer\Auth\LoginController</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Http.html">Http</a>\<a href="namespace-App.Http.Controllers.html">Controllers</a>\<a href="namespace-App.Http.Controllers.Bowyer.html">Bowyer</a>\<a href="namespace-App.Http.Controllers.Bowyer.Auth.html">Auth</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-App.Http.Controllers.Bowyer.Auth.LoginController.html#12-65" title="Go to source code">Controllers/Bowyer/Auth/LoginController.php</a>
+		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="index" id="_index">
+
+			<td class="attributes"><code>
+				 public 
+				App\DataObjects\Common\Notification
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_index">#</a>
+			<code><a href="source-class-App.Http.Controllers.Bowyer.Auth.LoginController.html#16-30" title="Go to source code">index</a>( <span>Illuminate\Http\Request <var>$request</var></span> )</code>
+
+			<div class="description short">
+				<p>index method accepts request, validate for required fields.
+if username and password exist then forward to <em>validateLogin</em> to validate login from database
+else return error message.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>index method accepts request, validate for required fields.
+if username and password exist then forward to <em>validateLogin</em> to validate login from database
+else return error message.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$request</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						App\DataObjects\Common\Notification
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="validateLogin" id="_validateLogin">
+
+			<td class="attributes"><code>
+				 public 
+				App\DataObjects\Common\Notification
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_validateLogin">#</a>
+			<code><a href="source-class-App.Http.Controllers.Bowyer.Auth.LoginController.html#31-50" title="Go to source code">validateLogin</a>( <span>Illuminate\Http\Request <var>$request</var></span> )</code>
+
+			<div class="description short">
+				<p>validateLogin validates the username/email and password from database.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>validateLogin validates the username/email and password from database.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$request</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						App\DataObjects\Common\Notification
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="logout" id="_logout">
+
+			<td class="attributes"><code>
+				 public 
+				App\DataObjects\Common\Notification
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_logout">#</a>
+			<code><a href="source-class-App.Http.Controllers.Bowyer.Auth.LoginController.html#51-64" title="Go to source code">logout</a>( )</code>
+
+			<div class="description short">
+				<p>logout method gets user details from the Auth::user and removes api token from db and send back notification.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>logout method gets user details from the Auth::user and removes api token from db and send back notification.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						App\DataObjects\Common\Notification
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+		<div class="panel panel-default">
+	        <div class="panel-heading"><h3>Methods inherited from <a href="class-App.Http.Controllers.ApiController.html#methods">App\Http\Controllers\ApiController</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-App.Http.Controllers.ApiController.html#_getStatusCode">getStatusCode()</a></code>, 
+				<code><a href="class-App.Http.Controllers.ApiController.html#_respond">respond()</a></code>, 
+				<code><a href="class-App.Http.Controllers.ApiController.html#_respondCreated">respondCreated()</a></code>, 
+				<code><a href="class-App.Http.Controllers.ApiController.html#_respondInternalError">respondInternalError()</a></code>, 
+				<code><a href="class-App.Http.Controllers.ApiController.html#_respondNotFound">respondNotFound()</a></code>, 
+				<code><a href="class-App.Http.Controllers.ApiController.html#_respondOk">respondOk()</a></code>, 
+				<code><a href="class-App.Http.Controllers.ApiController.html#_respondWithCORS">respondWithCORS()</a></code>, 
+				<code><a href="class-App.Http.Controllers.ApiController.html#_respondWithError">respondWithError()</a></code>, 
+				<code><a href="class-App.Http.Controllers.ApiController.html#_respondWithValidationError">respondWithValidationError()</a></code>, 
+				<code><a href="class-App.Http.Controllers.ApiController.html#_setStatusCode">setStatusCode()</a></code>
+			</p>
+		</div>
+
+
+
+
+
+
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Properties summary</h2></div>
+		</div>
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h3>Properties inherited from <a href="class-App.Http.Controllers.ApiController.html#properties">App\Http\Controllers\ApiController</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-App.Http.Controllers.ApiController.html#$statusCode"><var>$statusCode</var></a></code>
+			</p>
+		</div>
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
