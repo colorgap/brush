@@ -1,0 +1,1 @@
+{"version":3,"file":"environment.js","sourceRoot":"","sources":["environment.ts"],"names":[],"mappings":";;;QAAa,WAAW;;;;YAAX,yBAAA,WAAW,GAAG;gBACzB,UAAU,EAAE,KAAK;aAClB,CAAA,CAAC","sourcesContent":["export const environment = {\n  production: false\n};\n"]}

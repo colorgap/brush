@@ -1,0 +1,55 @@
+CACHE MANIFEST
+# sw.bundle: ng-cli
+# sw.version: cf153cd1ba2d9d9148b3ece63083046632922b1e
+# sw.file.hash: da39a3ee5e6b4b0d3255bfef95601890afd80709
+/app/bowyer.component.css
+# sw.file.hash: e6f96c4248f61b6ed56909e1ec0066f462d494c2
+/app/bowyer.component.html
+# sw.file.hash: 3233d0fd759932a3a502bc7364b2abb13a1db94e
+/app/bowyer.component.js
+# sw.file.hash: 12fbe6109dc92e440a6ad5e76404fb5d4cc1bbb6
+/app/bowyer.component.js.map
+# sw.file.hash: 121e4c5e79f3bdc7d4731d600fe0141c7e93d0f8
+/app/bowyer.component.spec.js
+# sw.file.hash: 78a959eca7faae5d7fa6c8e16574fb27d166a9c9
+/app/bowyer.component.spec.js.map
+# sw.file.hash: 3981080332b61823895fb36cde2fda8e57d45261
+/app/environment.js
+# sw.file.hash: bb6a779e2fb753f2ad52a48841303eb2c2c26d06
+/app/environment.js.map
+# sw.file.hash: b1e176eede679eb1fbe74392959a80775e775f2b
+/app/shared/index.js
+# sw.file.hash: 068493a1b2b888f18c220f8b75560b6288017aea
+/app/shared/index.js.map
+# sw.file.hash: 84161b857f5c547e3699ddfbffc6d8d737542e01
+/favicon.ico
+# sw.file.hash: e62d91ed84475867f0b9ed0e59fc1dbe4e5531f4
+/index.html
+# sw.file.hash: 6a5492892e0cf8c2592f71306d2aa78bd24f00a8
+/main.js
+# sw.file.hash: 9eef26d8da886915f8fab8756c0b52624e51ae78
+/main.js.map
+# sw.file.hash: 2bb533abac1b3ca1058dd7731cafddf864f4cf93
+/system-config.js
+# sw.file.hash: ff89aa08f0084bd24f19c2826fad688f8977d2f2
+/system-config.js.map
+# sw.file.hash: 2b8cab9fde0f48a246094c5ce28c75e530579513
+/tsconfig.json
+# sw.file.hash: e5276ead9557ffe3cee53731a6025cdafd234f1b
+/vendor/angular2/bundles/angular2-polyfills.js
+# sw.file.hash: a0ce24ebed89f4d34e47e2a235ba5a2cdb7417da
+/vendor/angular2/bundles/angular2.dev.js
+# sw.file.hash: 63809ef9cd25fb043aa85d78277daae238716910
+/vendor/angular2/bundles/http.dev.js
+# sw.file.hash: 0a999c93acd7102b5d990b384d1a3cfcb0b301e8
+/vendor/angular2/bundles/router.dev.js
+# sw.file.hash: 64b77bee26ce7c8298ed454d73776c7602d41694
+/vendor/angular2/bundles/upgrade.dev.js
+# sw.file.hash: 2adbdc3a7b6d85ac53b76b52234f28b16c88c7b2
+/vendor/es6-shim/es6-shim.js
+# sw.file.hash: 736fe8675af5630486329adf5efe12ec7be449b1
+/vendor/rxjs/bundles/Rx.js
+# sw.file.hash: 064ab212cfd9e125474ae3bbb600c366b31e79cb
+/vendor/systemjs/dist/system-polyfills.js
+# sw.file.hash: 83128f4a4209eb7b16ad0bb729fda6939bc450fc
+/vendor/systemjs/dist/system.src.js
