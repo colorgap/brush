@@ -5,6 +5,7 @@
 [![devDependency Status](https://david-dm.org/colorgap/bowyer/dev-status.svg)](https://david-dm.org/colorgap/bowyer#info=devDependencies)
 
 <p align="center">
+<img src="public/images/bowyer.png" alt="Bowyer" style="width: 200px;"/>
 </p>
 ## Bowyer - Alpha
 #### App Scaffolding for laravel lumen and angular based projects:
