@@ -4,6 +4,7 @@
 /themes/bowyer-bootstrap/bower_components
 /themes/bowyer-material/bower_components
 /node_modules
+/public/bowyer-ui
 demo.lume.iml
 /tmp
 /target
