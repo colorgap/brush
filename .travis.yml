@@ -8,7 +8,7 @@ php:
   - hhvm
 
 env:
-  - TRAVIS_NODE_VERSION="4.2"
+  - TRAVIS_NODE_VERSION="5.1"
 
 install:
   - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
@@ -17,7 +17,8 @@ install:
 before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
-  - npm install && gulp
+  - npm install
+  - gulp
 
 # Commands you want to run that will verify your build.
 script: 
