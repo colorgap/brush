@@ -7277,22 +7277,22 @@ button.close {
     display: none !important; } }
 
 /*!
- *  Font Awesome 4.6.1 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.6.2 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.6.1");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.6.1") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.6.1") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.6.1") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.6.1") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.6.1#fontawesomeregular") format("svg");
+  src: url("../fonts/fontawesome-webfont.eot?v=4.6.2");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.6.2") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.6.2") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.6.2") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.6.2") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.6.2#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 /* line 4, /Users/rahulchaturvedi/office/groups/colorgap/projects/bowyer/bowyergit/bowyer/themes/bowyer-bootstrap/bower_components/fontawesome/scss/_core.scss */
 .fa {
   display: inline-block;
-  font: normal normal normal 14px / 1 FontAwesome;
+  font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -9071,7 +9071,7 @@ button.close {
   content: ""; }
 
 /* line 387, /Users/rahulchaturvedi/office/groups/colorgap/projects/bowyer/bowyergit/bowyer/themes/bowyer-bootstrap/bower_components/fontawesome/scss/_icons.scss */
-.fa-pied-piper:before {
+.fa-pied-piper-pp:before {
   content: ""; }
 
 /* line 388, /Users/rahulchaturvedi/office/groups/colorgap/projects/bowyer/bowyergit/bowyer/themes/bowyer-bootstrap/bower_components/fontawesome/scss/_icons.scss */
@@ -9235,6 +9235,7 @@ button.close {
 
 /* line 425, /Users/rahulchaturvedi/office/groups/colorgap/projects/bowyer/bowyergit/bowyer/themes/bowyer-bootstrap/bower_components/fontawesome/scss/_icons.scss */
 .fa-ra:before,
+.fa-resistance:before,
 .fa-rebel:before {
   content: ""; }
 
@@ -10089,6 +10090,22 @@ button.close {
 .fa-snapchat-square:before {
   content: ""; }
 
+/* line 632, /Users/rahulchaturvedi/office/groups/colorgap/projects/bowyer/bowyergit/bowyer/themes/bowyer-bootstrap/bower_components/fontawesome/scss/_icons.scss */
+.fa-pied-piper:before {
+  content: ""; }
+
+/* line 633, /Users/rahulchaturvedi/office/groups/colorgap/projects/bowyer/bowyergit/bowyer/themes/bowyer-bootstrap/bower_components/fontawesome/scss/_icons.scss */
+.fa-first-order:before {
+  content: ""; }
+
+/* line 634, /Users/rahulchaturvedi/office/groups/colorgap/projects/bowyer/bowyergit/bowyer/themes/bowyer-bootstrap/bower_components/fontawesome/scss/_icons.scss */
+.fa-yoast:before {
+  content: ""; }
+
+/* line 635, /Users/rahulchaturvedi/office/groups/colorgap/projects/bowyer/bowyergit/bowyer/themes/bowyer-bootstrap/bower_components/fontawesome/scss/_icons.scss */
+.fa-themeisle:before {
+  content: ""; }
+
 /* line 4, /Users/rahulchaturvedi/office/groups/colorgap/projects/bowyer/bowyergit/bowyer/themes/bowyer-bootstrap/bower_components/fontawesome/scss/_screen-reader.scss */
 .sr-only {
   position: absolute;
@@ -10113,17 +10130,17 @@ button.close {
  *  Do not remove this comments bellow. It's the markers used by wiredep to inject
  *  sass dependencies when defined in the bower.json of your dependencies
  */
-/* line 18, stdin */
+/* line 18, /Users/rahulchaturvedi/office/groups/colorgap/projects/bowyer/bowyergit/bowyer/themes/bowyer-bootstrap/landingPage/styles/main.scss */
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
   padding: 0.2em 0; }
 
-/* line 25, stdin */
+/* line 25, /Users/rahulchaturvedi/office/groups/colorgap/projects/bowyer/bowyergit/bowyer/themes/bowyer-bootstrap/landingPage/styles/main.scss */
 .thumbnail {
   height: 200px; }
-  /* line 28, stdin */
+  /* line 28, /Users/rahulchaturvedi/office/groups/colorgap/projects/bowyer/bowyergit/bowyer/themes/bowyer-bootstrap/landingPage/styles/main.scss */
   .thumbnail img.pull-right {
     width: 50px; }
 
