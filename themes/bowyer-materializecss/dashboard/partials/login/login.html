@@ -1,0 +1,50 @@
+
+<div class="valign-wrapper row no-margin" style="height:calc(100vh)">
+    <div class="col s12 m8 l4 offset-m2 offset-l4">
+        <div class="valign">
+            <form name="loginForm" ng-submit="login.validateLogin()" novalidate>
+                <h2 class="center purple-text text-darken-4">
+                    <bowyer-logo></bowyer-logo>
+                </h2>
+                <div class="row no-margin">
+                    <div class="input-field col s12 no-margin" ng-show="login.loginError">
+                        <div class="card">
+                            <div class="card-content red darken-4 white-text">
+                                {{login.loginError}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" ng-model="login.username" ng-change="login.error.username=false" class="no-margin validate" id="username">
+                        <label for="username">Username</label>
+                        <p ng-if="login.error.username" class="no-margin red-text">Username is required.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="password" ng-model="login.password" ng-change="login.error.password=false" class="no-margin validate" id="password">
+                        <label for="password">Password</label>
+                        <p ng-if="login.error.password" class="red-text no-margin">Password is required.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 center">
+                        <button type="submit" class="btn purple darken-4">Sign In</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 center">
+                        <a ui-sref="forgotPassword">Forgot Password</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 center">
+                        Don't have an account yet? <a ui-sref="register" class="btn btn-link">Sign Up</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

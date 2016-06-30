@@ -1,0 +1,111 @@
+<div class="navbar-fixed">
+    <nav class="white row" role="navigation">
+        <div class="nav-wrapper col s12">
+            <a href="" class="brand-logo">
+                <bowyer-logo></bowyer-logo>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="https://github.com/colorgap/bowyer">Github</a></li>
+                <li><a href="http://demo.bowyer.colorgap.com">Demo</a></li>
+                <li><a href="http://colorgap.github.io/bowyer/">Documentation</a></li>
+                <li ng-if="!home.user"><a href="/dashboard#/register">Sign Up</a></li>
+                <li ng-if="!home.user"><a href="/dashboard">Log In</a></li>
+                <li ng-if="home.user"><a href="/dashboard#/">{{home.user.name || home.user.username}}'s dashboard</a></li>
+            </ul>
+            <ul id="nav-mobile" class="side-nav">
+                <li>
+                    <h4 class="white-text center"><bowyer-logo></bowyer-logo></h4></li>
+                <li><a href="https://github.com/colorgap/bowyer">Github</a></li>
+                <li><a href="http://demo.bowyer.colorgap.com">Demo</a></li>
+                <li><a href="http://colorgap.github.io/bowyer/">Documentation</a></li>
+                <li ng-if="!home.user"><a href="/dashboard#/register">Sign Up</a></li>
+                <li ng-if="!home.user"><a href="/dashboard">Log In</a></li>
+                <li ng-if="home.user"><a href="/dashboard#/">{{home.user.name || home.user.username}}'s dashboard</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+</div>
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <br>
+        <br>
+        <h1 class="header center"><bowyer-logo></bowyer-logo></h1>
+        <div class="row center">
+            <h5 class="header col s12 light">Let's build an awesome app together.</h5>
+            <h6>Bowyer is an amazing app scaffolding for laravel's lumen and angular based projects.</h6>
+            <h6>Bowyer is open source and really easy to learn, install, build and ship.</h6>
+        </div>
+        <div class="row center">
+            <a href="http://demo.bowyer.colorgap.com" id="download-button" class="btn-large purple darken-4 white-text waves-effect">Demo</a>
+        </div>
+        <br>
+        <br>
+
+    </div>
+</div>
+<div class="container">
+    <div class="section">
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s12 m6 l4">
+                <div class="icon-block">
+                    <h2 class="center"><i class="material-icons">schedule</i></h2>
+                    <h5 class="center">Speeds up development</h5>
+                    <p class="light center">Start you new app development in next 10 minutes. With <bowyer-logo></bowyer-logo>
+                     you will get entire app structure in minutes. We follow industry standards and best practices to scaffold new apps.
+                     </p>
+                </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+                <div class="icon-block">
+                    <h2 class="center"><i class="material-icons">trending_up</i></h2>
+                    <h5 class="center">Built with latest technologies</h5>
+                    <p class="light center"><bowyer-logo></bowyer-logo> built with laravel's lumen php framework as backend framework and angular as frontend framework. 
+                    It comes with two themes for now, twitter bootstrap and materializecss (we are working to provide you more themes based on more frontend technology like ember.js, react and angular2.)</p>
+                </div>
+            </div>
+            <div class="col s12 m6 l4">
+                <div class="icon-block">
+                    <h2 class="center"><i class="material-icons">settings</i></h2>
+                    <h5 class="center">Easy to work with</h5>
+                    <p class="light center">We have provided detailed documentation as well as specific code examples to help new users get started.
+                        We are also always open to feedback and can answer any questions a user may have about <bowyer-logo></bowyer-logo>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Color][gap</h5>
+                <p class="grey-text text-lighten-4 padding-md-top">We are a team of focused developers want to make a change in app development industry. 
+                    We focus on developing app the right way.</p>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Documentation</h5>
+                <ul class="footer-link">
+                    <li><a class="white-text" href="http://colorgap.github.io/bowyer">Bowyer</a></li>
+                    <li><a class="white-text" href="http://colorgap.github.io/bowyer/api">Bowyer API</a></li>
+                </ul>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Connect</h5>
+                <ul class="footer-link">
+                    <li><a class="white-text" href="https://twitter.com/colorgap"><i class="fa fa-lg fa-twitter"></i> Twitter</a></li>
+                    <li><a class="white-text" href="https://www.facebook.com/colorgap"><i class="fa fa-lg fa-facebook-f"></i> Facebook</a></li>
+                    <li><a class="white-text" href="https://colorgap.slack.com"><i class="fa fa-lg fa-slack"></i> Slack</a></li>
+                    <li><a class="white-text" href="https://github.com/colorgap"><i class="fa fa-lg fa-github"></i> Github</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright purple darken-4">
+        <div class="container">
+            < coded > with <i class="fa fa-lg fa-heart red-text"></i> by <a class="white-text" href="https://colorgap.com">Color][gap</a>
+        </div>
+    </div>
+</footer>

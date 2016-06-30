@@ -1,0 +1,41 @@
+<div class="row">
+    <form ng-submit="profile.validateAndSave()" class="col s12">
+        <div class="row no-margin">
+            <div class="col s12">
+                <p>Update Your Profile</p>
+            </div>
+        </div>
+        <div class="row no-margin" ng-show="profile.profileError">
+            <div class="input-field col s12 no-margin">
+                <div class="card no-margin-top">
+                    <div class="card-content darken-4 white-text" ng-class="{'red':profile.profileError.type==='danger','green':profile.profileError.type==='success'}">
+                        {{profile.profileError.message}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" ng-model="profile.user.username" readonly id="username">
+                <label class="active" for="username">Username</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" ng-model="profile.user.name" class="validate" id="name">
+                <label class="active" for="name">Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="email" ng-model="profile.user.email" class="validate" id="email">
+                <label class="active" for="email">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <button type="submit" class="btn">Save <i class="material-icons right">send</i></button>
+            </div>
+        </div>
+    </form>
+</div>
