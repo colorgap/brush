@@ -1,0 +1,10 @@
+html, body{
+    overflow: hidden;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+.content-section{
+    height: calc(100vh - 64px)!important;
+    overflow-y: auto;
+}

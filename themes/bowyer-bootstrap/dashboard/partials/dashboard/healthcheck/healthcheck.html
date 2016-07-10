@@ -1,0 +1,46 @@
+<div class="row">
+    <ol class="breadcrumb no-margin">
+        <li>Health Check</li>
+    </ol>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2 col-md-2 padding-xs">
+            <h5>API Check: </h5>
+        </div>
+        <div class="col-xs-10 col-sm-9 col-md-9 padding-md">
+            <uib-progressbar class="" max="100" animate="true" value="vm.api.checkValue" type="{{vm.api.type}}">
+                <i>{{vm.api.checkMessage}}</i>
+            </uib-progressbar>
+        </div>
+        <div class="col-xs-2 col-sm-1 col-md-1 padding-md text-center">
+            <i class="fa fa-check fa-lg" ng-class="{'text-success': vm.api.checkPass}"></i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-2 col-md-2 padding-xs">
+            <h5>Database Check: </h5>
+        </div>
+        <div class="col-xs-10 col-sm-9 col-md-9 padding-md">
+            <uib-progressbar class="" max="100" animate="true" value="vm.db.checkValue" type="{{vm.db.type}}">
+                <i>{{vm.db.checkMessage}}</i>
+            </uib-progressbar>
+        </div>
+        <div class="col-xs-2 col-sm-1 col-md-1 padding-md text-center">
+            <i class="fa fa-check fa-lg" ng-class="{'text-success': vm.db.checkPass}"></i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-2 col-md-2 padding-xs">
+            <h5>Local Storage Check: </h5>
+        </div>
+        <div class="col-xs-10 col-sm-9 col-md-9 padding-md">
+            <uib-progressbar max="100" animate="true" value="vm.ls.checkValue" type="{{vm.ls.type}}">
+                <i>{{vm.ls.checkMessage}}</i>
+            </uib-progressbar>
+        </div>
+        <div class="col-xs-2 col-sm-1 col-md-1 padding-md text-center">
+            <i class="fa fa-check fa-lg" ng-class="{'text-success': vm.ls.checkPass}"></i>
+        </div>
+    </div>
+</div>

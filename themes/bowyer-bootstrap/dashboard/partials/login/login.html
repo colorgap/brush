@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="clearfix ui-login">
+                <form name="loginForm" class="ui-login-content" ng-submit="login.validateLogin()" novalidate>
+                    <h1 class="text-center text-primary">
+                        <bowyer-logo></bowyer-logo>
+                    </h1>
+                    <uib-alert type="danger" ng-show="login.loginError" close="login.loginError=false">
+                        <strong>{{login.loginError}}</strong>
+                    </uib-alert>
+                    <div class="form-group" ng-class="{'has-error':(loginForm.username.$invalid && !loginForm.username.$pristine)||login.error.username}"
+                    ng-keyup="login.error.username=false">
+                        <i class="fa fa-user text-primary input-form-icon"></i>
+                        <input type="text" autofocus class="form-control input-form-text" name="username" ng-model="login.username" placeholder="Username or Email"
+                        required>
+                        <p ng-if="login.error.username" class="text-danger">Username is required.</p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error':(loginForm.password.$invalid && !loginForm.password.$pristine)||login.error.password}"
+                    ng-keyup="login.error.password=false">
+                        <i class="fa fa-lock  text-primary input-form-icon"></i>
+                        <input type="password" class="form-control input-form-text" name="password" ng-model="login.password" placeholder="Password"
+                        required>
+                        <p ng-if="login.error.password" class="text-danger">Password is required.</p>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    </div>
+                    <div class="form-group text-center">
+                        <a ui-sref="forgotPassword" class="btn btn-link">Forgot Password</a>
+                    </div>
+                    <div class="form-group text-center">
+                        Don't have an account yet? <a ui-sref="register" class="btn btn-link">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

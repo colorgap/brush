@@ -40,7 +40,6 @@ module.exports = function(gulp, plugins,config,env){
             sassConfig: {
                 includePaths: [
                     'themes/'+themeName+'/bower_components' + '/bootstrap-sass-official/assets/stylesheets',
-                    'themes/'+themeName+'/bower_components' + '/Materialize/sass',
                     'themes/'+themeName+'/bower_components' + '/fontawesome/scss'
                 ]
             }
