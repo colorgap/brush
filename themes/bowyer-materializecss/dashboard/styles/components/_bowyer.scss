@@ -1,0 +1,14 @@
+.side-nav li a.active{
+    border-left: 5px solid $secondary-color;
+}
+.side-nav li a{
+    border-left: 5px;
+}
+.primary {
+  background-color: $primary-color !important; }
+.secondary {
+  background-color: $secondary-color !important; }
+.primary-text {
+  color: $primary-color !important; }
+.secondary-text {
+  color: $secondary-color !important; }
