@@ -74,9 +74,11 @@ This will create a bowyer-app.zip in target folder. Just place the zip in your s
 ---------------
 - Update themes in bowyer-config.json file
     option: "themeName"
-- bowyer-materializecss
+- bowyer-materializecss (90% ready)
 - bowyer-bootstrap
-- bowyer-material
+- bowyer-material (Under development)
 - Or design you own theme and use option themename: your_theme
+
 ------------------
 #### Note: Use "gulp watch" while in development node
+####     : This project is in alpha right now, feel free to contribute and if you want any feature that you feel is ready useful for this application send us at bowyer@colorgap.com we will try to add it to the bowyer.
