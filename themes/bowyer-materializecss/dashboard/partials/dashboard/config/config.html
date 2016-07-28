@@ -1,15 +1,19 @@
-<div class="row">
-    <ol class="bowyer-breadcrumb breadcrumb no-margin">
-        <li><a ui-sref="dashboard.config" class="bowyer-link">Configuration</a></li>
-        <li><a ui-sref-active="text-warning" class="bowyer-link" ui-sref="dashboard.config.roles">Roles</a></li>
-    </ol>
-</div>
+<nav>
+    <div class="nav-wrapper">
+        <div class="col s12 padding-md-left">
+        <a ui-sref="dashboard.config" ng-click="config.currentPage=''" class="breadcrumb">Configuration</a>
+        <a ng-if="config.currentPage" ui-sref-active="text-warning" ui-sref="dashboard.config.roles" class="breadcrumb">{{config.currentPage}}</a>
+        </div>
+    </div>
+</nav>
 <ui-view>
     <div class="row padding-md">
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center padding-sm">
-            <div class="well well-sm anchor" ui-sref="dashboard.config.roles" ng-click="config.currentPage='Roles'">
-                <i class="fa fa-3x fa-users text-primary"></i>
-                <h3>Roles</h3>
+        <div class="col s6 m3">
+            <div class="card anchor" ui-sref="dashboard.config.roles" ng-click="config.currentPage='Roles'">
+                <div class="card-content center no-border-radius z-depth-1 green col s6 white-text">
+                    <span class="card-title"><i class="material-icons small">contacts</i></span>
+                    <span class="card-title ng-binding">Roles</span>
+                </div>
             </div>
         </div>
     </div>

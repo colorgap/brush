@@ -1,7 +1,7 @@
 (function() {
     'use strict';
-    bowyerApp.controller('usersCtrl', ['api', 'constants', 'url', 'materializeModal',
-    function(api, constants, url, materializeModal) {
+    bowyerApp.controller('usersCtrl', ['api', 'constants', 'url',
+    function(api, constants, url) {
         var users = this;
         var usersCallConfig = {
             url: url.admin.users
@@ -54,7 +54,7 @@
 
             });
         };
-        users.openModal = function(){
+        /*users.openModal = function(){
            var modalInstance = materializeModal.open({
                 templateUrl: 'bowyer-ui/dashboard/partials/dashboard/users/addEditUser/addEditUser.html',
                 controller: 'addEditUserCtrl',
@@ -76,7 +76,7 @@
 
                     }
                 }
-            });
+            });*
             /*modalInstance.result.then(function(updateUser) {
                 if(updateUser.config.type==='add'){
                     users.users.push(updateUser.user);
@@ -84,6 +84,6 @@
             }, function() {
 
             });*/
-        };
+        //};
     }]);
 })();

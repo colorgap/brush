@@ -41,15 +41,15 @@
     </div>
 </div>
 <!-- Modal Trigger -->
-  <a class="modal-trigger waves-effect waves-light btn" ng-click="users.openModal()" target="modal1">Modal</a>
+  <a class="btn ng-isolate-scope" href="#demoModal" modal="" ready="readyCallback" complete="completeCallback" open="openModal"><span class="ng-scope">Show Modal</span></a>
 
   <!-- Modal Structure -->
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+  <div id="demoModal" class="modal" style="opacity: 0; transform: scaleX(0.7); top: 0px;">
+        <div class="modal-content">
+            <h4 class="ng-binding">Modal header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-    </div>
-  </div>

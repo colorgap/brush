@@ -213,7 +213,7 @@ $element-bottom-margin: ($gutter-width*2)/3 !default;
 /* 13. Navigation Bar
    ========================================================================== */
 
-$navbar-height: 64px !default;
+$navbar-height: 50px !default;
 $navbar-height-mobile: 56px !default;
 $navbar-font-color: $primary-color !default;
 $navbar-brand-font-size: 2.1rem !default;
@@ -225,7 +225,7 @@ $navbar-brand-font-size: 2.1rem !default;
 $sidenav-font-color: #fff !default;
 $sidenav-bg-color: $primary-color !default;
 $sidenav-padding-right: 30px !default;
-$sidenav-item-height: 55px !default;
+$sidenav-item-height: 40px !default;
 
 
 /* 15. Photo Slider
@@ -273,7 +273,7 @@ $off-black: rgba(0, 0, 0, 0.87) !default;
 $h1-fontsize: 4.2rem !default;
 $h2-fontsize: 3.56rem !default;
 $h3-fontsize: 2.92rem !default;
-$h4-fontsize: 2.28rem !default;
+$h4-fontsize: 2.00rem !default;
 $h5-fontsize: 1.64rem !default;
 $h6-fontsize: 1rem !default;
 
