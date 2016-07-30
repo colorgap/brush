@@ -9,7 +9,7 @@ var bowyerApp;
             'ngSanitize',
             'ui.router',
             'LocalStorageModule',
-            'ui.materialize'
+            'ui.materialize.bowyer'
         ]
     );
 })();
