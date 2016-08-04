@@ -81,4 +81,4 @@ This will create a bowyer-app.zip in target folder. Just place the zip in your s
 
 ------------------
 #### Note: Use "gulp watch" while in development node
-####     : This project is in alpha right now, feel free to contribute and if you want any feature that you feel is ready useful for this application send us at bowyer@colorgap.com we will try to add it to the bowyer.
+####     : This project is in alpha right now, feel free to contribute and if you want any feature that you feel is useful for this application send us at bowyer@colorgap.com we will try to add it to the bowyer.
