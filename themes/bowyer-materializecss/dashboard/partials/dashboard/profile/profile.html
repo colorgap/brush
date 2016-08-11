@@ -9,7 +9,7 @@
             <div class="input-field col s12 no-margin">
                 <div class="card no-margin-top">
                     <div class="card-content darken-4 white-text" ng-class="{'red':profile.profileError.type==='danger','green':profile.profileError.type==='success'}">
-                        {{profile.profileError.message}}
+                        {{profile.profileError.message || 'Updated Successfully.'}}
                     </div>
                 </div>
             </div>
