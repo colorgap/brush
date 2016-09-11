@@ -36,7 +36,7 @@ $layout-breakpoint-lg:     1920px !default;
 $icon-size: rem(2.400) !default;
 
 // App bar variables
-$app-bar-height: 64px;
+$app-bar-height: 48px;
 
 $toast-height: $baseline-grid * 3 !default;
 $toast-margin: $baseline-grid * 1 !default;
@@ -3624,7 +3624,7 @@ md-toolbar {
   }
   @for $i from 3 through 7 {
     md-menu-content[width="#{$i}"] {
-      min-width: $i * 64px;
+      min-width: $i * 48px;
     }
   }
 }
@@ -4402,8 +4402,8 @@ md-optgroup {
   }
 }
 
-$sidenav-mobile-width: 320px !default;
-$sidenav-desktop-width: 400px !default;
+$sidenav-mobile-width: 250px !default;
+$sidenav-desktop-width: 250px !default;
 $sidenav-min-space: 56px !default;
 
 md-sidenav {
@@ -5555,8 +5555,8 @@ md-toolbar + md-tabs {
 }
 
 // Standard/Desktop Heights
-$toolbar-tools-height: 64px !default;
-$toolbar-height: 64px !default;
+$toolbar-tools-height: 48px !default;
+$toolbar-height: 48px !default;
 $toolbar-medium-tall-height: 88px !default;
 $toolbar-tall-height: 128px !default;
 
@@ -5569,7 +5569,7 @@ $toolbar-tools-height-mobile-landscape: 48px !default;
 $toolbar-height-mobile-landscape: 48px !default;
 
 
-$toolbar-indent-margin: 64px !default;
+$toolbar-indent-margin: 48px !default;
 $toolbar-padding: 16px !default;
 
 $icon-button-margin-offset: rem(-0.800) !default;
@@ -5583,7 +5583,7 @@ md-toolbar {
   z-index: 2;
 
   font-size: rem(2.0);
-  min-height: $baseline-grid * 8;
+  min-height: $baseline-grid * 6;
   width: 100%;
 
   &.md-whiteframe-z1-add, &.md-whiteframe-z1-remove {

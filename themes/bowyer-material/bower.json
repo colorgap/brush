@@ -16,7 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-material": "^1.0.6",
+    "angular-material": "^1.1.1",
     "angular-ui-router": "^0.2.18"
   }
 }
