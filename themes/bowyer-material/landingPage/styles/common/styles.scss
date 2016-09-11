@@ -1,0 +1,85 @@
+.text-center{
+    text-align: center;
+}
+md-content.md-bowyer-theme{
+    color: #4A148C;
+    background-color: #ffffff;
+}
+md-content.md-bowyer-theme.inverse{
+    background-color: #4A148C;
+    color: #ffffff;
+}
+
+.app-homepage-header-row {
+    min-height: 180px;
+    padding: 10px 20px;
+    color: #ffffff;
+}
+.colorgap-logo{
+    width:40px;
+    height:40px;
+    margin: -13px -19px;
+}
+
+@media screen and (min-width: 960px) and (max-width: 1024px) {
+    .app-homepage-header-row {
+        background: url("/images/work-desk.png") no-repeat 95% 0;
+        background-size: auto 100%;
+        min-height: 180px;
+        padding: 10px 20px;
+        color: #ffffff;
+    }
+    .app-homepage-header-row h4{
+        width: 50%;
+    }
+}
+@media screen and (min-width: 1025px) and (max-width: 1279px) {
+    .app-homepage-header-row {
+        background: url("/images/work-desk.png") no-repeat 90% 0;
+        background-size: auto 100%;
+        min-height: 180px;
+        padding: 10px 20px;
+        color: #ffffff;
+    }
+    .app-homepage-header-row h4{
+        width: 50%;
+    }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+    .app-homepage-header-row {
+        background: url("/images/work-desk.png") no-repeat 88% 0;
+        background-size: auto 100%;
+        min-height: 180px;
+        padding: 40px 160px;
+        color: #ffffff;
+    }
+    .app-homepage-header-row h4{
+        width: 50%;
+    }
+}
+@media screen and (min-width: 1920px) {
+    .app-homepage-header-row {
+        background: url("/images/work-desk.png") no-repeat 80% 0;
+        background-size: auto 100%;
+        min-height: 180px;
+        padding: 40px 160px;
+        color: #ffffff;
+    }
+    .app-homepage-header-row h4{
+        width: 50%;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 960px) {
+    .app-homepage-header-row {
+        min-height: 180px;
+        padding: 10px 30px;
+        color: #ffffff;
+    }
+}
+@media screen and (max-width: 456px) {
+    .app-homepage-header-row {
+        min-height: 180px;
+        padding: 10px 10px;
+        color: #ffffff;
+    }
+}

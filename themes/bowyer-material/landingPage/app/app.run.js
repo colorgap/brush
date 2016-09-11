@@ -1,8 +1,7 @@
 (function() {
   'use strict';
 
-  angular
-    .module('bowyer')
+  app
     .run(runBlock);
 
   /** @ngInject */

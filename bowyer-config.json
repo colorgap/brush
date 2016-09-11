@@ -1,3 +1,9 @@
 {
-    "themeName": "bowyer-material"
+    "themeName": "bowyer-material",
+    "landingPage": {
+        "folderName": "landingPage"
+    },
+    "dashboard": {
+        "folderName": "dashboard"
+    }
 }

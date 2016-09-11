@@ -5,7 +5,7 @@ var runSequence = require('run-sequence');
 var plugins = require('gulp-load-plugins')();
 var bowyerConfig = require('./bowyer-config.json');
 var getConfig = function () {
-    var config =  require('./gulp-tasks/common/config')()(bowyerConfig.themeName);
+    var config =  require('./gulp-tasks/common/config')()(bowyerConfig);
     return config;
 };
 var getTask = function (task) {

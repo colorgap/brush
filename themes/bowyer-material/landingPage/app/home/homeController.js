@@ -1,7 +1,7 @@
-(function() {
+(function () {
   'use strict';
-  angular
-    .module('bowyer').controller('homeCtrl',['$scope','$window', function($scope,$window){
-  
+
+  app.controller('homeCtrl', ['$scope', '$window', function ($scope, $window) {
+
   }]);
 })();
