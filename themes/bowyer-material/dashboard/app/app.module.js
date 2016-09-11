@@ -1,14 +1,14 @@
-var bowyerApp;
+var app;
 (function() {
   'use strict';
 
-  bowyerApp = angular
+  app = angular
     .module('bowyer', ['ui.router', 'ngMaterial']);
 
 })();
 (function() {
   'use strict';
-  bowyerApp
+  app
     .config(configBlock);
   function configBlock($mdThemingProvider) {
       $mdThemingProvider.definePalette('bowyer-purple', {

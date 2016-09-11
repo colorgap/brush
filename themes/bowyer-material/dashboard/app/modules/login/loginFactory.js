@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    bowyerApp.factory('loginFactory', ['constants','url',function(constants,url) {
+    app.factory('loginFactory', ['constants','url',function(constants,url) {
         return {
             login: function(login) {
                 return {

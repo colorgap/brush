@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  bowyerApp
+  app
     .config(routeConfig);
 
   /** @ngInject */

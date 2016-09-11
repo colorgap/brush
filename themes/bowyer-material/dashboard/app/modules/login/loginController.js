@@ -4,7 +4,7 @@
  */
 (function () {
     'use strict';
-    bowyerApp.controller('loginCtrl', ['$scope','$state', '$stateParams','$timeout', '$mdSidenav', '$log',
+    app.controller('loginCtrl', ['$scope','$state', '$stateParams','$timeout', '$mdSidenav', '$log',
         function ($scope,$state, $stateParams, $timeout, $mdSidenav, $log) {
             var login = this;
             //login.loginError = loginFactory.logoutMessage;
