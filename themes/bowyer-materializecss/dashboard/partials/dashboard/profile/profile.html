@@ -1,8 +1,15 @@
+<nav>
+    <div class="nav-wrapper">
+        <div class="col s12 padding-md-left">
+        <a ui-sref="dashboard.config" ng-click="config.currentPage=''" class="breadcrumb">Update your profile</a>
+        </div>
+    </div>
+</nav>
 <div class="row">
     <form ng-submit="profile.validateAndSave()" class="col s12">
         <div class="row no-margin">
             <div class="col s12">
-                <p>Update Your Profile</p>
+                &nbsp;
             </div>
         </div>
         <div class="row no-margin" ng-show="profile.profileError">
