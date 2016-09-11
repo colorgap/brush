@@ -81,6 +81,15 @@
                     });
 
             };
+            $scope.drawer = function () {
+                // Component lookup should always be available since we are not using `ng-if`
+                console.log($mdSidenav('left'));
+                $mdSidenav('left').close()
+                    .then(function () {
+                        $log.debug("close LEFT is done");
+                    });
+
+            };
         })
         .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
             $scope.close = function () {

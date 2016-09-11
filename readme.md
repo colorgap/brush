@@ -23,7 +23,7 @@ Best part of bowyer is, it comes with 2 different UI: one for landing page and o
 ------------------
 ### Jump Start your app today...
 Prerequisites:
-- php 5 or above
+- php 5.6 or above
 - node.js 4 or above
 - composer
 
