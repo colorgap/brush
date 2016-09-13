@@ -1,7 +1,7 @@
 <div layout="column">
   <md-toolbar md-whiteframe="2">
     <div class="md-toolbar-tools">
-      <i ng-click="toggleLeft()" class="material-icons anchor" hide-gt-md>view_headline</i>
+      <i ng-click="toggleLeft()" class="material-icons anchor sidenav-mobile-burger" hide-gt-md>view_headline</i>
       <span class="bold"><logo></logo></span>
       <!-- fill up the space between left and right area -->
       <span flex></span>
@@ -14,36 +14,47 @@
 </div>
 <div layout="column" layout-fill>
   <section layout="row" flex>
-
     <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
-
-
-      <md-content layout-padding class="layout-offset-nav" ng-controller="LeftCtrl">
-        <md-button ng-click="close()" class="md-primary" hide-gt-md>
-          Close Sidenav Left
-        </md-button>
-        <md-button ng-click="drawer()" class="md-primary" hide show-gt-md>
-          Close Sidenav Left
-        </md-button>
-
-        <p>
-          This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
-        </p>
-        <p>
-          This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
-        </p>
-        <p>
-          This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
-        </p>
-        <p>
-          This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
-        </p>
-        <p>
-          This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
-        </p>
-        <p>
-          This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
-        </p>
+      <md-content layout-padding class="layout-offset-nav">
+        <h1 hide-gt-md class="sidenav-mobile-heading"><logo></logo></h1>
+        <md-menu-content>
+          <md-menu-item>
+            <md-button ui-sref="dashboard">
+              <md-icon md-menu-align-target class="material-icons step">domain</md-icon>
+              Dashboard
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ui-sref="dashboard.alerts">
+              <md-icon md-menu-align-target class="material-icons step">add_alert</md-icon>
+              Alerts
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ng-click="ctrl.announceClick($index)">
+              <md-icon md-menu-align-target class="material-icons step">settings</md-icon>
+              Admin
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ng-click="showSubmenu=!showSubmenu">
+              <md-icon md-menu-align-target class="material-icons step">account_circle</md-icon>
+              My Account
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-if="showSubmenu">
+            <md-button ui-sref="dashboard.profile">
+              <md-icon md-menu-align-target class="material-icons step"></md-icon>
+              My Profile
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-if="showSubmenu">
+            <md-button ui-sref="dashboard.resetPassword">
+              <md-icon md-menu-align-target class="material-icons step"></md-icon>
+              Reset Password
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
         <p hide show-gt-md>
           This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
         </p>
@@ -52,9 +63,76 @@
     </md-sidenav>
 
     <md-content flex layout-padding class="layout-offset-nav">
+      <ui-view class="no-padding">
+         <md-content class="no-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Card with image</span>
+            <span class="md-subhead">Large</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+      <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Card with image</span>
+            <span class="md-subhead">Extra Large</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="row" layout-align="space-between">
+          <div class="md-media-xl card-media"></div>
 
-      <div flex></div>
-
+          <md-card-actions layout="column">
+          </md-card-actions>
+        </md-card-content>
+      </md-card>
+    </div>
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Card with image</span>
+            <span class="md-subhead">Small</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-sm card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+      <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Card with image</span>
+            <span class="md-subhead">Medium</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-md card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+      <div layout layout-padding layout-align="center end" style="height:200px">
+        <md-checkbox ng-model="showDarkTheme">Use 'Dark' Themed Cards</md-checkbox>
+      </div>
+    </div>
+  </md-content>
+      </ui-view>
     </md-content>
 
     <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
@@ -62,14 +140,14 @@
       <md-toolbar class="md-theme-light">
         <h1 class="md-toolbar-tools">Sidenav Right</h1>
       </md-toolbar>
-      <md-content layout-padding ng-controller="RightCtrl">
+      <md-content layout-padding>
         <form>
           <md-input-container>
             <label for="testInput">Test input</label>
             <input type="text" id="testInput" ng-model="data" md-autofocus>
           </md-input-container>
         </form>
-        <md-button ng-click="close()" class="md-primary">
+        <md-button ng-click="rightclose()" class="md-primary">
           Close Sidenav Right
         </md-button>
       </md-content>

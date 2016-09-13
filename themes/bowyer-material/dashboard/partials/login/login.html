@@ -1,0 +1,28 @@
+<div layout="column" layout-align="center center" layout-fill="layout-fill">
+  <form name="loginForm" ng-submit="login.validateLogin()" novalidate>
+    <div layout="column" class="loginBox md-whiteframe-z1">
+      <md-toolbar>
+        <h2 class="md-toolbar-tools">
+          <div class="center">
+            <logo></logo>
+          </div>
+        </h2>
+      </md-toolbar>
+      <md-content layout="column" class="md-padding">
+        <md-input-container>
+          <label>Username</label>
+          <input type="text" ng-model="login.username" />
+        </md-input-container>
+        <md-input-container>
+          <label>Password</label>
+          <input type="password" ng-model="login.password" />
+        </md-input-container>
+        <div layout="row" layout-align="center center">
+          <button class="md-raised md-primary" type="submit">Login</button>
+          <div flex="flex"></div>
+          <md-button href="" md-no-ink="md-no-ink">Forgot Password</md-button>
+        </div>
+      </md-content>
+    </div>
+  </form>
+</div>

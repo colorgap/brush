@@ -9,5 +9,9 @@ html, body{
     overflow-y: auto;
 }
 .layout-offset-nav{
-    margin-bottom: 48px;
+    padding: 0px;
+    margin: 0px 0px 48px 0px;
+}
+.layout-offset-nav md-menu-content{
+    padding: 0px;
 }

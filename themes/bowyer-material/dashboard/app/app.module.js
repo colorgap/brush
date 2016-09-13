@@ -3,7 +3,7 @@ var app;
   'use strict';
 
   app = angular
-    .module('bowyer', ['ui.router', 'ngMaterial']);
+    .module('bowyer', ['ui.router', 'ngMaterial','LocalStorageModule']);
 
 })();
 (function() {
