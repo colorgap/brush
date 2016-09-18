@@ -32,6 +32,12 @@ var app;
         '200', '300', '400', 'A100'],
         'contrastLightColors': undefined    // could also specify this if default was 'dark'
     });
+
+    $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
+    $mdThemingProvider.theme('dark-orange').backgroundPalette('orange').dark();
+    $mdThemingProvider.theme('dark-purple').backgroundPalette('deep-purple').dark();
+    $mdThemingProvider.theme('amber').backgroundPalette('amber');
+    
     $mdThemingProvider.theme('bowyer')
         .primaryPalette('bowyer-purple')
         .accentPalette('amber');

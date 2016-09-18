@@ -5,7 +5,7 @@
       <span class="bold"><logo></logo></span>
       <!-- fill up the space between left and right area -->
       <span flex></span>
-      <md-button class="md-accent bold" href="/dashboard/#/login">
+      <md-button class="md-accent bold" ui-sref="logout">
         Sign out
       </md-button>
       <i ng-click="toggleRight()" ng-hide="isOpenRight()" class="material-icons anchor">view_headline</i>
@@ -16,7 +16,9 @@
   <section layout="row" flex>
     <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
       <md-content layout-padding class="layout-offset-nav">
-        <h1 hide-gt-md class="sidenav-mobile-heading"><logo></logo></h1>
+        <h1 hide-gt-md class="sidenav-mobile-heading">
+          <logo></logo>
+        </h1>
         <md-menu-content>
           <md-menu-item>
             <md-button ui-sref="dashboard">
@@ -25,133 +27,115 @@
             </md-button>
           </md-menu-item>
           <md-menu-item>
-            <md-button ui-sref="dashboard.alerts">
+            <md-button ui-sref="dashboard.alerts" ui-sref-active="md-primary nav-active">
               <md-icon md-menu-align-target class="material-icons step">add_alert</md-icon>
               Alerts
             </md-button>
           </md-menu-item>
           <md-menu-item>
-            <md-button ng-click="ctrl.announceClick($index)">
+            <md-button ng-click="showSubmenuAdmin=!showSubmenuAdmin">
               <md-icon md-menu-align-target class="material-icons step">settings</md-icon>
               Admin
             </md-button>
           </md-menu-item>
+          <md-menu-item ng-if="showSubmenuAdmin">
+            <md-button ui-sref="dashboard.users" ui-sref-active="md-primary nav-active">
+              <md-icon md-menu-align-target class="material-icons step"></md-icon>
+              User Management
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-if="showSubmenuAdmin" ui-sref-active="md-primary nav-active">
+            <md-button ui-sref="dashboard.config">
+              <md-icon md-menu-align-target class="material-icons step"></md-icon>
+              Configuration
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-if="showSubmenuAdmin" ui-sref-active="md-primary nav-active">
+            <md-button ui-sref="dashboard.api">
+              <md-icon md-menu-align-target class="material-icons step"></md-icon>
+              API
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-if="showSubmenuAdmin" ui-sref-active="md-primary nav-active">
+            <md-button ui-sref="dashboard.healthcheck">
+              <md-icon md-menu-align-target class="material-icons step"></md-icon>
+              Health Check
+            </md-button>
+          </md-menu-item>
           <md-menu-item>
-            <md-button ng-click="showSubmenu=!showSubmenu">
+            <md-button ng-click="showSubmenuAccount=!showSubmenuAccount">
               <md-icon md-menu-align-target class="material-icons step">account_circle</md-icon>
               My Account
             </md-button>
           </md-menu-item>
-          <md-menu-item ng-if="showSubmenu">
+          <md-menu-item ng-if="showSubmenuAccount" ui-sref-active="md-primary nav-active">
             <md-button ui-sref="dashboard.profile">
               <md-icon md-menu-align-target class="material-icons step"></md-icon>
               My Profile
             </md-button>
           </md-menu-item>
-          <md-menu-item ng-if="showSubmenu">
-            <md-button ui-sref="dashboard.resetPassword">
+          <md-menu-item ng-if="showSubmenuAccount">
+            <md-button ui-sref="dashboard.resetPassword" ui-sref-active="md-primary nav-active">
               <md-icon md-menu-align-target class="material-icons step"></md-icon>
               Reset Password
             </md-button>
           </md-menu-item>
         </md-menu-content>
-        <p hide show-gt-md>
-          This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
-        </p>
       </md-content>
 
     </md-sidenav>
 
     <md-content flex layout-padding class="layout-offset-nav">
       <ui-view class="no-padding">
-         <md-content class="no-padding" layout-xs="column" layout="row">
-    <div flex-xs flex-gt-xs="50" layout="column">
-      <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Large</span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-lg card-media"></div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button>Action 1</md-button>
-          <md-button>Action 2</md-button>
-        </md-card-actions>
-      </md-card>
-      <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Extra Large</span>
-          </md-card-title-text>
-        </md-card-title>
-        <md-card-content layout="row" layout-align="space-between">
-          <div class="md-media-xl card-media"></div>
-
-          <md-card-actions layout="column">
-          </md-card-actions>
-        </md-card-content>
-      </md-card>
-    </div>
-    <div flex-xs flex-gt-xs="50" layout="column">
-      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Small</span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-sm card-media"></div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button>Action 1</md-button>
-          <md-button>Action 2</md-button>
-        </md-card-actions>
-      </md-card>
-      <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Medium</span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-md card-media"></div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button>Action 1</md-button>
-          <md-button>Action 2</md-button>
-        </md-card-actions>
-      </md-card>
-      <div layout layout-padding layout-align="center end" style="height:200px">
-        <md-checkbox ng-model="showDarkTheme">Use 'Dark' Themed Cards</md-checkbox>
-      </div>
-    </div>
-  </md-content>
       </ui-view>
     </md-content>
 
     <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
 
-      <md-toolbar class="md-theme-light">
-        <h1 class="md-toolbar-tools">Sidenav Right</h1>
-      </md-toolbar>
-      <md-content layout-padding>
-        <form>
-          <md-input-container>
-            <label for="testInput">Test input</label>
-            <input type="text" id="testInput" ng-model="data" md-autofocus>
-          </md-input-container>
-        </form>
-        <md-button ng-click="rightclose()" class="md-primary">
-          Close Sidenav Right
-        </md-button>
+      <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="one">
+            <md-content class="md-padding">
+              <h1 class="md-display-2">Tab One</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque
+                ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est,
+                sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+            </md-content>
+          </md-tab>
+          <md-tab label="two">
+            <md-content class="md-padding">
+              <h1 class="md-display-2">Tab Two</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque
+                ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est,
+                sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in
+                ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante
+                varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam,
+                a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis
+                risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum
+                ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor
+                vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+              <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere
+                nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus
+                egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra
+                sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc
+                leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+              <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum.
+                Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum
+                nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque,
+                finibus commodo lectus.</p>
+            </md-content>
+          </md-tab>
+          <md-tab label="three">
+            <md-content class="md-padding">
+              <h1 class="md-display-2">Tab Three</h1>
+              <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum.
+                Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum
+                nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque,
+                finibus commodo lectus.</p>
+            </md-content>
+          </md-tab>
+        </md-tabs>
       </md-content>
-
     </md-sidenav>
 
   </section>

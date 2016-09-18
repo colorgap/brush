@@ -11,7 +11,7 @@
                 })
                 .state('logout', {
                     url: '/logout',
-                    controller: 'loginCtrl',
+                    controller: 'logoutCtrl',
                     controllerAs: 'logout'
                 })
                 .state('forgotPassword', {
@@ -73,7 +73,7 @@
                 .state('dashboard.healthcheck', {
                     url: 'healthcheck',
                     templateUrl: 'bowyer-ui/dashboard/partials/dashboard/healthcheck/healthcheck.html',
-                    controller: 'loginCtrl as vm'
+                    controller: 'healthCheckCtrl as vm'
                 });
             $urlRouterProvider.otherwise('/login');
             //localStorageServiceProvider.setPrefix('bowyer');

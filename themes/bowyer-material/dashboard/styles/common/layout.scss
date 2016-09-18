@@ -15,3 +15,25 @@ html, body{
 .layout-offset-nav md-menu-content{
     padding: 0px;
 }
+.navBardemoBasicUsage md-content .ext-content {
+  padding: 50px;
+  margin: 20px;
+  background-color: #FFF2E0; }
+._md-nav-bar-list {
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    outline: none;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    color: #fff;
+}
+md-menu-content{
+    max-height: 100%;
+}
+.nav-active{
+    border-right: 5px solid rgba(255,215,64,0.87);
+}
