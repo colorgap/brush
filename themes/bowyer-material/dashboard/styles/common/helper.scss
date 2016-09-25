@@ -136,3 +136,19 @@
     cursor: pointer;
     text-decoration: none;
 }
+
+$grid-columns: 12!default;
+@mixin col($col, $sum, $align: top) {
+  width: percentage($col/$sum);
+  display: inline-block;
+  box-sizing: border-box;
+
+  @media only screen and (min-width: 768px) {
+    width: percentage($col/$sum);
+    vertical-align: $align;
+  }
+}
+
+@for $i from 1 through $grid-columns {
+  .md-cell-#{$i} { @include col($i,$grid-columns);}
+}

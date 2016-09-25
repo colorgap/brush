@@ -16,7 +16,7 @@
                 })
                 .state('forgotPassword', {
                     url: '/forgotPassword',
-                    templateUrl: 'bowyer-ui/dashboard/partials/forgotPassword/forgotPassword.html',
+                    templateUrl: 'bowyer-ui/dashboard/partials/forgotpassword/forgotpassword.html',
                     controller: 'loginCtrl',
                     controllerAs: 'forgotPassword'
                 })

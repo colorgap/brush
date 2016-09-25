@@ -15,16 +15,14 @@
           <label>Password</label>
           <input type="password" ng-model="login.password" />
         </md-input-container>
+        <md-input-container class="no-margin">
+          <label>Verify Password</label>
+          <input type="password" ng-model="login.verifypassword" />
+        </md-input-container>
         <div layout="row" layout-align="center center">
-          <md-checkbox class="font-sm padding-xs no-padding-left-right" ng-model="login.remmeberme" aria-label="remember me" flex="50" flex-sm="100">
-            Remember Me
-          </md-checkbox>
-           <a ui-sref="forgotPassword" class="margin-md-bottom md-caption right anchor" flex="50" flex-sm="100">Forgot Password?</a>
+          <md-button class="md-raised md-primary bold md-cell-12" type="submit">Sign Up</md-button>
         </div>
-        <div layout="row" layout-align="center center">
-          <md-button class="md-raised md-primary bold md-cell-12" type="submit">Sign In</md-button>
-        </div>
-        <p class="center md-caption"><span>Don't have an account?</span> <span><a ui-sref="register" class="anchor">Register now</a>.</span></p>
+        <p class="center md-caption"><span>Have an account?</span> <span><a ui-sref="login" class="anchor">Login now</a>.</span></p>
       </md-content>
     </div>
   </form>
