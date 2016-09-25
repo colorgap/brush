@@ -13,7 +13,7 @@
             });
             api.executeCall(healthCheckFactory.dbCheckConfig, function(response) {
                 vm.db = healthCheckFactory.success;
-                if (response.data.api_token === localStorageService.get('user').api_token) {
+                if (response.data.api_token === localStorageService.get('apitoken')) {
                     vm.ls = healthCheckFactory.success;
                 } else {
                     vm.ls = healthCheckFactory.failed;

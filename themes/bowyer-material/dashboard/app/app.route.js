@@ -1,7 +1,7 @@
 (function() {
     'use strict';
-    var routeConfig = ['$stateProvider', '$urlRouterProvider', '$httpProvider',
-        function($stateProvider, $urlRouterProvider,$httpProvider) {
+    var routeConfig = ['$stateProvider', '$urlRouterProvider', '$httpProvider','localStorageServiceProvider',
+        function($stateProvider, $urlRouterProvider,$httpProvider,localStorageServiceProvider) {
             $stateProvider
                 .state('login', {
                     url: '/login',
@@ -76,7 +76,7 @@
                     controller: 'healthCheckCtrl as vm'
                 });
             $urlRouterProvider.otherwise('/login');
-            //localStorageServiceProvider.setPrefix('bowyer');
+            localStorageServiceProvider.setPrefix('bowyer');
             $httpProvider.interceptors.push('tokenInjector');
         }];
         

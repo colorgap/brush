@@ -7,9 +7,19 @@
 .no-padding-right{
     padding-right: 0px!important;
 }
+.no-padding-top{
+    padding-top: 0px!important;
+}
+.no-padding-bottom{
+    padding-bottom: 0px!important;
+}
 .no-padding-left-right{
     padding-right: 0px!important;
     padding-left: 0px!important;
+}
+.no-padding-top-bottom{
+    padding-top: 0px!important;
+    padding-bottom: 0px!important;
 }
 .padding-xs{
     padding: 2px;
@@ -54,6 +64,12 @@
 .no-margin-left{
     margin-left: 0px!important;
 }
+.no-margin-top{
+    margin-top: 0px!important;
+}
+.no-margin-bottom{
+    margin-bottom: 0px!important;
+}
 .no-margin{
     margin: 0px!important;
 }
@@ -64,10 +80,22 @@
     margin: 5px;
 }
 .margin-sm-top{
-    margin-top: 6px;
+    margin-top: 8px;
+}
+.margin-md-top{
+    margin-top: 16px;
+}
+.margin-lg-top{
+    margin-top: 24px;
 }
 .margin-sm-bottom{
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+}
+.margin-md-bottom{
+    margin-bottom: 16px;
+}
+.margin-lg-bottom{
+    margin-bottom: 24px;
 }
 .margin-md{
     margin: 10px;
@@ -77,4 +105,34 @@
 }
 .margin-xl{
     margin: 30px;
+}
+.font-sm{
+    font-size: 13px;
+}
+.font-md{
+    font-size: 24px;
+}
+.font-lg{
+    font-size: 48px;
+}
+.font-xl{
+    font-size: 72px;
+}
+
+.center{
+    text-align: center;
+}
+.left{
+    text-align: left;
+}
+.right{
+    text-align: right;
+}
+.bold{
+    font-weight: bold;
+}
+.anchor{
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
 }

@@ -1,0 +1,31 @@
+<md-toolbar class="md-accent">
+    <div class="md-toolbar-tools">
+        <h5>
+            <span>Profile Settings</span>
+        </h5>
+        <span flex></span>
+    </div>
+</md-toolbar>
+<div class="row">
+    <form ng-submit="profile.validateAndSave()" class="col-md-4 col-md-offset-4 padding-lg">
+        <uib-alert type="{{profile.profileError.type}}" ng-show="profile.profileError" close="profile.profileError=false">
+            <strong>{{profile.profileError.message}}</strong>
+        </uib-alert>
+        <div class="form-group">
+            <i class="fa fa-user text-primary input-form-icon"></i>
+            <input type="text" class="form-control input-form-text" ng-model="profile.user.username" readonly placeholder="UserName">
+        </div>
+        <div class="form-group">
+            <i class="fa fa-user text-primary input-form-icon"></i>
+            <input type="text" class="form-control input-form-text" ng-model="profile.user.name" placeholder="Name">
+        </div>
+        <div class="form-group" ng-class="{'has-error':profile.error.email}">
+            <i class="fa fa-at text-primary input-form-icon"></i>
+            <input type="text" ng-change="profile.error.email=false" class="form-control input-form-text" ng-model="profile.user.email" placeholder="Email">
+            <p ng-if="profile.error.email" class="text-danger" ng-repeat="message in profile.error.email">{{message}}</p>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Save</button>
+        </div>
+    </form>
+</div>

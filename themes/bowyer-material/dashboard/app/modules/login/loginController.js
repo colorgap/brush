@@ -4,8 +4,8 @@
  */
 (function() {
     'use strict';
-    app.controller('loginCtrl', ['api', '$state','$stateParams', 'localStorageService', 'loginFactory','$scope','$timeout', '$mdSidenav', '$log',
-        function(api, $state,$stateParams, localStorageService, loginFactory,$scope,$timeout, $mdSidenav, $log) {
+    app.controller('loginCtrl', ['api', '$state','$stateParams', 'localStorageService', 'loginFactory','$scope','$timeout', '$mdSidenav', '$log','$mdToast',
+        function(api, $state,$stateParams, localStorageService, loginFactory,$scope,$timeout, $mdSidenav, $log,$mdToast) {
             var login = this;
             login.loginError = loginFactory.logoutMessage;
             login.validateLogin = function() {
@@ -17,6 +17,12 @@
                         $state.go('dashboard');
                     } else {
                         login.loginError = res.data.message;
+                        var toast = $mdToast.simple()
+                            .textContent(login.loginError)
+                            .highlightClass('md-accent bold')
+                            .position('top right')
+                            .hideDelay(3000);
+                            $mdToast.show(toast).then(function(response) {});
                     }
                 }, function(err){
                     login.error = err.data;
