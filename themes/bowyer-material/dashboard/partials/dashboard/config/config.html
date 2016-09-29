@@ -1,25 +1,20 @@
-<md-toolbar class="md-accent">
+<md-toolbar class="md-accent md-whiteframe-3dp">
     <div class="md-toolbar-tools">
         <h5>
-            <span>Configuration</span>
+            <a ui-sref="dashboard.config">Configuration</a>
+        </h5>
+        <h5>
+            <i class="material-icons padding-sm">keyboard_arrow_right</i>
+        </h5>
+        <h5>
+            <a ui-sref="dashboard.config.roles">Roles</a>
         </h5>
         <span flex></span>
     </div>
 </md-toolbar>
-
-<div class="row">
-    <ol class="bowyer-breadcrumb breadcrumb no-margin">
-        <li><a ui-sref="dashboard.config" class="bowyer-link">Configuration</a></li>
-        <li><a ui-sref-active="text-warning" class="bowyer-link" ui-sref="dashboard.config.roles">Roles</a></li>
-    </ol>
+<div layout="column" layout-fill="layout-fill" ui-view>
+    <md-card class="padding-md center md-cell-3 anchor" ui-sref="dashboard.config.roles">
+        <i class="material-icons font-xl">group_work</i> 
+        <h3>Roles</h3>
+    </md-card>
 </div>
-<ui-view>
-    <div class="row padding-md">
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center padding-sm">
-            <div class="well well-sm anchor" ui-sref="dashboard.config.roles" ng-click="config.currentPage='Roles'">
-                <i class="fa fa-3x fa-users text-primary"></i>
-                <h3>Roles</h3>
-            </div>
-        </div>
-    </div>
-</ui-view>
