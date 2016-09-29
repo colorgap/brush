@@ -1,6 +1,6 @@
 {
   "name": "bowyer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {
     "jquery": "~2.2.3",
     "angular-animate": "~1.5.8",
