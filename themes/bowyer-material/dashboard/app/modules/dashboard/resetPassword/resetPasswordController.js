@@ -21,7 +21,7 @@
                         var toast = $mdToast.simple()
                             .textContent(resetPassword.resetPasswordError.message)
                             .highlightClass('md-accent bold')
-                            .position('top right')
+                            .position('bottom right')
                             .hideDelay(3000);
                         $mdToast.show(toast).then(function(response) {});
                     },function(err){

@@ -45,7 +45,7 @@
                 .state('dashboard.profile', {
                     url: 'profile',
                     templateUrl: 'bowyer-ui/dashboard/partials/dashboard/profile/profile.html',
-                    controller: 'loginCtrl',
+                    controller: 'profileCtrl',
                     controllerAs: 'profile'
                 })
                 .state('dashboard.resetPassword', {

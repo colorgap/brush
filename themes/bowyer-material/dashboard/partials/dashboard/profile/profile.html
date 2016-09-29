@@ -1,31 +1,46 @@
-<md-toolbar class="md-accent">
+<md-toolbar class="md-accent md-whiteframe-3dp">
     <div class="md-toolbar-tools">
         <h5>
-            <span>Profile Settings</span>
+            <span>Profile Setting</span>
         </h5>
         <span flex></span>
     </div>
 </md-toolbar>
-<div class="row">
-    <form ng-submit="profile.validateAndSave()" class="col-md-4 col-md-offset-4 padding-lg">
-        <uib-alert type="{{profile.profileError.type}}" ng-show="profile.profileError" close="profile.profileError=false">
-            <strong>{{profile.profileError.message}}</strong>
-        </uib-alert>
-        <div class="form-group">
-            <i class="fa fa-user text-primary input-form-icon"></i>
-            <input type="text" class="form-control input-form-text" ng-model="profile.user.username" readonly placeholder="UserName">
+<div layout="column" layout-align="center center" layout-fill="layout-fill">
+  <form name="profileForm" ng-submit="profile.validateAndSave()" novalidate>
+    <div layout="column" class="loginBox md-whiteframe-z1">
+      <md-content layout="row">
+        <h1 class="center no-margin-bottom" flex="100" flex-sm="100">
+            <i class="font-xl material-icons">settings</i>
+        </h1>
+      </md-content>
+      <md-content layout="column" class="md-padding no-padding-bottom">
+        <md-input-container class="no-margin">
+          <label>Username</label>
+          <input type="text" required md-no-asterisk name="username" ng-model="profile.user.username" />
+          <div ng-messages="profileForm.username.$error">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="no-margin">
+          <label>Name</label>
+          <input type="text" required md-no-asterisk name="name" ng-model="profile.user.name" />
+          <div ng-messages="profileForm.name.$error">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="no-margin">
+          <label>Email</label>
+          <input type="text" required md-no-asterisk name="email" ng-model="profile.user.email" />
+          <div ng-messages="profileForm.email.$error">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+        <div layout="row" layout-align="center center">
+          <md-button class="md-raised md-primary bold md-cell-12" type="submit">Save</md-button>
         </div>
-        <div class="form-group">
-            <i class="fa fa-user text-primary input-form-icon"></i>
-            <input type="text" class="form-control input-form-text" ng-model="profile.user.name" placeholder="Name">
-        </div>
-        <div class="form-group" ng-class="{'has-error':profile.error.email}">
-            <i class="fa fa-at text-primary input-form-icon"></i>
-            <input type="text" ng-change="profile.error.email=false" class="form-control input-form-text" ng-model="profile.user.email" placeholder="Email">
-            <p ng-if="profile.error.email" class="text-danger" ng-repeat="message in profile.error.email">{{message}}</p>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Save</button>
-        </div>
-    </form>
+        <p class="center md-caption">&nbsp;</p>
+      </md-content>
+    </div>
+  </form>
 </div>
