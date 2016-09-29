@@ -51,7 +51,7 @@
                 .state('dashboard.resetPassword', {
                     url: 'resetPassword',
                     templateUrl: 'bowyer-ui/dashboard/partials/dashboard/resetPassword/resetPassword.html',
-                    controller: 'loginCtrl',
+                    controller: 'resetPasswordCtrl',
                     controllerAs: 'resetPassword'
                 })
                 .state('dashboard.api', {

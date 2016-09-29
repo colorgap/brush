@@ -22,7 +22,7 @@
                             .highlightClass('md-accent bold')
                             .position('top right')
                             .hideDelay(3000);
-                            $mdToast.show(toast).then(function(response) {});
+                        $mdToast.show(toast).then(function(response) {});
                     }
                 }, function(err){
                     login.error = err.data;
