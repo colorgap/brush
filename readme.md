@@ -60,7 +60,7 @@ Open an another CLI and execute below command to keep your js and css files in s
 
 ------------------
 To bundle and ship bowyer just execute below gulp command from root folder:
-- NODE_ENV=prod gulp build
+- gulp build --env prod
 
 This will create a bowyer-app.zip in target folder. Just place the zip in your server and explode.
 

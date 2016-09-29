@@ -1,9 +1,16 @@
-
-var env = process.env.NODE_ENV || 'dev';
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var plugins = require('gulp-load-plugins')();
 var bowyerConfig = require('./bowyer-config.json');
+var minimist = require('minimist');
+var knownOptions = {
+  string: 'env',
+  default: { env: process.env.NODE_ENV || 'dev' }
+};
+
+var options = minimist(process.argv.slice(2), knownOptions);
+var env = options.env || 'dev';
+console.log('gulp is running in '+env+' environment.');
 var getConfig = function () {
     var config =  require('./gulp-tasks/common/config')()(bowyerConfig);
     return config;
