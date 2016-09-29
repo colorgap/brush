@@ -38,7 +38,7 @@
                 })
                 .state('dashboard.users', {
                     url: 'users',
-                    controller: 'loginCtrl',
+                    controller: 'usersCtrl',
                     controllerAs: 'users',
                     templateUrl: 'bowyer-ui/dashboard/partials/dashboard/users/users.html'
                 })

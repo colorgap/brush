@@ -1,0 +1,44 @@
+<md-toolbar class="md-accent md-whiteframe-3dp">
+    <div class="md-toolbar-tools">
+        <h5>
+            <span>User Management</span>
+        </h5>
+        <h5>
+            <i class="material-icons padding-sm">keyboard_arrow_right</i>
+        </h5>
+        <h5>
+            <a ng-click="users.editUser()">Add User</a>
+        </h5>
+        <span flex></span>
+    </div>
+</md-toolbar>
+<div layout="column" layout-fill="layout-fill" class="padding-md">
+    <table class="table md-whiteframe-3dp padding-md">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th class="center">Edit</th>
+                <th class="center">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users.users | filter : {deleted:'!Y'}">
+                <th scope="row">{{::user.user_id}}</th>
+                <td>{{user.name}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.role_desc}}</td>
+                <td class="text-center">
+                    <i ng-click="users.editUser(user)" class="material-icons anchor">mode_edit</i>
+                </td>
+                <td class="text-center">
+                    <i ng-click="users.deleteUser(user)" ng-if="user.user_id!==1" class="material-icons anchor">delete</i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
