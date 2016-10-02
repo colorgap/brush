@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    app.controller('resetPasswordCtrl', ['api', 'constants', 'url','$mdToast',function(api, constants, url,$mdToast) {
+    app.controller('resetPasswordCtrl', ['api', 'constants', 'url','commonFactory',function(api, constants, url,commonFactory) {
         var resetPassword = this;
         resetPassword.validateAndSave = function() {
             resetPassword.error = {};
@@ -18,12 +18,7 @@
                         } else {
                             resetPassword.error.password = true;
                         }
-                        var toast = $mdToast.simple()
-                            .textContent(resetPassword.resetPasswordError.message)
-                            .highlightClass('md-accent bold')
-                            .position('bottom right')
-                            .hideDelay(3000);
-                        $mdToast.show(toast).then(function(response) {});
+                        commonFactory.showMessage(resetPassword.resetPasswordError.message);
                     },function(err){
                         resetPassword.error = err.data;
                     });

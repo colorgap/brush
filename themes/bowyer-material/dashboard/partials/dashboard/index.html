@@ -87,6 +87,44 @@
 
     <md-content flex layout-padding class="layout-offset-nav">
       <ui-view class="no-padding">
+        <div layout="row" layout-xs="column">
+          <div flex>
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Star</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                  <span class="md-headline">&nbsp;{{dashboard.github.stargazers_count}}</span>
+                </md-card-title-media>
+              </md-card-title>
+            </md-card>
+          </div>
+          <div flex>
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Fork</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                  <span class="md-headline">&nbsp;{{dashboard.github.forks_count}}</span>
+                </md-card-title-media>
+              </md-card-title>
+            </md-card>
+          </div>
+          <div flex>
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Watchers</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                  <span class="md-headline">&nbsp;{{dashboard.github.watchers_count}}</span>
+                </md-card-title-media>
+              </md-card-title>
+            </md-card>
+          </div>
+        </div>
       </ui-view>
     </md-content>
 

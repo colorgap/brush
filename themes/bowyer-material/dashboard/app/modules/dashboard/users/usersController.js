@@ -1,7 +1,7 @@
 (function() {
     'use strict';
-    app.controller('usersCtrl', ['api', 'constants','url', 
-    function(api, constants, url) {
+    app.controller('usersCtrl', ['api', 'constants', 'url', 'commonFactory',
+    function(api, constants, url, commonFactory) {
         var users = this;
         var usersCallConfig = {
             url: url.admin.users
@@ -21,6 +21,7 @@
                 if (response.data.type === 'success') {
                     user.deleted = 'Y';
                 }
+                commonFactory.showMessage(response.data.message);
             });
         };
         /** Edit User */

@@ -1,7 +1,7 @@
 (function() {
     'use strict';
-    app.controller('profileCtrl', ['api', 'constants','commonFactory','url', 'localStorageService','$mdToast',
-    function(api, constants,commonFactory, url, localStorageService,$mdToast) {
+    app.controller('profileCtrl', ['api', 'constants','commonFactory','url', 'localStorageService',
+    function(api, constants,commonFactory, url, localStorageService) {
         var profile = this;
         var profileCallConfig = {
             url: url.user.me
@@ -17,12 +17,7 @@
                 if(response.data.user_id){
                     localStorageService.set('user', response.data);
                     profile.profileError = {type:'success',message:'Profile updated successfully.'};
-                    var toast = $mdToast.simple()
-                            .textContent(profile.profileError.message)
-                            .highlightClass('md-accent bold')
-                            .position('bottom right')
-                            .hideDelay(3000);
-                    $mdToast.show(toast).then(function(response) {});
+                    commonFactory.showMessage(profile.profileError.message);
                 }
             },function(err){
                 profile.error = err.data;

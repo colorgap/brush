@@ -23,7 +23,7 @@
                 .state('register', {
                     url: '/register',
                     templateUrl: 'bowyer-ui/dashboard/partials/register/register.html',
-                    controller: 'loginCtrl',
+                    controller: 'registerCtrl',
                     controllerAs: 'register'
                 })
                 .state('dashboard', {

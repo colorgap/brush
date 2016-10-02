@@ -1,7 +1,7 @@
 (function() {
     'use strict';
-    app.factory('commonFactory', ['api', 'localStorageService','url',
-    function(api,localStorageService, url) {
+    app.factory('commonFactory', ['api', 'localStorageService','url','$mdToast',
+    function(api,localStorageService, url,$mdToast) {
         var getReferenceData = function(config,success){
             api.executeCall(config,success);
         };
@@ -14,6 +14,14 @@
             },
             getUser: function(){
                 return localStorageService.get('user');
+            },
+            showMessage: function(message){
+                var toast = $mdToast.simple()
+                            .textContent(message)
+                            .highlightClass('md-accent bold')
+                            .position('top right')
+                            .hideDelay(3000);
+                $mdToast.show(toast).then(function(response) {});
             }
         };
     }]);
