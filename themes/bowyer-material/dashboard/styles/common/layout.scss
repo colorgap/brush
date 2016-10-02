@@ -37,3 +37,10 @@ md-menu-content{
 .nav-active{
     border-right: 5px solid rgba(255,215,64,0.87);
 }
+.md-bowyer-toolbar{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    margin-left: 300px;
+}

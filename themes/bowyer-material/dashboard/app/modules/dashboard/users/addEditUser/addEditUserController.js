@@ -1,13 +1,30 @@
 (function() {
     'use strict';
-    app.controller('addEditUserCtrl', ['api', 'constants', 'commonFactory', 'url',
-        function( api, constants, commonFactory, url) {
-           /* var addEditUser = this;
+    app.controller('addEditUserCtrl', ['api', 'constants', 'commonFactory', 'url','$mdDialog','user',
+        function( api, constants, commonFactory, url, $mdDialog,user) {
+            var config = function(user) {
+                if (user) {
+                    return {
+                        title: 'Edit User',
+                        user: user,
+                        type: 'edit'
+                    };
+                } else {
+                    return {
+                        title: 'Add User',
+                        type: 'add'
+                    };
+                }
+
+            };
+            var conf = config(user);
+            var addEditUser = this;
             commonFactory.getRoles(function(response) {
                 addEditUser.roles = response.data;
             });
-            addEditUser.config = config;
-            addEditUser.user = config.user;
+            console.log(conf);
+            addEditUser.config = conf;
+            addEditUser.user = conf.user;
             var profileCallConfig = {
                 url: url.admin.updateUser
             };
@@ -21,7 +38,7 @@
                 api.executeCall(profileCallConfig,function(response) {
                     if (response.data.user_id) {
                         addEditUser.user = response.data;
-                        $uibModalInstance.close(addEditUser);
+                        $mdDialog.cancel(addEditUser);
                     }else{
                         addEditUser.addEditUserError = response.data;
                     }
@@ -30,7 +47,7 @@
                 });
             };
             addEditUser.cancel = function() {
-                $uibModalInstance.dismiss('cancel');
-            };*/
+                $mdDialog.cancel();
+            };
         }]);
 })();
