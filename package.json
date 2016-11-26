@@ -7,7 +7,9 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently --kill-others \"php -S localhost:8000 -t public\" \"gulp watch\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build --env prod"
   },
   "author": "",
   "license": "MIT",
@@ -16,6 +18,7 @@
     "browser-sync": "^2.9.10",
     "browser-sync-spa": "^1.0.3",
     "chalk": "^1.1.1",
+    "concurrently": "^3.1.0",
     "del": "^2.0.2",
     "gulp": "^3.9.0",
     "gulp-angular-filesort": "^1.1.1",
