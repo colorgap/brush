@@ -54,13 +54,17 @@ After these steps go to : http://localhost:8000 or point MAMP, XAMP or WAMP serv
 
 You should see Bowyer landing page
 
-Open an another CLI and execute below command to keep your js and css files in sync.
-- gulp watch
+or
 
+Just run 
+- npm start
+Above command will start server and also watch for your changes.
 
 ------------------
 To bundle and ship bowyer just execute below gulp command from root folder:
 - gulp build --env prod
+or
+- npm run build
 
 This will create a bowyer-app.zip in target folder. Just place the zip in your server and explode.
 
