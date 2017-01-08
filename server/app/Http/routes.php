@@ -10,6 +10,11 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
+//-------------------:: UI page calls: Start ::---------------------
+$app->get('/', function() use ($app) {
+    return view('index');
+});
+//-------------------:: UI page calls: End ::-----------------------
 //-------------------:: Auth and Profile api calls: Start ::--------------------
 $app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers\Bowyer'], function() use ($app){
     $app->post('login','Auth\LoginController@index');
