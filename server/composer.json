@@ -1,0 +1,28 @@
+{
+    "name": "colorgap/bowyer",
+    "description": "App structure built with the Laravel Lumen Framework and Angular.",
+    "keywords": ["framework", "laravel", "lumen", "angular", "twitter-bootstrap", "materializecss"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.6.9",
+        "laravel/lumen-framework": "5.3.*",
+        "vlucas/phpdotenv": "~2.2",
+        "league/fractal": "^0.13.0"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/",
+            "database/"
+        ]
+    }
+}
