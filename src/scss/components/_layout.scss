@@ -13,3 +13,15 @@
     display: table-cell;
     vertical-align: middle;
 }
+.sidebar {
+    background-color: $brand-primary;
+}
+.sidebar ul li a{
+    color: #fff;
+}
+.sidebar ul li{
+    color: #fff;
+    a.nav-link.active{
+        background-color: darken($brand-primary,7.5%);
+    }
+}

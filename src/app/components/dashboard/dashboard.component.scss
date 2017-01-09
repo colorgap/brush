@@ -1,5 +1,5 @@
 .row main{
-    margin-top:50px;
+  margin-top: 55px;
 }
 /*
  * Typography
@@ -21,20 +21,15 @@ h1 {
   bottom: 0;
   left: 0;
   z-index: 1000;
-  padding: 20px;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  border-right: 1px solid #eee;
+  margin-top: 4px;
 }
 
 /* Sidebar navigation */
 .sidebar {
   padding-left: 0;
   padding-right: 0;
-}
-
-.sidebar .nav {
-  margin-bottom: 20px;
 }
 
 .sidebar .nav-item {
