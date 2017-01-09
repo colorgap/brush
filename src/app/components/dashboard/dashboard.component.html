@@ -17,7 +17,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <nav class="col-sm-3 col-md-2 hidden-xs-down sidebar">
+    <nav class="col-sm-3 col-md-2 hidden-xs-down sidebar z-depth-1">
       <ul class="nav nav-pills flex-column">
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/dashboard">Dashboard</a>
@@ -39,7 +39,7 @@
         </li>
       </ul>
     </nav>
-    <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+    <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2">
       <router-outlet></router-outlet>
     </main>
   </div>

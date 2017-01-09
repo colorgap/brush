@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   username:string;
   password:string;
-  constructor(private api : ApiService){
+  constructor(private api : ApiService,private router:Router){
     this.username = '';
     this.password = '';
   }
@@ -18,8 +19,12 @@ export class LoginComponent implements OnInit {
   }
   submit(){
     this.api.validateLogin(this.username,this.password).subscribe(
-                       user => {console.log(user)},
-                       error =>  {});
+      user => {
+        if(user.user_id){
+          this.router.navigate(['dashboard']);
+        }
+      },
+      error =>  {});
   }
 
 }
