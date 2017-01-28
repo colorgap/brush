@@ -1,3 +1,40 @@
-<p>
-  user-management works!
-</p>
+<div class="row">
+    <ol class="bowyer-breadcrumb breadcrumb no-margin">
+        <li>User Management</li>
+        <li><a (click)="users.editUser()" class="anchor bowyer-link">Add User</a></li>
+    </ol>
+</div>
+<div class="row">
+    <div class="col-md-12 padding-lg">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th class="text-center">Edit</th>
+                        <th class="text-center">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <th scope="row">{{user.user_id}}</th>
+                        <td>{{user.name}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.role_desc}}</td>
+                        <td class="text-center">
+                            <i class="fa fa-edit anchor padding-md-left" (click)="users.editUser(user)"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="fa anchor" (click)="users.deleteUser(user)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

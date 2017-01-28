@@ -13,20 +13,16 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class ApiService {
+export class LoginService {
+private loginUrl = 'api/v1/login';  // URL to web API
     constructor (private http: Http) {}
-    executeCall (config: Configration): Observable<any> {
-      let headers = new Headers({ 'Content-Type': 'application/json','apitoken':JSON.parse(localStorage.getItem('user')).api_token });
+    validateLogin (username: string,password: string): Observable<any> {
+      let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
-      if(config.method==='post'){
-        return this.http.post(config.url, config.data, options)
-            .map(this.extractData)
-            .catch(this.handleError);
-      }else if(config.method==='get'){
-        return this.http.get(config.url,options)
-            .map(this.extractData)
-            .catch(this.handleError);
-      }
+
+      return this.http.post(this.loginUrl, { username:username,password:password }, options)
+                      .map(this.extractData)
+                      .catch(this.handleError);
     }
     private extractData(res: Response) {
       return res.json();
@@ -43,10 +39,4 @@ export class ApiService {
       return Promise.reject(errMsg);
     }
 
-}
-
-export interface Configration {
-    method:string;
-    data: any;
-    url: string;
 }
