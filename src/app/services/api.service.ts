@@ -16,7 +16,7 @@ import 'rxjs/add/operator/toPromise';
 export class ApiService {
     constructor (private http: Http) {}
     executeCall (config: Configration): Observable<any> {
-      let headers = new Headers({ 'Content-Type': 'application/json','apitoken':JSON.parse(localStorage.getItem('user')).api_token });
+      let headers = new Headers({ 'Content-Type': 'application/json','apitoken':localStorage.getItem('token') });
       let options = new RequestOptions({ headers: headers });
       if(config.method==='post'){
         return this.http.post(config.url, config.data, options)

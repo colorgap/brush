@@ -15,6 +15,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class LoginService {
 private loginUrl = 'api/v1/login';  // URL to web API
+private logoutUrl = 'api/v1/logout'; // URL to web API
     constructor (private http: Http) {}
     validateLogin (username: string,password: string): Observable<any> {
       let headers = new Headers({ 'Content-Type': 'application/json' });

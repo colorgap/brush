@@ -9,7 +9,6 @@ import { LoginService } from './service/login.service';
   providers: [LoginService] 
 })
 export class LoginComponent implements OnInit {
-
   username:string;
   password:string;
   constructor(private login : LoginService,private router:Router){
@@ -22,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.login.validateLogin(this.username,this.password).subscribe(
       user => {
         if(user.user_id){
-          localStorage.setItem('user',JSON.stringify(user));
+          localStorage.setItem('token',user.api_token);
           this.router.navigate(['dashboard']);
         }
       },

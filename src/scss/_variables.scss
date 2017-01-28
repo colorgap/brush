@@ -40,6 +40,7 @@
 // Carousel
 // Close
 // Code
+$fa-font-path:        "../node_modules/font-awesome/fonts" !default;
 
 @mixin _assert-ascending($map, $map-name) {
   $prev-key: null;
