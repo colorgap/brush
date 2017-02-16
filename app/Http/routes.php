@@ -26,6 +26,7 @@ $app->group(['prefix' => 'api','namespace' => 'App\Http\Controllers\Bowyer'], fu
     $app->get('logout','Auth\LoginController@logout');
     $app->post('register','Auth\RegisterController@index');
     $app->post('forgotPassword','User\PasswordController@forgotPassword');
+    $app->post('resetPassword','User\PasswordController@resetPassword');
 });
 $app->group(['prefix' => 'api/user','namespace' => 'App\Http\Controllers\Bowyer\User','middleware' => 'auth'], function() use ($app){
     $app->get('me','ProfileController@index');

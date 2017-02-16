@@ -6,6 +6,7 @@
             logout: '/api/logout',
             register: '/api/register',
             forgotPassword: '/api/forgotPassword',
+            resetForgotPassword: '/api/resetPassword',
             reference: {
                 roles: '/api/reference/roles'
             },

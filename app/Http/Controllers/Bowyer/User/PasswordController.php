@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Admin\User;
 use App\Http\Controllers\ApiController;
 use App\DataObjects\Common\Notification;
+use App\DataObjects\Common\Salt;
 use Illuminate\Http\Request;
 /**
 * Password updates
@@ -47,12 +48,35 @@ class PasswordController extends ApiController {
         $user = User::where('email',$request->input("username"))->orWhere('username',$request->input("username"))->first();
         if(!empty($user)){
             // @todo email implementation goes here
+            $salt = new Salt();
+            $user->api_token = hash('sha1', $salt->spiceItUp($user->email));
+            $user->update();
             $success = new Notification();
             $success->notify("We have sent an email to your registered email. Please follow the steps to reset your password.", 5200,"success");
             return $this->respondWithCORS($success);
         }else{
             $error = new Notification();
             $error->notify("User not found.", 5200);
+            return $this->respondWithCORS($error);
+        }
+    }
+
+    public function resetPassword(Request $request){
+        $this->validate($request, [
+            'token' => 'required',
+            'password'=> 'required'
+        ]);
+        $user = User::where('api_token',$request->input("token"))->first();
+        if(!empty($user)){
+            // @todo email implementation goes here
+            $user->password = hash('sha1', $request->input("password"));
+            $user->update();
+            $success = new Notification();
+            $success->notify("Your password has been reset. Please login.", 5200,"success");
+            return $this->respondWithCORS($success);
+        }else{
+            $error = new Notification();
+            $error->notify("User not found or you have already used your token.", 5200);
             return $this->respondWithCORS($error);
         }
     }

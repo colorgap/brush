@@ -20,6 +20,12 @@
                     controller: 'forgotPasswordCtrl',
                     controllerAs: 'forgotPassword'
                 })
+                .state('resetForgotPassword', {
+                    url: '/resetForgotPassword/:token',
+                    templateUrl: 'bowyer-ui/dashboard/partials/resetForgotPassword/resetForgotPassword.html',
+                    controller: 'resetForgotPasswordCtrl',
+                    controllerAs: 'resetForgotPassword'
+                })
                 .state('register', {
                     url: '/register',
                     templateUrl: 'bowyer-ui/dashboard/partials/register/register.html',
