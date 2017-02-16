@@ -6,6 +6,7 @@ use App\Models\Admin\User;
 use App\Http\Controllers\ApiController;
 use App\DataObjects\Common\Notification;
 use App\DataObjects\Common\Salt;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 /**
 * Password updates
@@ -51,6 +52,8 @@ class PasswordController extends ApiController {
             $salt = new Salt();
             $user->api_token = hash('sha1', $salt->spiceItUp($user->email));
             $user->update();
+            // Send the below link in email
+            //Mail::to($user->email)->send('/dashboard#/resetForgotPassword/'.$user->api_token);
             $success = new Notification();
             $success->notify("We have sent an email to your registered email. Please follow the steps to reset your password.", 5200,"success");
             return $this->respondWithCORS($success);
