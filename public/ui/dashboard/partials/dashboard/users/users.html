@@ -1,45 +1,37 @@
-<nav>
-    <div class="nav-wrapper">
-        <div class="col s12 padding-md-left">
-        <a ui-sref="dashboard.config" ng-click="config.currentPage=''" class="breadcrumb">User Management</a>
-        </div>
-    </div>
-</nav>
-<div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large waves-effect">
-        <i class="material-icons">menu</i>
-    </a>
-    <ul>
-        <li><a class="btn-floating green"><i class="material-icons">add</i></a></li>
-        <li><a class="btn-floating red darken-1"><i class="material-icons">delete</i></a></li>
-    </ul>
+<div class="row">
+    <ol class="brush-breadcrumb breadcrumb no-margin">
+        <li>User Management</li>
+        <li><a ng-click="users.editUser()" class="anchor brush-link">Add User</a></li>
+    </ol>
 </div>
 <div class="row">
-    <div class="col s12 padding-lg">
+    <div class="col-md-12 padding-lg">
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Name</th>
                         <th>Username</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th class="center">Edit</th>
-                        <th class="center">Delete</th>
+                        <th class="text-center">Edit</th>
+                        <th class="text-center">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="user in users.users | filter : {deleted:'!Y'}">
+                        <th scope="row">{{::user.user_id}}</th>
                         <td>{{user.name}}</td>
                         <td>{{user.username}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.role_desc}}</td>
-                        <td class="center">
-                            <i class="material-icons anchor padding-md-left" ng-click="users.editUser(user)">mode_edit</i>
+                        <td class="text-center">
+                            <i class="fa fa-edit anchor padding-md-left" ng-click="users.editUser(user)"></i>
                         </td>
-                        <td class="center">
-                            <i class="anchor" ng-if="user.user_id!==1" ng-class="{'material-icons': !user.deleteInitiated,'fa fa-spinner fa-spin': user.deleteInitiated}"
-                            ng-click="users.deleteUser(user)">delete</i>
+                        <td class="text-center">
+                            <i class="fa anchor" ng-if="user.user_id!==1" ng-class="{'fa-times': !user.deleteInitiated,'fa-spinner fa-spin': user.deleteInitiated}"
+                            ng-click="users.deleteUser(user)"></i>
                         </td>
                     </tr>
                 </tbody>

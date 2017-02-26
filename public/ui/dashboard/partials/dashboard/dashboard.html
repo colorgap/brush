@@ -1,159 +1,76 @@
-<ul id="slide-out" class="side-nav fixed">
-    <li><a href="/"><h4 class="white-text center margin-md"><logo></logo></h4></a></li>
-    <li><a ui-sref-active-eq="active" class="waves-effect waves-light" ui-sref="dashboard">Dashboard</a></li>
-    <li><a ui-sref-active="active" class="waves-effect waves-light" ui-sref="dashboard.alerts">Alert</a></li>
-    <li>
-        <ul class="collapsible collapsible-accordion" collapsible options="dashboard.collapsibleOptions">
-            <li ng-if="dashboard.user.role===1">
-                <a class="collapsible-header waves-effect waves-light">
-                    Admin<i class="material-icons right no-margin-right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body primary">
-                    <ul>
-                        <li><a ui-sref-active="active" class="white-text waves-effect waves-light" ui-sref="dashboard.users">User Management</a></li>
-                        <li><a ui-sref-active="active" class="white-text waves-effect waves-light" ui-sref="dashboard.config">Configuration</a></li>
-                        <li><a ui-sref-active="active" class="white-text waves-effect waves-light" ui-sref="dashboard.api">API</a></li>
-                        <li><a ui-sref-active="active" class="white-text waves-effect waves-light" ui-sref="dashboard.healthcheck">Health Check</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <a class="collapsible-header waves-effect waves-light">
-                    My account<i class="material-icons right no-margin-right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body primary">
-                    <ul>
-                        <li><a ui-sref-active="active" class="white-text waves-effect waves-light" ui-sref="dashboard.profile">Profile</a></li>
-                        <li><a ui-sref-active="active" class="white-text waves-effect waves-light" ui-sref="dashboard.resetPassword">Reset Password</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </li>
-</ul>
-<ul id="nav-mobile" class="side-nav">
-    <li><a href="/"><h3 class="white-text center"><logo></logo></h3></a></li>
-    <li ui-sref-active="active"><a ui-sref="dashboard">Dashboard</a></li>
-    <li ui-sref-active="active"><a ui-sref="dashboard.alerts">Alert</a></li>
-    <li>
-        <ul class="collapsible collapsible-accordion" collapsible options="dashboard.collapsibleOptions">
-            <li ng-if="dashboard.user.role===1">
-                <a class="collapsible-header waves-effect waves-light waves-yellow">
-                    Admin<i class="material-icons right no-margin-right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body purple darken-4">
-                    <ul>
-                        <li ui-sref-active="active"><a class="white-text" ui-sref="dashboard.users">User Management</a></li>
-                        <li ui-sref-active="active"><a class="white-text" ui-sref="dashboard.config">Configuration</a></li>
-                        <li ui-sref-active="active"><a class="white-text" ui-sref="dashboard.api">API</a></li>
-                        <li ui-sref-active="active"><a class="white-text" ui-sref="dashboard.healthcheck">Health Check</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <a class="collapsible-header waves-effect waves-light waves-yellow">
-                    My account<i class="material-icons right no-margin-right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body purple darken-4">
-                    <ul>
-                        <li ui-sref-active="active"><a class="white-text" ui-sref="dashboard.profile">Profile</a></li>
-                        <li ui-sref-active="active"><a class="white-text" ui-sref="dashboard.resetPassword">Reset Password</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </li>
-</ul>
-<div class="navbar-fixed">
-    <nav class="white row" role="navigation">
-        <div class="nav-wrapper col s12">
-            <a href="" data-activates="nav-mobile" side-nav class="button-collapse">
-                <i class="material-icons">menu</i>
-            </a>
-            <a href="/" class="brand-logo hide-on-large-only">
+<nav class="navbar navbar-fixed-top navbar-primary">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed padding-sm-top padding-sm-bottom" data-toggle="collapse" data-target="#navbar"
+            aria-expanded="false" aria-controls="navbar">
+                <i class="fa fa-align-justify no-margin no-padding"></i>
+            </button>
+            <a class="navbar-brand" href="#/">
                 <logo></logo>
             </a>
-            <header>
-                <ul class="right">
-                    <li><a ui-sref="logout"><i class="material-icons">power_settings_new</i></a></li>
-                </ul>
-            </header>
         </div>
-    </nav>
-</div>
-
-<main class="had-container">
-    <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
-        <a class="btn-floating btn-large waves-effect">
-            <i class="material-icons">menu</i>
-        </a>
-        <ul>
-            <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-            <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-        </ul>
+        <div id="navbar" class="navbar-collapse collapse navbar-right" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav">
+                <li><a href="/"><i class="fa fa-fw fa-md fa-home"></i> Home</a></li>
+                <li><a ui-sref-active="active" ui-sref="dashboard.alerts"><i class="fa fa-fw fa-bell"></i> Alert</a></li>
+                <li class="dropdown" ng-if="dashboard.user.role===1">
+                    <a class="dropdown-toggle anchor" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="fa fa-fw fa-bank"></i> Admin <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ui-sref-active="active"><a ui-sref="dashboard.users">User Management</a></li>
+                        <li ui-sref-active="active"><a ui-sref="dashboard.config">Configuration</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li ui-sref-active="active"><a ui-sref="dashboard.api">API</a></li>
+                        <li ui-sref-active="active"><a ui-sref="dashboard.healthcheck">Health Check</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle anchor" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                        <i class="fa fa-fw fa-user"></i> My account <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ui-sref-active="active"><a ui-sref="dashboard.profile">Profile</a></li>
+                        <li ui-sref-active="active"><a ui-sref="dashboard.resetPassword">Reset Password</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li ui-sref-active="active"><a ui-sref="logout"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.nav-collapse -->
     </div>
+    <!-- /.container -->
+</nav>
+<div class="container-fluid">
     <div ui-view>
         <div class="row">
-            <div class="col s6 m3">
-                <div class="card">
-                    <div class="card-content no-border-radius z-depth-1 green col s6 white-text">
-                        <span class="card-title">Star</span>
-                    </div>
-                    <div class="card-content no-border-radius z-depth-1 green center col s6 darken-2 white-text">
-                        <span class="card-title">&nbsp;{{dashboard.github.stargazers_count}}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col s6 m3">
-                <div class="card">
-                    <div class="card-content no-border-radius z-depth-1 blue col s6 white-text">
-                        <span class="card-title">Fork</span>
-                    </div>
-                    <div class="card-content no-border-radius z-depth-1 blue center col s6 darken-2 white-text">
-                        <span class="card-title">&nbsp;{{dashboard.github.forks_count}}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-content no-border-radius z-depth-1 deep-purple darken-2 col s6 white-text">
-                        <span class="card-title">Watcher</span>
-                    </div>
-                    <div class="card-content no-border-radius z-depth-1 deep-purple darken-4 center col s6 white-text">
-                        <span class="card-title">&nbsp;{{dashboard.github.watchers_count}}</span>
-                    </div>
-                </div>
-            </div>
+            <ol class="breadcrumb no-margin">
+                <li>Dashboard</li>
+            </ol>
         </div>
-        <div class="row">
-            <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-content white-text">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because
-                            I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                        <a href="#">This is a link</a>
-                    </div>
+        <div class="row padding-md">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center padding-sm">
+                <div class="well well-sm">
+                    <i class="fa fa-3x fa-bell text-primary"></i>
+                    <h3>Notification</h3>
                 </div>
             </div>
-            <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-content white-text">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because
-                            I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                        <a href="#">This is a link</a>
-                    </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center padding-sm">
+                <div class="well well-sm">
+                    <i class="fa fa-3x fa-bank text-primary"></i>
+                    <h3>Admin Console</h3>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center padding-sm">
+                <div class="well well-sm">
+                    <i class="fa fa-3x fa-file text-primary"></i>
+                    <h3>Documentation</h3>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center padding-sm">
+                <div class="well well-sm">
+                    <i class="fa fa-3x fa-user text-primary"></i>
+                    <h3>User Profile</h3>
                 </div>
             </div>
         </div>
     </div>
-</main>
+</div>

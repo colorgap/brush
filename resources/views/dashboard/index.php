@@ -2,10 +2,9 @@
 <html ng-app="brush">
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Brush</title>
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
     <link href="ui/dashboard/css/main.css" rel="stylesheet">
 </head>
 <body>

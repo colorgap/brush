@@ -1,57 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="clearfix ui-login">
+                <form class="ui-login-content" name="registerForm" ng-submit="register.validateRegister(registerForm.$valid)" novalidate>
+                    <h1 class="text-center text-primary">
+                        <logo></logo>
+                    </h1>
+                    <uib-alert type="{{register.registerError.type}}" class="text-center" ng-show="register.registerError" close="register.registerError=false">
+                        <strong>{{register.registerError.message}}</strong>
+                    </uib-alert>
+                    <div ng-if="register.registerError.type!=='success'">
+                        <div class="form-group" ng-class="{'has-error':(registerForm.username.$invalid && !registerForm.username.$pristine) || register.error.username}">
+                            <i class="fa fa-user text-primary input-form-icon"></i>
+                            <input type="text" class="form-control input-form-text" ng-model="register.formData.username" name="username" placeholder="Username"
+                            ng-keyup="register.error.username=false" required>
+                            <p ng-if="register.error.username" class="text-danger">{{register.error.username[0] || 'The username field is required.'}}</p>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':(registerForm.email.$invalid && !registerForm.email.$pristine) || register.error.email}">
+                            <i class="fa fa-at text-primary input-form-icon"></i>
+                            <input type="text" class="form-control input-form-text" name="email" ng-model="register.formData.email" placeholder="Email"
+                            ng-keyup="register.error.email=false" required>
+                            <p ng-if="register.error.email" class="text-danger">{{register.error.email[0]  || 'The email field is required.'}}</p>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':(registerForm.password.$invalid && !registerForm.password.$pristine) || register.error.password}">
+                            <i class="fa fa-lock text-primary input-form-icon"></i>
+                            <input type="password" name="password" class="form-control input-form-text" ng-model="register.formData.password" placeholder="Password"
+                            ng-keyup="register.error.password=false" required>
+                            <p ng-if="register.error.password" class="text-danger">{{register.error.password[0]  || 'The password field is required.'}}</p>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                        </div>
 
-<div class="valign-wrapper row no-margin" style="height:calc(100vh)">
-    <div class="col s12 m8 l4 offset-m2 offset-l4">
-        <div class="valign">
-            <form name="registerForm" ng-submit="register.validateRegister()" novalidate>
-                <h2 class="center purple-text text-darken-4">
-                    <logo></logo>
-                </h2>
-                <div class="row no-margin">
-                    <div class="input-field col s12 no-margin" ng-if="register.registerError">
-                        <div class="card">
-                            <div class="card-content darken-4 white-text" ng-class="{'red':register.registerError.type==='danger','green':register.registerError.type==='success'}">
-                                {{register.registerError.message}}
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <div ng-if="register.registerError.type!=='success'">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input type="text" ng-model="register.formData.username" ng-change="register.error.username=false" 
-                            class="no-margin validate" ng-class="{'invalid':register.error.username}">
-                            <label for="username">Username</label>
-                            <p ng-if="register.error.username" class="no-margin red-text" ng-repeat="message in register.error.username">{{message}}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input type="email" ng-model="register.formData.email" ng-change="register.error.email=false"
-                             class="no-margin validate">
-                            <label for="email" data-error="Email is not valid.">Email</label>
-                            <p ng-if="register.error.email" class="no-margin red-text" ng-repeat="message in register.error.email">{{message}}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input type="password" ng-model="register.formData.password" ng-change="register.error.password=false" class="no-margin validate" id="password">
-                            <label for="password">Password</label>
-                            <p ng-if="register.error.password" class="no-margin red-text" ng-repeat="message in register.error.password">{{message}}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 center">
-                            <button type="submit" class="btn purple darken-4">Sign up</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 center">
+                    <div class="form-group text-center">
                         <span ng-if="register.registerError.type!=='success'">Have an account already?</span>
-                        <a ui-sref="login" class="btn">Sign In</a>
+                        <a ui-sref="login" class="btn btn-link">Sign In</a>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>

@@ -6,15 +6,16 @@ var app;
             'ngAnimate', 
             'ngCookies', 
             'ngSanitize', 
-            'ui.router',
+            'ui.router', 
+            'ui.bootstrap',
             'LocalStorageModule']);
 
 })();
 
 (function() {
     'use strict';
-    app.config(['$stateProvider', '$urlRouterProvider','localStorageServiceProvider','$httpProvider',
-    function ($stateProvider, $urlRouterProvider, localStorageServiceProvider,$httpProvider) {
+    app.config(['$stateProvider', '$urlRouterProvider','localStorageServiceProvider',
+    function ($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
         $stateProvider
             .state('home', {
                 url: '/',
@@ -24,7 +25,6 @@ var app;
             });
         $urlRouterProvider.otherwise('/');
         localStorageServiceProvider.setPrefix('brush');
-        $httpProvider.interceptors.push('tokenInjector');
     }]);
 })();
 (function() {
@@ -35,24 +35,18 @@ var app;
 })();
 (function() {
   'use strict';
-  app.controller('homeCtrl',['$scope','$window','localStorageService', 'url', 'api',
-  function($scope,$window,localStorageService, url, api){
+  app.controller('homeCtrl',['$scope','$window','localStorageService', 
+  function($scope,$window,localStorageService){
       var home = this;
-      angular.element('.button-collapse').sideNav();
-      var profileCallConfig = {
-          url: url.user.me
+      home.scrollToSection = function(section){
+        angular.element('html, body').stop().animate({
+            scrollTop: angular.element('#'+section).offset().top
+        }, 1000);
       };
-      home.user = true;
-      home.userLookupComplete = false;
-      api.executeCall(profileCallConfig,function(response) {
-          home.user = response.data;
-          home.userLookupComplete = true;
-      }, function(){
-          home.user = false;
-          home.userLookupComplete = true;
-      });
+      home.user = localStorageService.get('user');
   }]);
 })();
+
 (function() {
     'use strict';
     app.directive('navLume', function() {
@@ -70,76 +64,10 @@ var app;
 
 (function() {
     'use strict';
-    app.factory('api', ['$http', 'constants', '$state', 'localStorageService',
-        function($http, constants, $state, localStorageService) {
-            var failureHandler = function(err,failureCallback){
-                failureCallback(err);
-            };
-            return {
-                executeCall: function(config, successCallback, failureCallback) {
-                    if (config.method === constants.method.post) {
-                        return $http.post(config.url, config.data).then(successCallback, function(err) {
-                            failureHandler(err,failureCallback);
-                        });
-                    } else if (config.method === constants.method.delete) {
-                        return $http.delete(config.url).then(successCallback, function(err) {
-                            failureHandler(err,failureCallback);
-                        });
-                    } else {
-                        return $http.get(config.url).then(successCallback, function(err) {
-                            failureHandler(err,failureCallback);
-                        });
-                    }
-                }
-            };
-        }]);
-})();
-
-(function() {
-  'use strict';
-  app.factory('constants', [function(){
-      return {
-          app: 'brush',
-          method: {
-              post: 'POST',
-              delete: 'DELETE',
-              get: 'GET'
-          }
-      };
-  }]);
-})();
-
-(function() {
-    'use strict';
-    app.factory('tokenInjector', ['localStorageService',function(localStorageService) {
-        var tokenInjector = {
-            request: function(config) {
-                if(config.url.indexOf('github')<0  && localStorageService.get('apitoken')){
-                    config.headers['apitoken'] = localStorageService.get('apitoken');
-                }
-                return config;
-            }
-        };
-        return tokenInjector;
-    }]);
-})();
-
-(function() {
-    'use strict';
-    app.factory('url', [function() {
-        return {
-            user:{
-                me: '/api/user/me'
-            }
-        };
-    }]);
-})();
-(function() {
-    'use strict';
     app.directive('logo', function() {
         return {
             restrict: 'EA',
-            template: '<span>bru</span><span class="amber-text lighter-1">sh</span>'
+            template: '<span>bru</span><span style="color:#F39C12">sh</span>'
         };
     });
 })();

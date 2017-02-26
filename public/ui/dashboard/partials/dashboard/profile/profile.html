@@ -1,48 +1,28 @@
-<nav>
-    <div class="nav-wrapper">
-        <div class="col s12 padding-md-left">
-        <a ui-sref="dashboard.config" ng-click="config.currentPage=''" class="breadcrumb">Update your profile</a>
-        </div>
-    </div>
-</nav>
 <div class="row">
-    <form ng-submit="profile.validateAndSave()" class="col s12">
-        <div class="row no-margin">
-            <div class="col s12">
-                &nbsp;
-            </div>
+    <ol class="breadcrumb no-margin">
+        <li>Profile Settings</li>
+    </ol>
+</div>
+<div class="row">
+    <form ng-submit="profile.validateAndSave()" class="col-md-4 col-md-offset-4 padding-lg">
+        <uib-alert type="{{profile.profileError.type}}" ng-show="profile.profileError" close="profile.profileError=false">
+            <strong>{{profile.profileError.message}}</strong>
+        </uib-alert>
+        <div class="form-group">
+            <i class="fa fa-user text-primary input-form-icon"></i>
+            <input type="text" class="form-control input-form-text" ng-model="profile.user.username" readonly placeholder="UserName">
         </div>
-        <div class="row no-margin" ng-show="profile.profileError">
-            <div class="input-field col s12 no-margin">
-                <div class="card no-margin-top">
-                    <div class="card-content darken-4 white-text" ng-class="{'red':profile.profileError.type==='danger','green':profile.profileError.type==='success'}">
-                        {{profile.profileError.message || 'Updated Successfully.'}}
-                    </div>
-                </div>
-            </div>
+        <div class="form-group">
+            <i class="fa fa-user text-primary input-form-icon"></i>
+            <input type="text" class="form-control input-form-text" ng-model="profile.user.name" placeholder="Name">
         </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input type="text" ng-model="profile.user.username" readonly id="username">
-                <label class="active" for="username">Username</label>
-            </div>
+        <div class="form-group" ng-class="{'has-error':profile.error.email}">
+            <i class="fa fa-at text-primary input-form-icon"></i>
+            <input type="text" ng-change="profile.error.email=false" class="form-control input-form-text" ng-model="profile.user.email" placeholder="Email">
+            <p ng-if="profile.error.email" class="text-danger" ng-repeat="message in profile.error.email">{{message}}</p>
         </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input type="text" ng-model="profile.user.name" class="validate" id="name">
-                <label class="active" for="name">Name</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input type="email" ng-model="profile.user.email" class="validate" id="email">
-                <label class="active" for="email">Email</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <button type="submit" class="btn">Save <i class="material-icons right">send</i></button>
-            </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Save</button>
         </div>
     </form>
 </div>

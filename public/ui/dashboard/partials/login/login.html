@@ -1,50 +1,39 @@
-
-<div class="valign-wrapper row no-margin" style="height:calc(100vh)">
-    <div class="col s12 m8 l4 offset-m2 offset-l4">
-        <div class="valign">
-            <form name="loginForm" ng-submit="login.validateLogin()" novalidate>
-                <h2 class="center purple-text text-darken-4">
-                    <logo></logo>
-                </h2>
-                <div class="row no-margin">
-                    <div class="input-field col s12 no-margin" ng-show="login.loginError">
-                        <div class="card">
-                            <div class="card-content red darken-4 white-text">
-                                {{login.loginError}}
-                            </div>
-                        </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="clearfix ui-login">
+                <form name="loginForm" class="ui-login-content" ng-submit="login.validateLogin()" novalidate>
+                    <h1 class="text-center text-primary">
+                        <logo></logo>
+                    </h1>
+                    <uib-alert type="danger" ng-show="login.loginError" close="login.loginError=false">
+                        <strong>{{login.loginError}}</strong>
+                    </uib-alert>
+                    <div class="form-group" ng-class="{'has-error':(loginForm.username.$invalid && !loginForm.username.$pristine)||login.error.username}"
+                    ng-keyup="login.error.username=false">
+                        <i class="fa fa-user text-primary input-form-icon"></i>
+                        <input type="text" autofocus class="form-control input-form-text" name="username" ng-model="login.username" placeholder="Username or Email"
+                        required>
+                        <p ng-if="login.error.username" class="text-danger">Username is required.</p>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input type="text" ng-model="login.username" ng-change="login.error.username=false" class="no-margin validate" id="username">
-                        <label for="username">Username</label>
-                        <p ng-if="login.error.username" class="no-margin red-text">Username is required.</p>
+                    <div class="form-group" ng-class="{'has-error':(loginForm.password.$invalid && !loginForm.password.$pristine)||login.error.password}"
+                    ng-keyup="login.error.password=false">
+                        <i class="fa fa-lock  text-primary input-form-icon"></i>
+                        <input type="password" class="form-control input-form-text" name="password" ng-model="login.password" placeholder="Password"
+                        required>
+                        <p ng-if="login.error.password" class="text-danger">Password is required.</p>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input type="password" ng-model="login.password" ng-change="login.error.password=false" class="no-margin validate" id="password">
-                        <label for="password">Password</label>
-                        <p ng-if="login.error.password" class="red-text no-margin">Password is required.</p>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 center">
-                        <button type="submit" class="btn purple darken-4">Sign In</button>
+                    <div class="form-group text-center">
+                        <a ui-sref="forgotPassword" class="btn btn-link">Forgot Password</a>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 center">
-                        <a ui-sref="forgotPassword">Forgot Password</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 center">
+                    <div class="form-group text-center">
                         Don't have an account yet? <a ui-sref="register" class="btn btn-link">Sign Up</a>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>
