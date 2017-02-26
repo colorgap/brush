@@ -1,0 +1,12 @@
+.table-md-brush{
+    @extend .table;
+}
+.table-md-brush thead{
+    margin-bottom: 1px;
+}
+.progress-brush div:first-child{
+    float: left;
+}
+.progress-brush div:last-child{
+    float: right;
+}

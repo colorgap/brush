@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var plugins = require('gulp-load-plugins')();
-var bowyerConfig = require('./bowyer-config.json');
+var appConfig = require('./brush-config.json');
 var minimist = require('minimist');
 var knownOptions = {
   string: 'env',
@@ -12,12 +12,12 @@ var options = minimist(process.argv.slice(2), knownOptions);
 var env = options.env || 'dev';
 console.log('gulp is running in '+env+' environment.');
 var getConfig = function () {
-    var config =  require('./gulp-tasks/common/config')()(bowyerConfig);
+    var config =  require('./gulp-tasks/common/config')()(appConfig);
     return config;
 };
 var getTask = function (task) {
   var config = getConfig();
-  return require('./gulp-tasks/bowyer-themes/' + task)(gulp, plugins,config,env);
+  return require('./gulp-tasks/themes/' + task)(gulp, plugins,config,env);
 };
 var kickOffBuild = function(task){
   var config = getConfig();

@@ -21,14 +21,14 @@ $app->get('/dashboard', function() use ($app) {
 //-------------------:: UI page calls: End ::-----------------------
 
 //-------------------:: Auth and Profile api calls: Start ::--------------------
-$app->group(['prefix' => 'api','namespace' => 'Bowyer'], function() use ($app){
+$app->group(['prefix' => 'api','namespace' => 'Brush'], function() use ($app){
     $app->post('login','Auth\LoginController@index');
     $app->get('logout','Auth\LoginController@logout');
     $app->post('register','Auth\RegisterController@index');
     $app->post('forgotPassword','User\PasswordController@forgotPassword');
     $app->post('resetPassword','User\PasswordController@resetPassword');
 });
-$app->group(['prefix' => 'api/user','namespace' => 'Bowyer\User','middleware' => 'auth'], function() use ($app){
+$app->group(['prefix' => 'api/user','namespace' => 'Brush\User','middleware' => 'auth'], function() use ($app){
     $app->get('me','ProfileController@index');
     $app->post('me','ProfileController@updateProfile');
     $app->post('resetPassword','PasswordController@index');
@@ -36,13 +36,13 @@ $app->group(['prefix' => 'api/user','namespace' => 'Bowyer\User','middleware' =>
 //-------------------:: Auth api calls: End ::-----------------------
 
 //-------------------:: Reference Data api calls: Start ::-----------
-$app->group(['prefix' => 'api/reference','namespace' => 'Bowyer\ReferenceData','middleware' => 'auth'], function() use ($app){
+$app->group(['prefix' => 'api/reference','namespace' => 'Brush\ReferenceData','middleware' => 'auth'], function() use ($app){
     $app->get('roles','CommonReferenceController@getRoles');
 });
 //-------------------:: Reference Data api calls: End ::--------------
 
 //-------------------:: Admin api calls: Start ::---------------------
-$app->group(['prefix' => 'api/admin','namespace' => 'Bowyer\Admin','middleware' => ['auth','auth.admin']], function() use ($app){
+$app->group(['prefix' => 'api/admin','namespace' => 'Brush\Admin','middleware' => ['auth','auth.admin']], function() use ($app){
     $app->get('users','UserController@index');
     $app->post('addUser','UserController@addUser');
     $app->post('updateUser','UserController@updateUser');
@@ -53,7 +53,7 @@ $app->group(['prefix' => 'api/admin','namespace' => 'Bowyer\Admin','middleware' 
 //-------------------:: Admin api calls: End ::-----------------------
 
 //-------------------:: HealthCheck api calls: Start ::---------------
-$app->group(['prefix' => 'api/healthCheck','namespace' => 'Bowyer\Admin\HealthCheck','middleware' => ['auth','auth.admin']], function() use ($app){
+$app->group(['prefix' => 'api/healthCheck','namespace' => 'Brush\Admin\HealthCheck','middleware' => ['auth','auth.admin']], function() use ($app){
     $app->get('apiCheck','ApiCheckController@index');
     $app->get('dbCheck','DatabaseCheckController@index');
 });

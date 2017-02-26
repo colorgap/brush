@@ -1,0 +1,12 @@
+.brush-breadcrumb.breadcrumb > li + li:before {
+    content: "|"
+}
+.brush-link{
+    text-decoration: none!important;
+}
+.brush-link:hover{
+    color: #d35400!important;
+}
+.brush-link:active{
+    color: #d35400!important;
+}

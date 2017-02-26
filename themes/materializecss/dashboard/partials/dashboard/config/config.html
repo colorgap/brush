@@ -1,0 +1,20 @@
+<nav>
+    <div class="nav-wrapper">
+        <div class="col s12 padding-md-left">
+        <a ui-sref="dashboard.config" ng-click="config.currentPage=''" class="breadcrumb">Configuration</a>
+        <a ng-if="config.currentPage" ui-sref-active="text-warning" ui-sref="dashboard.config.roles" class="breadcrumb">{{config.currentPage}}</a>
+        </div>
+    </div>
+</nav>
+<ui-view>
+    <div class="row padding-md">
+        <div class="col s6 m3">
+            <div class="card anchor" ui-sref="dashboard.config.roles" ng-click="config.currentPage='Roles'">
+                <div class="card-content center no-border-radius z-depth-1 green col s6 white-text">
+                    <span class="card-title"><i class="material-icons small">contacts</i></span>
+                    <span class="card-title ng-binding">Roles</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</ui-view>

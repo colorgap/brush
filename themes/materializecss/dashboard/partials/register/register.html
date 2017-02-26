@@ -1,0 +1,57 @@
+
+<div class="valign-wrapper row no-margin" style="height:calc(100vh)">
+    <div class="col s12 m8 l4 offset-m2 offset-l4">
+        <div class="valign">
+            <form name="registerForm" ng-submit="register.validateRegister()" novalidate>
+                <h2 class="center purple-text text-darken-4">
+                    <logo></logo>
+                </h2>
+                <div class="row no-margin">
+                    <div class="input-field col s12 no-margin" ng-if="register.registerError">
+                        <div class="card">
+                            <div class="card-content darken-4 white-text" ng-class="{'red':register.registerError.type==='danger','green':register.registerError.type==='success'}">
+                                {{register.registerError.message}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="register.registerError.type!=='success'">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" ng-model="register.formData.username" ng-change="register.error.username=false" 
+                            class="no-margin validate" ng-class="{'invalid':register.error.username}">
+                            <label for="username">Username</label>
+                            <p ng-if="register.error.username" class="no-margin red-text" ng-repeat="message in register.error.username">{{message}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="email" ng-model="register.formData.email" ng-change="register.error.email=false"
+                             class="no-margin validate">
+                            <label for="email" data-error="Email is not valid.">Email</label>
+                            <p ng-if="register.error.email" class="no-margin red-text" ng-repeat="message in register.error.email">{{message}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="password" ng-model="register.formData.password" ng-change="register.error.password=false" class="no-margin validate" id="password">
+                            <label for="password">Password</label>
+                            <p ng-if="register.error.password" class="no-margin red-text" ng-repeat="message in register.error.password">{{message}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 center">
+                            <button type="submit" class="btn purple darken-4">Sign up</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 center">
+                        <span ng-if="register.registerError.type!=='success'">Have an account already?</span>
+                        <a ui-sref="login" class="btn">Sign In</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

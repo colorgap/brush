@@ -1,5 +1,5 @@
 {
-    "name": "colorgap/bowyer",
+    "name": "colorgap/brush",
     "description": "App structure built with the Laravel Lumen Framework and Angular.",
     "keywords": ["framework", "laravel", "lumen", "angular", "twitter-bootstrap", "materializecss"],
     "license": "MIT",

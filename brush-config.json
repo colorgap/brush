@@ -1,0 +1,9 @@
+{
+    "themeName": "materializecss",
+    "landingPage": {
+        "folderName": "landingPage"
+    },
+    "dashboard": {
+        "folderName": "dashboard"
+    }
+}
