@@ -7,7 +7,7 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/colorgap/brush/master/public/images/brush-75.png" alt="Brush"/>
 </p>
-## Brush - beta (version 0.2.0)
+## Brush - beta (version 0.3.0)  ([Brush 2.0](https://github.com/colorgap/brush/tree/v2) is under development using Angular 2)
 #### App Scaffolding for laravel lumen and angular based projects:
 Brush use Laravel's micro framework lumen as a base and build an amazing UI on top of it which provide you quick and easy way to jump start your app.
 Best part of brush is, it comes with 2 different UI: one for landing page and other for dashboard from same CSS and JS vendor files but different config files. This gives you flexibility to have different look on Customer facing vs admin dashboard.
@@ -78,11 +78,11 @@ This will create a brush-app.zip in target folder. Just place the zip in your se
 ---------------
 - Update themes in brush-config.json file
     option: "themeName"
-- brush-materializecss (90% ready)
-- brush-bootstrap
-- brush-material (Under development)
+- materializecss (90% ready)
+- bootstrap (100% ready)
+- material (Under development)
 - Or design you own theme and use option themename: your_theme
 
 ------------------
-#### Note: Use "gulp watch" while in development node
+#### Note: Use "npm start" while in development node
 ####     : This project is in alpha right now, feel free to contribute and if you want any feature that you feel is useful for this application send us at brush@colorgap.com we will try to add it to the brush.
