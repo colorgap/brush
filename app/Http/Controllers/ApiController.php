@@ -4,6 +4,10 @@ use Illuminate\Http\Response as IlluminateResponse;
 
 class ApiController extends Controller {
 
+    public function __construct()
+    {
+        //
+    }
     /**
      * @var int
      */
@@ -72,7 +76,7 @@ class ApiController extends Controller {
      * @param string $message
      * @return mixed
      */
-    public function respondWithValidationError($message = 'Neuspješna validacija!')
+    public function respondWithValidationError($message = 'No Access')
     {
         return $this->setStatusCode(IlluminateResponse::HTTP_UNPROCESSABLE_ENTITY)->respondWithError([
             'message' => $message

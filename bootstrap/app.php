@@ -23,9 +23,9 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
- $app->withFacades();
+$app->withFacades();
 
- $app->withEloquent();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -63,10 +63,10 @@ $app->singleton(
 //    App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
-$app->routeMiddleware([
-    'auth' => App\Http\Middleware\Authenticate::class,
-    'auth.admin' => App\Http\Middleware\AuthenticateAdmin::class,
-]);
+ $app->routeMiddleware([
+        'auth' => App\Http\Middleware\Authenticate::class,
+        'auth.admin' => App\Http\Middleware\AuthenticateAdmin::class,
+ ]);
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
@@ -79,7 +79,7 @@ $app->routeMiddleware([
 */
 
 //$app->register(App\Providers\AppServiceProvider::class);
-$app->register(App\Providers\AuthServiceProvider::class);
+ $app->register(App\Providers\AuthServiceProvider::class);
 //$app->register(App\Providers\EventServiceProvider::class);
 
 /*
@@ -94,7 +94,7 @@ $app->register(App\Providers\AuthServiceProvider::class);
 */
 
 $app->group(['namespace' => 'App\Http\Controllers'], function ($app) {
-    require __DIR__.'/../app/Http/routes.php';
+    require __DIR__.'/../routes/web.php';
 });
 
 return $app;

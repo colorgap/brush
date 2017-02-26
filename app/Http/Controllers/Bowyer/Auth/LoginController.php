@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Auth;
 * Login validation and api token creation
 */
 class LoginController extends ApiController{
+    public function __construct()
+    {
+        //
+    }
     /**
     * index method accepts request, validate for required fields.
     * if username and password exist then forward to *validateLogin* to validate login from database
