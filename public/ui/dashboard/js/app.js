@@ -294,129 +294,6 @@ var app;
         }]);
 })();
 (function() {
-    'use strict';
-    app.factory('api', ['$http', 'constants', '$state', 'localStorageService','loginFactory',
-        function($http, constants, $state, localStorageService,loginFactory) {
-            var gotoLogin = function(err){
-                localStorageService.clearAll();
-                loginFactory.logoutMessage = constants.logoutMessages.loggedoutDueError[err.status];
-                $state.go('login');
-            };
-            var failureHandler = function(err,failureCallback){
-                if (err.status === 401) {
-                    gotoLogin(err);
-                } else if(failureCallback){
-                    failureCallback(err);
-                } else{
-                    gotoLogin(err);
-                }
-            };
-            return {
-                executeCall: function(config, successCallback, failureCallback) {
-                    if (config.method === constants.method.post) {
-                        return $http.post(config.url, config.data).then(successCallback, function(err) {
-                            failureHandler(err,failureCallback);
-                        });
-                    } else if (config.method === constants.method.delete) {
-                        return $http.delete(config.url).then(successCallback, function(err) {
-                            failureHandler(err,failureCallback);
-                        });
-                    } else {
-                        return $http.get(config.url).then(successCallback, function(err) {
-                            failureHandler(err,failureCallback);
-                        });
-                    }
-                }
-            };
-        }]);
-})();
-
-(function() {
-    'use strict';
-    app.factory('commonFactory', ['api', 'localStorageService','url',
-    function(api,localStorageService, url) {
-        var getReferenceData = function(config,success){
-            api.executeCall(config,success);
-        };
-        return {
-            getRoles: function(success) {
-                getReferenceData({url: url.reference.roles},success);
-            },
-            getAdminRoles: function(success) {
-                getReferenceData({url: url.admin.roles},success);
-            },
-            getUser: function(){
-                return localStorageService.get('user');
-            }
-        };
-    }]);
-})();
-
-(function() {
-  'use strict';
-  app.factory('constants', [function(){
-      return {
-          method: {
-              post: 'POST',
-              delete: 'DELETE',
-              get: 'GET'
-          },
-          logoutMessages: {
-              regularLogout: 'You have logout successfully.',
-              loggedoutDueError: {
-                  401: 'You are not authorize to access. Please contact support.',
-                  500: 'System error. Please contact support.',
-                  404: 'Resource not found. Please contact support.'
-              }
-          }
-      };
-  }]);
-})();
-
-(function() {
-    'use strict';
-    app.factory('tokenInjector', ['localStorageService',function(localStorageService) {
-        var tokenInjector = {
-            request: function(config) {
-                if(localStorageService.get('user')){
-                    config.headers['apitoken'] = localStorageService.get('user').api_token;
-                }
-                return config;
-            }
-        };
-        return tokenInjector;
-    }]);
-})();
-
-(function() {
-    'use strict';
-    app.factory('url', [function() {
-        return {
-            login: '/api/login',
-            logout: '/api/logout',
-            register: '/api/register',
-            forgotPassword: '/api/forgotPassword',
-            resetForgotPassword: '/api/resetPassword',
-            reference: {
-                roles: '/api/reference/roles'
-            },
-            admin:{
-                addUser: '/api/admin/addUser',
-                users: '/api/admin/users',
-                user: '/api/admin/user/',
-                updateUser: '/api/admin/updateUser',
-                apiHealthCheck: '/api/healthCheck/apiCheck',
-                dbHealthCheck: '/api/healthCheck/dbCheck',
-                roles: 'api/admin/roles'
-            },
-            user:{
-                me: '/api/user/me',
-                resetPassword:'/api/user/resetPassword'
-            }
-        };
-    }]);
-})();
-(function() {
   'use strict';
   app.controller('configCtrl', ['$scope',function($scope){
 
@@ -605,13 +482,127 @@ var app;
 })();
 
 (function() {
+    'use strict';
+    app.factory('api', ['$http', 'constants', '$state', 'localStorageService','loginFactory',
+        function($http, constants, $state, localStorageService,loginFactory) {
+            var gotoLogin = function(err){
+                localStorageService.clearAll();
+                loginFactory.logoutMessage = constants.logoutMessages.loggedoutDueError[err.status];
+                $state.go('login');
+            };
+            var failureHandler = function(err,failureCallback){
+                if (err.status === 401) {
+                    gotoLogin(err);
+                } else if(failureCallback){
+                    failureCallback(err);
+                } else{
+                    gotoLogin(err);
+                }
+            };
+            return {
+                executeCall: function(config, successCallback, failureCallback) {
+                    if (config.method === constants.method.post) {
+                        return $http.post(config.url, config.data).then(successCallback, function(err) {
+                            failureHandler(err,failureCallback);
+                        });
+                    } else if (config.method === constants.method.delete) {
+                        return $http.delete(config.url).then(successCallback, function(err) {
+                            failureHandler(err,failureCallback);
+                        });
+                    } else {
+                        return $http.get(config.url).then(successCallback, function(err) {
+                            failureHandler(err,failureCallback);
+                        });
+                    }
+                }
+            };
+        }]);
+})();
+
+(function() {
+    'use strict';
+    app.factory('commonFactory', ['api', 'localStorageService','url',
+    function(api,localStorageService, url) {
+        var getReferenceData = function(config,success){
+            api.executeCall(config,success);
+        };
+        return {
+            getRoles: function(success) {
+                getReferenceData({url: url.reference.roles},success);
+            },
+            getAdminRoles: function(success) {
+                getReferenceData({url: url.admin.roles},success);
+            },
+            getUser: function(){
+                return localStorageService.get('user');
+            }
+        };
+    }]);
+})();
+
+(function() {
   'use strict';
-  app.directive('logo', function(){
+  app.factory('constants', [function(){
       return {
-          restrict: 'EA',
-          template: '<span>bru</span><span style="color:#F39C12">sh</span>'
+          method: {
+              post: 'POST',
+              delete: 'DELETE',
+              get: 'GET'
+          },
+          logoutMessages: {
+              regularLogout: 'You have logout successfully.',
+              loggedoutDueError: {
+                  401: 'You are not authorize to access. Please contact support.',
+                  500: 'System error. Please contact support.',
+                  404: 'Resource not found. Please contact support.'
+              }
+          }
       };
-  });
+  }]);
+})();
+
+(function() {
+    'use strict';
+    app.factory('tokenInjector', ['localStorageService',function(localStorageService) {
+        var tokenInjector = {
+            request: function(config) {
+                if(localStorageService.get('user')){
+                    config.headers['apitoken'] = localStorageService.get('user').api_token;
+                }
+                return config;
+            }
+        };
+        return tokenInjector;
+    }]);
+})();
+
+(function() {
+    'use strict';
+    app.factory('url', [function() {
+        return {
+            login: '/api/login',
+            logout: '/api/logout',
+            register: '/api/register',
+            forgotPassword: '/api/forgotPassword',
+            resetForgotPassword: '/api/resetPassword',
+            reference: {
+                roles: '/api/reference/roles'
+            },
+            admin:{
+                addUser: '/api/admin/addUser',
+                users: '/api/admin/users',
+                user: '/api/admin/user/',
+                updateUser: '/api/admin/updateUser',
+                apiHealthCheck: '/api/healthCheck/apiCheck',
+                dbHealthCheck: '/api/healthCheck/dbCheck',
+                roles: 'api/admin/roles'
+            },
+            user:{
+                me: '/api/user/me',
+                resetPassword:'/api/user/resetPassword'
+            }
+        };
+    }]);
 })();
 (function() {
     'use strict';
@@ -657,4 +648,13 @@ var app;
                 $uibModalInstance.dismiss('cancel');
             };
         }]);
+})();
+(function() {
+  'use strict';
+  app.directive('logo', function(){
+      return {
+          restrict: 'EA',
+          template: '<span>bru</span><span style="color:#F39C12">sh</span>'
+      };
+  });
 })();
