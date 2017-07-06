@@ -5,7 +5,7 @@
 [![devDependency Status](https://david-dm.org/colorgap/brush/dev-status.svg)](https://david-dm.org/colorgap/brush#info=devDependencies)
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/colorgap/brush/master/public/images/brush1.png" style="width: 200px;" alt="Brush"/>
+<img src="https://raw.githubusercontent.com/colorgap/brush/master/public/images/brush1.png" width="200" alt="Brush"/>
 </p>
 ## Brush - beta (version 0.3.0)  ([Brush 2.0](https://github.com/colorgap/brush/tree/v2) is under development using Angular 2)
 #### App Scaffolding for laravel lumen and angular based projects:
